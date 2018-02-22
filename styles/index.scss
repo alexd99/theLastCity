@@ -10,6 +10,19 @@ html{
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      margin-bottom: 10px;
+      form{
+        div{
+          #nameChangeInput:focus {
+            outline:0;
+            border-bottom: 1px solid blue;
+          }
+          #nameChangeInput{
+            border: none;
+            border-bottom: 1px solid black;
+          }
+        }
+      }
       .randomSelector{
         cursor: pointer;
       }
@@ -31,7 +44,7 @@ html{
       .gameBox{
         border: 1px solid black;
         width: 50px;
-        height: 535px;
+        height: 555px;
       }
       .leftGameBox{
         margin: auto 10px;
@@ -172,7 +185,35 @@ html{
       flex-direction: column;
       align-content: center;
       margin-bottom: 10px;
-
+    }
+    .graveyard{
+      width:  98.5%;
+      border: 1px solid black;
+      margin: 15px auto 0 auto;
+      text-align: center;
+      .tombstoneContainer{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        .tombstone{
+          width: 100px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          .tombstoneText{
+            color: white;
+            background-color: black;
+            height: 37px;
+            width: 135px;
+            margin-bottom: 19px;
+            margin-top: -2px;
+          }
+        }
+      }
     }
     .townNameCredit > a{
       color: blue;

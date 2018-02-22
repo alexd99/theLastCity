@@ -8,7 +8,6 @@
     
     <link rel="icon" href="images/favIcon.png">
 
-    <link rel="stylesheet" href="htmlPackages/mdl/material.min.css">
     <link rel="stylesheet" href="htmlPackages/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="htmlPackages/fontawesome-5.0.6/web-fonts-with-css/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="styles/main.css">
@@ -24,10 +23,13 @@
     </div>
 
     <div class="cityNameChangerContainer">
-        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label cityName">
-            <input class="mdl-textfield__input" type="text" id="nameChangeInput" onkeyup="userChangeName();">
-            <label class="mdl-textfield__label" for="nameChangeInput">Name Your City</label>
-        </div>
+        <form action="#">
+            <div class="mdl-textfield mdl-js-textfield">
+                <input class="mdl-textfield__input" type="text" id="nameChangeInput"
+                       title="Name Your City" placeholder="Name Your City"  onkeyup="userChangeName();">
+            </div>
+        </form>
+
         <i class="fa fa-random fa-2x randomSelector" aria-hidden="true" title="get random city name" onclick="getRandomName();"></i>
     </div>
 
@@ -153,6 +155,13 @@
 
     </div>
 
+    <div class="graveyard">
+        <h2>The Graveyard</h2>
+        <p>Here Lie The Faithful Soldiers Who Died For Your City</p>
+        <div class="tombstoneContainer">
+        </div>
+    </div>
+
     <div class="highScoreContainer">
         <p class="highScore">HIGH SCORES</p>
         <img src="images/zombieIcon.png" class="zombieIcon">
@@ -177,7 +186,6 @@
     </div>
 
 <script src="javascript/jquery-3.2.1.min.js"></script>
-<script src="htmlPackages/mdl/material.min.js"></script>
 <script src="htmlPackages/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script src="javascript/townNameChanger.js"></script>
 <script src="javascript/game.js"></script>

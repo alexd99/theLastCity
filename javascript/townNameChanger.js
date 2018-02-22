@@ -3,7 +3,6 @@ names = [
 ];
 
 let selectedName;
-let userSelectedName;
 let randomName;
 
 function displayCityName(){

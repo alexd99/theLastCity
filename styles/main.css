@@ -54,7 +54,14 @@ html #indexBody .cityNameChangerContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  margin-bottom: 10px; }
+  html #indexBody .cityNameChangerContainer form div #nameChangeInput:focus {
+    outline: 0;
+    border-bottom: 1px solid blue; }
+  html #indexBody .cityNameChangerContainer form div #nameChangeInput {
+    border: none;
+    border-bottom: 1px solid black; }
   html #indexBody .cityNameChangerContainer .randomSelector {
     cursor: pointer; }
 html #indexBody .instructionLinkContainer {
@@ -72,7 +79,7 @@ html #indexBody .mainGameContainer {
   html #indexBody .mainGameContainer .gameBox {
     border: 1px solid black;
     width: 50px;
-    height: 535px; }
+    height: 555px; }
   html #indexBody .mainGameContainer .leftGameBox {
     margin: auto 10px;
     width: 22.5%; }
@@ -173,6 +180,31 @@ html #indexBody .highScoreBoard {
   flex-direction: column;
   align-content: center;
   margin-bottom: 10px; }
+html #indexBody .graveyard {
+  width: 98.5%;
+  border: 1px solid black;
+  margin: 15px auto 0 auto;
+  text-align: center; }
+  html #indexBody .graveyard .tombstoneContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; }
+    html #indexBody .graveyard .tombstoneContainer .tombstone {
+      width: 100px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; }
+      html #indexBody .graveyard .tombstoneContainer .tombstone .tombstoneText {
+        color: white;
+        background-color: black;
+        height: 37px;
+        width: 135px;
+        margin-bottom: 19px;
+        margin-top: -2px; }
 html #indexBody .townNameCredit > a {
   color: blue;
   text-decoration: none; }
