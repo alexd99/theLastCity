@@ -1,0 +1,61 @@
+@font-face {
+  font-family: highScore;
+  src: url(../fonts/MonstersAttack.ttf);
+}
+@font-face {
+  font-family: openSans;
+  src: url(../fonts/OpenSans.ttf);
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  font-family: openSans, sans-serif;
+  body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    h1 {
+      display: block;
+      font-size: 2em;
+      -webkit-margin-before: 0.67em;
+      -webkit-margin-after: 0.67em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      font-weight: bold;
+      font-family: openSans, sans-serif;
+    }
+    h2 {
+      display: block;
+      font-size: 1.5em;
+      -webkit-margin-before: 0.83em;
+      -webkit-margin-after: 0.83em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      font-weight: bold;
+      font-family: openSans, sans-serif;
+    }
+    h3 {
+      display: block;
+      font-size: 1.17em;
+      -webkit-margin-before: 1em;
+      -webkit-margin-after: 1em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      font-weight: bold;
+      font-family: openSans, sans-serif;
+    }
+    button:focus {
+      outline:0;
+    }
+    button{
+      cursor: pointer;
+    }
+  }
+}
+@import "index";
+@import "instructions";

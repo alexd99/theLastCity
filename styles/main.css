@@ -1,0 +1,245 @@
+@font-face {
+  font-family: highScore;
+  src: url(../fonts/MonstersAttack.ttf); }
+@font-face {
+  font-family: openSans;
+  src: url(../fonts/OpenSans.ttf); }
+html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  font-family: openSans, sans-serif; }
+  html body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    text-align: center; }
+    html body h1 {
+      display: block;
+      font-size: 2em;
+      -webkit-margin-before: 0.67em;
+      -webkit-margin-after: 0.67em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      font-weight: bold;
+      font-family: openSans, sans-serif; }
+    html body h2 {
+      display: block;
+      font-size: 1.5em;
+      -webkit-margin-before: 0.83em;
+      -webkit-margin-after: 0.83em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      font-weight: bold;
+      font-family: openSans, sans-serif; }
+    html body h3 {
+      display: block;
+      font-size: 1.17em;
+      -webkit-margin-before: 1em;
+      -webkit-margin-after: 1em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      font-weight: bold;
+      font-family: openSans, sans-serif; }
+    html body button:focus {
+      outline: 0; }
+    html body button {
+      cursor: pointer; }
+
+html #indexBody .cityName {
+  width: 180px; }
+html #indexBody .cityNameChangerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+  html #indexBody .cityNameChangerContainer .randomSelector {
+    cursor: pointer; }
+html #indexBody .instructionLinkContainer {
+  display: flex;
+  justify-content: center;
+  width: 150px;
+  margin: auto; }
+  html #indexBody .instructionLinkContainer .instructionsLink {
+    color: black;
+    text-decoration: none; }
+html #indexBody .mainGameContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; }
+  html #indexBody .mainGameContainer .gameBox {
+    border: 1px solid black;
+    width: 50px;
+    height: 535px; }
+  html #indexBody .mainGameContainer .leftGameBox {
+    margin: auto 10px;
+    width: 22.5%; }
+    html #indexBody .mainGameContainer .leftGameBox .inventoryMainContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: center; }
+    html #indexBody .mainGameContainer .leftGameBox .inventoryPicContainer .inventoryPic {
+      height: 200px;
+      margin-bottom: 10px; }
+  html #indexBody .mainGameContainer .middleGameBox {
+    margin: auto 15px;
+    width: 55%; }
+    html #indexBody .mainGameContainer .middleGameBox .gameTextContainer {
+      margin-bottom: 0;
+      height: 120px; }
+      html #indexBody .mainGameContainer .middleGameBox .gameTextContainer .gameText {
+        font-size: 19px; }
+      html #indexBody .mainGameContainer .middleGameBox .gameTextContainer #gameWarnings {
+        color: #f53d3d; }
+    html #indexBody .mainGameContainer .middleGameBox .mainInfo {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      flex-wrap: wrap; }
+      html #indexBody .mainGameContainer .middleGameBox .mainInfo .mainSatsTitle {
+        margin-right: 5px; }
+      html #indexBody .mainGameContainer .middleGameBox .mainInfo .mainCounter {
+        margin-right: 15px; }
+    html #indexBody .mainGameContainer .middleGameBox .populationButtons > button {
+      height: 29px;
+      width: 166px;
+      font-size: 12px;
+      margin: auto 3px; }
+    html #indexBody .mainGameContainer .middleGameBox .populationButtons {
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      flex-wrap: wrap; }
+      html #indexBody .mainGameContainer .middleGameBox .populationButtons .converterButtonBox {
+        margin: 10px auto; }
+        html #indexBody .mainGameContainer .middleGameBox .populationButtons .converterButtonBox .mainGameBtn {
+          height: 40px;
+          width: 210px;
+          font-size: 15px;
+          margin: auto 10px; }
+        html #indexBody .mainGameContainer .middleGameBox .populationButtons .converterButtonBox .farmerBtn {
+          background-color: #533C16;
+          color: white; }
+        html #indexBody .mainGameContainer .middleGameBox .populationButtons .converterButtonBox .soldierBtn {
+          background-color: #4D5227;
+          color: white; }
+        html #indexBody .mainGameContainer .middleGameBox .populationButtons .converterButtonBox .minerBtn {
+          background-color: #FFD700;
+          color: black; }
+    html #indexBody .mainGameContainer .middleGameBox .mainButtonContainer .nextDayBtn {
+      height: 29px;
+      width: 166px;
+      font-size: 12px;
+      margin-top: 15px; }
+  html #indexBody .mainGameContainer .rightGameBox {
+    margin: auto 10px;
+    width: 22.5%; }
+    html #indexBody .mainGameContainer .rightGameBox .researchPicContainer .researchPic {
+      width: 95%; }
+html #indexBody .bottomGameContainer {
+  margin: 25px auto;
+  width: 98.5%;
+  height: 200px;
+  border: 1px solid black; }
+  html #indexBody .bottomGameContainer .storeContainer > div {
+    margin: auto 10px; }
+  html #indexBody .bottomGameContainer .storeContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap; }
+    html #indexBody .bottomGameContainer .storeContainer .quantityInput {
+      width: 62px; }
+    html #indexBody .bottomGameContainer .storeContainer .priceLabel {
+      font-weight: bold; }
+html #indexBody .highScoreContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center; }
+  html #indexBody .highScoreContainer .highScore {
+    font-family: highScore, openSans, sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 0; }
+  html #indexBody .highScoreContainer .zombieIcon {
+    height: 50px; }
+html #indexBody .highScoreBoard > h2 {
+  margin-bottom: -10px; }
+html #indexBody .highScoreBoard {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  margin-bottom: 10px; }
+html #indexBody .townNameCredit > a {
+  color: blue;
+  text-decoration: none; }
+html #indexBody .townNameCredit {
+  font-weight: bold;
+  font-size: 15px;
+  margin-top: 35px; }
+
+.itemTextBoxLeft, .itemTextBoxRight {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px; }
+
+@media only screen and (max-width: 1439px) {
+  html #indexBody .mainGameContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center; }
+    html #indexBody .mainGameContainer .leftGameBox {
+      width: 98%; }
+    html #indexBody .mainGameContainer .middleGameBox {
+      width: 98%; }
+    html #indexBody .mainGameContainer .rightGameBox {
+      width: 98%; }
+  html #indexBody .bottomGameContainer {
+    width: 98%; } }
+.dayCounter {
+  font-family: scorBoard, sans-serif; }
+
+@media only screen and (max-width: 726px) {
+  html #indexBody .mainGameContainer .middleGameBox {
+    height: 615px; } }
+html #instructionsBody {
+  color: white;
+  background: url("../images/instruction'sBackground.jpg") no-repeat;
+  background-size: cover; }
+  html #instructionsBody p {
+    text-align: justify; }
+  html #instructionsBody .storyContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 800px;
+    margin: auto; }
+    html #instructionsBody .storyContainer .storyText {
+      text-indent: 50px; }
+  html #instructionsBody .backButton > i {
+    text-decoration: none; }
+  html #instructionsBody .backButtonContainer {
+    width: 128px;
+    margin: auto; }
+    html #instructionsBody .backButtonContainer .backButtonATag {
+      text-decoration: none; }
+      html #instructionsBody .backButtonContainer .backButtonATag .backButton > i {
+        margin-right: 10px;
+        font-size: 25px; }
+      html #instructionsBody .backButtonContainer .backButtonATag .backButton {
+        width: 127px;
+        height: 30px;
+        font-size: 18px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        cursor: pointer; }
+
+/*# sourceMappingURL=main.css.map */

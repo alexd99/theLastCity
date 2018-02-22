@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>The Last City</title>
+    
+    <link rel="icon" href="images/favIcon.png">
+
+    <link rel="stylesheet" href="htmlPackages/mdl/material.min.css">
+    <link rel="stylesheet" href="htmlPackages/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="htmlPackages/fontawesome-5.0.6/web-fonts-with-css/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+
+</head>
+<body id="indexBody" onload="onStart();">
+    <h1 id="cityName">The Last City</h1>
+
+    <div class="instructionLinkContainer">
+        <a href="instructions.html" class="instructionsLink">
+            <h3 class="instructionsLinkText">Instructions</h3>
+        </a>
+    </div>
+
+    <div class="cityNameChangerContainer">
+        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label cityName">
+            <input class="mdl-textfield__input" type="text" id="nameChangeInput" onchange="userChangeName();">
+            <label class="mdl-textfield__label" for="nameChangeInput">Name Your City</label>
+        </div>
+        <i class="fa fa-random fa-2x randomSelector" aria-hidden="true" title="get random city name" onclick="getRandomName();"></i>
+    </div>
+
+    <div class="mainGameContainer">
+        <div class="leftGameBox gameBox">
+            <h2>INVENTORY</h2>
+            <div class="inventoryMainContainer">
+                <div class="itemTextBoxRight">
+                    <h3>Gold:</h3>
+                    <h3>Food:</h3>
+                    <h3>Ammo:</h3>
+                </div>
+                <div class="itemTextBoxLeft">
+                    <h3 id="goldCount">0</h3>
+                    <h3 id="foodCount">0</h3>
+                    <h3 id="ammoCount">0</h3>
+                </div>
+            </div>
+            <div class="inventoryPicContainer">
+                <img src="images/inventory.png" class="inventoryPic">
+            </div>
+        </div>
+        <div class="middleGameBox gameBox">
+            <div class="gameTextContainer">
+              <p id="gameMainText" class="gameText"> Hello, if your new to this game please read the instruction by clicking "instructions" above. Good luck warrior. </p>
+              <p id="gameZombieAttackText" class="gameText"></p>
+                <p id="gamePersonArrivalText" class="gameText"></p>
+                <p id="gameWarnings" class="gameText"></p>
+            </div>
+
+            <div class="mainInfo">
+                <h2 class="mainSatsTitle">Population:</h2><h2 class="populationCount  mainCounter">0</h2>
+                <h2 class="mainSatsTitle">Idle:</h2><h2 class="idleCount  mainCounter">0</h2>
+                <h2 class="mainSatsTitle">Farmers:</h2><h2 class="farmerCount mainCounter">0</h2>
+                <h2 class="mainSatsTitle">Soldiers:</h2><h2 class="soldierCount mainCounter">0</h2>
+                <h2 class="mainSatsTitle">Miners:</h2><h2 class="minerCount mainCounter">0</h2>
+            </div>
+            <div class="populationButtons">
+
+                <div class="converterButtonBox">
+
+                    <button onclick="jobChanger('idle', 'farmer');" id="farmerFromIdle" class="farmerBtn mainGameBtn" title="Farmers Make 4 Food A Day">
+                        Make Farmer From Idle
+                    </button>
+
+                    <button onclick="jobChanger('soldier', 'farmer');" id="farmerFromSoldier" class="farmerBtn mainGameBtn" title="Farmers Make 4 Food A Day">
+                        Make Farmer From Soldier
+                    </button>
+
+                    <button onclick="jobChanger('miner', 'farmer');" id="farmerFromMiner" class="farmerBtn mainGameBtn" title="Farmers Make 4 Food A Day">
+                        Make Farmer From Miner
+                    </button>
+
+                </div>
+
+                <div class="converterButtonBox">
+
+                    <button onclick="jobChanger('idle', 'soldier');" id="soldierFromIdle" class="soldierBtn mainGameBtn" title="Soldiers Are Necessary To Defend Your Town">
+                        Make Soldier From Idle
+                    </button>
+
+                    <button onclick="jobChanger('farmer', 'soldier')" id="soldierFromFarmer" class="soldierBtn mainGameBtn" title="Soldiers Are Necessary To Defend Your Town">
+                        Make Soldier From Farmer
+                    </button>
+
+                    <button onclick="jobChanger('miner', 'soldier')" id="soldierFromMiner" class="soldierBtn mainGameBtn" title="Soldiers Are Necessary To Defend Your Town">
+                        Make Soldier From Miner
+                    </button>
+
+                </div>
+
+                <div class="converterButtonBox">
+                    <button onclick="jobChanger('idle', 'miner')" id="minerFromIdle" class="minerBtn mainGameBtn" title="Miners Mine 1 to 5 Gold Per Day">
+                        Make Miner From Idle
+                    </button>
+                    <button onclick="jobChanger('farmer', 'miner')" id="minerFromFarmer" class="minerBtn mainGameBtn"  title="Miners Mine 1 to 5 Gold Per Day">
+                        Make Miner From Farmer
+                    </button>
+                    <button onclick="jobChanger('soldier', 'miner')" id="minerFromSoldier" class="minerBtn mainGameBtn"  title="Miners Mine 1 to 5 Gold Per Day">
+                        Make Miner From Soldier
+                    </button>
+                </div>
+                <div class="converterButtonBox">
+                    <button class="mainGameBtn" onclick="personDied();" title="Decreases The Town's Population By One">Send Person Away</button>
+                </div>
+
+            </div>
+            <div class="mainButtonContainer">
+                <button onclick="advanceDay();" id="nextDay" class="mainGameBtn nextDayBtn">NEXT DAY</button>
+            </div>
+            <div class="dayCounter">
+                <h3>Days Since Arrival</h3>
+                <h3 id="dayCount"></h3>
+            </div>
+        </div>
+        <div class="rightGameBox gameBox">
+            <h2>RESEARCH</h2>
+            <div class="researchPicContainer">
+                <img src="images/lab.jpg" class="researchPic">
+            </div>
+        </div>
+    </div>
+
+    <div class="bottomGameContainer">
+        <h2>STORE</h2>
+        <p id="storeText">Welcome to the store</p>
+
+        <div class="storeContainer">
+
+            <div class="ammoContainer">
+            <label class="priceLabel" title="Used to fight zombies, has to bought in units of 5">Price: 1 Gold For 5 Ammo</label>
+            <input type="number" step="5" min="5" placeholder="quantity" class="quantityInput ammoQuantity" title="Used to fight zombies, has to bought in units of 5">
+            <button class="storeBtn" onClick="buyAmmo();" title="Used to fight zombies, has to bought in units of 5">Buy Ammo</button>
+        </div>
+
+            <div class="foodContainer">
+                <label title="Each Civilian Eats 1 Food A Day">Price: 2 Gold For 4 Food</label>
+                <input type="number" id="foodInput" class="quantityInput" min="4" step="4" placeholder="quantity" title="Each Civilian Eats 1 Food A Day">
+                <button class="storeBtn" title="Each Civilian Eats 1 Food A Day" onclick="buyFood();">Buy Food</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="highScoreContainer">
+        <p class="highScore">HIGH SCORES</p>
+        <img src="images/zombieIcon.png" class="zombieIcon">
+    </div>
+
+    <div class="highScoreBoard">
+    </div>
+    <button onClick="resetHighScores();">Reset High Scores</button>
+
+    <p class="townNameCredit">
+        Town names where taken from <a target="_blank" href="http://www.fantasynamegenerators.com/apocalypse-town-names.php#.Wlo2WZM-fOQ">here</a>
+    </p>
+
+    <!--game over modal-->
+    <div class="modal fade" id="gameOverModal" tabindex="-1" role="dialog" aria-labelledby="gameOverModal">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <p>This is where high score information goes.</p>
+                <button onclick="closeModal();">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+<script src="javascript/jquery-3.2.1.min.js"></script>
+<script src="htmlPackages/mdl/material.min.js"></script>
+<script src="htmlPackages/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="javascript/townNameChanger.js"></script>
+<script src="javascript/game.js"></script>
+
+</body>
+</html>

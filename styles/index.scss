@@ -1,0 +1,239 @@
+@import "colorPalette";
+
+html{
+  #indexBody{
+    .cityName{
+      width: 180px;
+    }
+    .cityNameChangerContainer{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .randomSelector{
+        cursor: pointer;
+      }
+    }
+    .instructionLinkContainer {
+      display: flex;
+      justify-content: center;
+      width: 150px;
+      margin: auto;
+      .instructionsLink {
+        color: black;
+        text-decoration: none;
+      }
+    }
+    .mainGameContainer{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      .gameBox{
+        border: 1px solid black;
+        width: 50px;
+        height: 535px;
+      }
+      .leftGameBox{
+        margin: auto 10px;
+        width: 22.5%;
+        .inventoryMainContainer{
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+        }
+        .inventoryPicContainer{
+          .inventoryPic{
+            height: 200px;
+            margin-bottom: 10px;
+          }
+        }
+      }
+      .middleGameBox{
+        margin: auto 15px;
+        width: 55%;
+        .gameTextContainer{
+          margin-bottom: 0;
+          height: 120px;
+          .gameText{
+            font-size: 19px;
+          }
+          #gameWarnings{
+            color: $warning-red;
+          }
+        }
+        .mainInfo{
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          flex-wrap: wrap;
+          .mainSatsTitle{
+            margin-right: 5px;
+          }
+          .mainCounter{
+            margin-right: 15px;
+          }
+        }
+        .populationButtons > button{
+          height: 29px;
+          width: 166px;
+          font-size: 12px;
+          margin: auto 3px;
+        }
+        .populationButtons{
+          display: flex;
+          flex-direction: column;
+          align-content: center;
+          flex-wrap: wrap;
+          .converterButtonBox{
+            margin: 10px auto;
+            .mainGameBtn {
+              height: 40px;
+              width: 210px;
+              font-size: 15px;
+              margin: auto 10px;
+            }
+            .farmerBtn{
+              background-color: $farmerBrown;
+              color: white;
+            }
+            .soldierBtn{
+              background-color: $soldierGreen;
+              color: white;
+            }
+            .minerBtn{
+              background-color: $minerGold;
+              color: black;
+            }
+          }
+        }
+        .mainButtonContainer{
+          .nextDayBtn{
+            height: 29px;
+            width: 166px;
+            font-size: 12px;
+            margin-top: 15px;
+          }
+        }
+      }
+      .rightGameBox{
+        margin: auto 10px;
+        width: 22.5%;
+        .researchPicContainer{
+          .researchPic{
+            width: 95%;
+          }
+        }
+      }
+    }
+    .bottomGameContainer{
+      margin: 25px auto;
+      width: 98.5%;
+      height: 200px;
+      border: 1px solid black;
+      .storeContainer > div{
+        margin: auto 10px;
+      }
+      .storeContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        .storeBtn {
+          //css for store buttons
+        }
+        .quantityInput {
+          width: 62px;
+        }
+        .priceLabel {
+          font-weight: bold;
+        }
+      }
+    }
+    .highScoreContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      .highScore {
+        font-family: highScore, openSans, sans-serif;
+        font-size: 35px;
+        font-weight: bold;
+        margin-bottom: 0;
+      }
+      .zombieIcon{
+        height: 50px;
+      }
+    }
+    .highScoreBoard > h2{
+      margin-bottom: -10px;
+    }
+    .highScoreBoard{
+      display: flex;
+      flex-direction: column;
+      align-content: center;
+      margin-bottom: 10px;
+
+    }
+    .townNameCredit > a{
+      color: blue;
+      text-decoration: none;
+    }
+    .townNameCredit{
+      font-weight: bold;
+      font-size: 15px;
+      margin-top: 35px;
+    }
+  }
+}
+
+.itemTextBoxLeft, .itemTextBoxRight{
+  display: flex;
+  flex-direction: column;
+  margin-left:  10px;
+}
+
+@media only screen and (max-width: 1439px) {
+
+  html {
+    #indexBody {
+      .mainGameContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        .leftGameBox{
+          width: 98%;
+        }
+        .middleGameBox{
+          width: 98%;
+        }
+        .rightGameBox{
+          width: 98%;
+        }
+      }
+      .bottomGameContainer{
+        width: 98%;
+      }
+    }
+  }
+
+}
+
+.dayCounter{
+  font-family: scorBoard, sans-serif;
+}
+
+@media only screen and (max-width: 726px) {
+
+  html {
+    #indexBody {
+      .mainGameContainer{
+        .middleGameBox{
+          height: 615px;
+        }
+      }
+    }
+  }
+
+}
