@@ -25,7 +25,7 @@
 
     <div class="cityNameChangerContainer">
         <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label cityName">
-            <input class="mdl-textfield__input" type="text" id="nameChangeInput" onchange="userChangeName();">
+            <input class="mdl-textfield__input" type="text" id="nameChangeInput" onkeyup="userChangeName();">
             <label class="mdl-textfield__label" for="nameChangeInput">Name Your City</label>
         </div>
         <i class="fa fa-random fa-2x randomSelector" aria-hidden="true" title="get random city name" onclick="getRandomName();"></i>

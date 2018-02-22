@@ -9,7 +9,6 @@ let randomName;
 function displayCityName(){
     $('#cityName').html(selectedName);
     document.title = selectedName;
-    $('#nameChangeInput').val('');
 }
 
 function checkIfNameIsBlank() {
@@ -30,6 +29,5 @@ function getRandomName() {
 function userChangeName() {
     selectedName = $('#nameChangeInput').val();
     displayCityName();
-    console.log(userSelectedName);
-    displayCityName();
+    checkIfNameIsBlank();
 }
