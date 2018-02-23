@@ -203,6 +203,19 @@ function zombiesAttack() {
     let townDefense = soldierCount * 2;
     let zombieAttack = amountOfZombies;
 
+    if (ammoCount <= 0 ){
+        ammoCount= 0;
+        townDefense = soldierCount;
+    }
+    else if(ammoCount < zombieAttack && ammoCount < 0){
+        townDefense = (Math.floor(ammoCount * .75)+ soldierCount);
+        ammoCount = 0;
+    }
+    else {
+        townDefense = soldierCount * .75;
+        ammoCount -= amountOfZombies();
+    }
+
     if(townDefense < zombieAttack){
         let loopRun = Math.floor((zombieAttack - townDefense) / 5);
         console.log('loop Run: ' + loopRun);
