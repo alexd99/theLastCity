@@ -58,6 +58,7 @@ function onStart() {
 
     displayTotalSupplies();
     displayTotalPopulation();
+    displayHighScores();
 }
 
 
@@ -301,9 +302,21 @@ function storeScore() {
 }
 
 function displayHighScores() {
-    let scores = {};
-    for (let i = 0; i<= localStorage.length; i++){
+    let scores = [];
+    for (let i = 0; i<= (localStorage.length / 2) -1; i++){
+        scores.push(localStorage.getItem('score'+i));
 
+        scores.sort(function(a, b){return b - a});
+
+        console.log(scores);
+    }
+}
+
+function clearHighScores() {
+    let makeSure = window.confirm('Are You Sure You Want To Clear All High Scores? This Action Can Not Be Undone!');
+
+    if (makeSure === true){
+        localStorage.clear();
     }
 }
 
