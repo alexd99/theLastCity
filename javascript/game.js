@@ -51,9 +51,15 @@ function onStart() {
     soldierCount = 0;
     minerCount = 0;
 
+    $('.mainGameBtn').prop('disabled', false);
+    $('.storeBtn').prop('disabled', false);
+    $('#playAgain').hide();
+    $('.tombstoneContainer').html('');
+
     displayTotalSupplies();
     displayTotalPopulation();
 }
+
 
 function jobChanger( currentJob, futureJob ) {
     if(currentJob === 'idle' && idleCount > 0){
@@ -99,7 +105,7 @@ function jobChanger( currentJob, futureJob ) {
     displayTotalPopulation();
 }
 
-function personDied() {
+function personDied(sentAway) {
     if(populationCount > 0) {
         if (idleCount > 0) {
             idleCount -= 1
@@ -114,8 +120,33 @@ function personDied() {
             minerCount -= 1
         }
         populationCount -= 1;
-        displayTotalPopulation();
     }
+
+    if (sentAway === false) {
+        makeTombstone();
+    }
+    displayTotalPopulation();
+}
+
+function turnAllToIdle() {
+    idleCount = populationCount;
+    farmerCount = 0;
+    soldierCount = 0;
+    minerCount = 0;
+    displayTotalPopulation();
+}
+
+function confirmSendAway() {
+
+    let makeSure = confirm("Are You Sure You Want To Send A Person Away?");
+    if (makeSure === true) {
+        personDied(true)
+    } else {
+    }
+
+    // if(confirm === true){
+    //     personDied(true);
+    // }
 }
 
 function advanceDay() {
@@ -124,6 +155,8 @@ function advanceDay() {
         $('#gameOverModal').modal('show');
         $('.mainGameBtn').prop('disabled', true);
         $('.storeBtn').prop('disabled', true);
+        generateScore();
+        $('#playAgain').show();
     }
     else{
         //next day
@@ -168,7 +201,7 @@ function foodCalculator() {
         daysWithoutFood = 0;
     }
     if(daysWithoutFood % 2 ){
-        personDied();
+        personDied(false);
     }
 }
 
@@ -195,13 +228,15 @@ function zombieAttackChance() {
 let zombieArmyNumberParam1 = 8;
 let zombieArmyNumberParam2 = 1;
 
-let peopleKilled = 10;
+let totalPeopleKilled = 10;
 
 function zombiesAttack() {
 
     let amountOfZombies = Math.floor(Math.random() * zombieArmyNumberParam1) + zombieArmyNumberParam2;
-    let townDefense = soldierCount * 2;
+    let townDefense;
     let zombieAttack = amountOfZombies;
+
+    let peopleKilled = 0;
 
     if (ammoCount <= 0 ){
         ammoCount= 0;
@@ -220,9 +255,8 @@ function zombiesAttack() {
         let loopRun = Math.floor((zombieAttack - townDefense) / 5);
 
         for(let i = 1; i <= loopRun; i++){
-            personDied();
+            personDied(false);
             peopleKilled++;
-            makeTombstone();
         }
     }
 
@@ -247,12 +281,30 @@ function makeTombstone(){
 
     let tombstone = `<div class="tombstone" style=" margin-right: 20px; margin-left: 20px;"><img src="images/tombstone.png" class="tombstone"> <p class="tombstoneText">Here Lies ${finalName}</p></div>`;
 
-    // //<div class="tombstone">
-    // <img src="images/tombstone.png" class="tombstone"> <p class="tombstoneText">Here Lies '+finalName+'</p>
-    // </div>
-
-
     $('.tombstoneContainer').append(tombstone);
+}
+
+let score;
+function generateScore() {
+    score = ((dayCount * 2) + ammoCount + (goldCount * 5) + foodCount) - (totalPeopleKilled * 3);
+    $('.modalText').html(`Thank you for playing. Your score was ${score}`);
+
+    storeScore();
+}
+
+function storeScore() {
+    let cityName = $(document).find("title").text();
+    let storageId = this.localStorage.length / 2;
+
+    localStorage.setItem('cityName'+storageId, cityName);
+    localStorage.setItem('score'+storageId, score);
+}
+
+function displayHighScores() {
+    let scores = {};
+    for (let i = 0; i<= localStorage.length; i++){
+
+    }
 }
 
 
