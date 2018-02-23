@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="htmlPackages/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="htmlPackages/fontawesome-5.0.6/web-fonts-with-css/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="htmlPackages/toastr/build/toastr.css">
     <link rel="stylesheet" href="styles/main.css">
 
 </head>
@@ -170,9 +171,9 @@
         <img src="images/zombieIcon.png" class="zombieIcon">
     </div>
 
-    <div class="highScoreBoard">
+    <div id="highScoreBoard">
     </div>
-    <button onClick="resetHighScores();">Reset High Scores</button>
+    <button onClick="clearHighScores();">Reset High Scores</button>
 
     <p class="townNameCredit">
         Town names where taken from <a target="_blank" href="http://www.fantasynamegenerators.com/apocalypse-town-names.php#.Wlo2WZM-fOQ">here</a>
@@ -191,6 +192,7 @@
 <script src="javascript/jquery-3.2.1.min.js"></script>
 <script src="htmlPackages/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script src="javascript/townNameChanger.js"></script>
+<script src="htmlPackages/toastr/build/toastr.min.js"></script>
 <script src="javascript/game.js"></script>
 
 </body>
