@@ -1,3 +1,4 @@
+// sets global variables for supplies
 let goldCount;
 let goldCountInsert = $('#goldCount');
 
@@ -22,12 +23,14 @@ let soldierCountInsert = $('.soldierCount');
 let minerCount;
 let minerCountInsert = $('.minerCount');
 
+//function that displays total supplies
 function displayTotalSupplies() {
     goldCountInsert.html(goldCount);
     foodCountInsert.html(foodCount);
     ammoCountInsert.html(ammoCount);
 }
 
+//function that displays total population, and jobs
 function displayTotalPopulation() {
     populationCountInsert.html(populationCount);
     idleCountInsert.html(idleCount);
@@ -36,12 +39,14 @@ function displayTotalPopulation() {
     minerCountInsert.html(minerCount);
 }
 
+// other global variables
 let dayCount = 0;
 let daysWithoutFood = 0;
 
 let gameWarningsInsert = $('#gameWarnings');
 let mainGameTextInsert = $('#gameMainText');
 
+// sets up the toaster settings
 toastr.options = {
     "closeButton": false,
     "debug": false,
@@ -60,6 +65,7 @@ toastr.options = {
     "hideMethod": "fadeOut"
 };
 
+//function for start or restart
 function onStart() {
     goldCount = 200;
     foodCount = 0;
@@ -80,7 +86,7 @@ function onStart() {
     displayHighScores();
 }
 
-
+// changes villagers current job status
 function jobChanger(currentJob, futureJob) {
     if (currentJob === 'idle' && idleCount > 0) {
         if (futureJob === 'farmer') {
@@ -156,6 +162,7 @@ function turnAllToIdle() {
     displayTotalPopulation();
 }
 
+// confirms if user wants to send villager away
 function confirmSendAway() {
 
     let makeSure = confirm("Are You Sure You Want To Send A Person Away?");
@@ -163,20 +170,18 @@ function confirmSendAway() {
         personDied(true)
     } else {
     }
-
-    // if(confirm === true){
-    //     personDied(true);
-    // }
 }
 
+// advances the day and runs all function associated with day advancement. Also checks if the game is over
 function advanceDay() {
     if (populationCount <= 0) {
         //game over
         $('#gameOverModal').modal('show');
         $('.mainGameBtn').prop('disabled', true);
         $('.storeBtn').prop('disabled', true);
-        generateScore();
         $('#playAgain').show();
+        generateScore();
+        displayHighScores();
     }
     else {
         //next day
@@ -208,6 +213,7 @@ function advanceDay() {
     }
 }
 
+//caluctlates how much food is made and ate
 function foodCalculator() {
     foodCount += farmerCount * 4;
     foodCount -= populationCount;
@@ -229,10 +235,7 @@ function findGold() {
     goldCount += minerCount * Math.floor(Math.random() * 5) + 1;
 }
 
-function closeModal() {
-    $('#gameOverModal').modal('hide')
-}
-
+// calculates if zombies are going to attack
 function zombieAttackChance() {
     let zombieAttackChance = Math.floor(Math.random() * 3) + 1;
 
@@ -250,6 +253,7 @@ let zombieArmyNumberParam2 = 1;
 
 let totalPeopleKilled = 10;
 
+// calculates how much defense your town has and how much attack the zombies have.
 function zombiesAttack() {
 
     let amountOfZombies = Math.floor(Math.random() * zombieArmyNumberParam1) + zombieArmyNumberParam2;
@@ -284,6 +288,7 @@ function zombiesAttack() {
     mainGameTextInsert.html(zombieAttackMessage);
 }
 
+// displays a villagers tombstone
 function makeTombstone() {
     let soldierFirstNamesList = [
         'Aaliyah', 'Abigail', 'Addison', 'Aiden', 'Alex', 'Alexa', 'Allison', 'Amelia', 'Andrew', 'Anna', 'Anthony', 'Aria', 'Ariana', 'Aubrey', 'Audrey', 'Ava', 'Avery', 'Benjamin', 'Brooklyn', 'Caleb', 'Camila', 'Carter', 'Charles', 'Charlotte', 'Chloe', 'Christian', 'Christopher', 'Claire', 'Colton', 'Daniel', 'David', 'Dylan', 'Elijah', 'Elizabeth', 'Ella', 'Ellie', 'Emily', 'Emma', 'Ethan', 'Evelyn', 'Gabriel', 'Grace', 'Grayson', 'Hannah', 'Harper', 'Henry', 'Hunter', 'Isaac', 'Isabella', 'Isaiah', 'Jack', 'Jackson', 'Jacob', 'James', 'Jayden', 'John', 'Jonathan', 'Joseph', 'Joshua', 'Julian', 'Landon', 'Layla', 'Leah', 'Levi', 'Liam', 'Lillian', 'Lily', 'Logan', 'Lucas', 'Luke', 'Madison', 'Mason', 'Matthew', 'Mia', 'Michael', 'Natalie', 'Nathan', 'Noah', 'Nora', 'Oliver', 'Olivia', 'Owen', 'Paisley', 'Penelope', 'Riley', 'Ryan', 'Samantha', 'Samuel', 'Savannah', 'Scarlett', 'Sebastian', 'Skylar', 'Sofia', 'Sophia', 'Victoria', 'Violet', 'William', 'Wyatt', 'Zoe', 'Zoey'
@@ -312,7 +317,12 @@ function generateScore() {
 
     storeScore();
 }
+// closes on screen game over modal
+function closeModal() {
+    $('#gameOverModal').modal('hide')
+}
 
+// stores your score in local storage
 function storeScore() {
     let cityName = $(document).find("title").text();
 
@@ -324,16 +334,17 @@ function storeScore() {
     localStorage.setItem('game', JSON.stringify(game));
 }
 
+// displays high scores from local storage
 function displayHighScores() {
 
     let game = JSON.parse(localStorage.getItem('game')) || [];
 
     game.sort((a, b) => {
         if (a.score > b.score) {
-            return 1;
+            return -1;
         }
         else if (a.score < b.score) {
-            return -1
+            return 1
         }
         else {
             return 0
@@ -342,43 +353,51 @@ function displayHighScores() {
 
     console.log(game[1]);
 
-    for (let i = 0; i < game.length; i++)
-    $('#highScoreBoard').append(game[i].name + ' ' + game[i].score + '<br>');
+    for (let i = 0; i < game.length; i++) {
+        let highScoreBoardText = `<h3 class="highScoreText">${game[i].name} ..... ${game[i].score}</h3><br>`;
+        $('#highScoreBoard').append(highScoreBoardText);
+    }
 }
 
+// clears local storage
 function clearHighScores() {
     let makeSure = window.confirm('Are You Sure You Want To Clear All High Scores? This Action Can Not Be Undone!');
 
     if (makeSure === true) {
         localStorage.clear();
-        toastr["info"]("Scores Reset")
+        toastr["info"]("Scores Reset");
+        $('#highScoreBoard').html('');
     }
 }
 
-// the store
+// purchases items.
+function theStore(quantity, name, step, price) {
+    quantity = Number($('#'+quantity).val());
+    console.log(quantity);
 
-function buyAmmo(){
-    //1 gold for 5 ammo
-    let ammoQuantity = Number($('.ammoQuantity').val());
-    let ammoPrice = ammoQuantity / 5;
+    let totalPrice = quantity / price;
 
-    console.log(ammoQuantity);
-    if (ammoQuantity % 5 !== 0){
-        toastr['error']('Must Be Bought In Sets Of 5');
+    if (quantity % step === 0){
+        if(goldCount < price){
+            toastr['error']('You Do Not Have Enough Gold');
+        }
+        else {
+            toastr['success'](`You Successfully Bought ${quantity} ${name} For ${totalPrice} Gold`);
+            if (name === 'Ammo'){
+                ammoCount += quantity;
+            }
+            if (name === 'Food'){
+                foodCount += quantity;
+            }
+            else {
+                return false;
+            }
+            goldCount -= totalPrice;
+            console.log(foodCount);
+        }
     }
-    if(goldCount < ammoPrice){
-        toastr['error']('You Do Not Have Enough Gold');
-    }
-    else {
-        toastr['success'](`You Successfully Bought ${ammoQuantity} Ammo For ${ammoPrice} Gold`);
-        ammoCount += ammoQuantity;
+    else{
+        toastr['error'](`Must Be Bought In Sets Of ${step}`);
     }
     displayTotalSupplies();
 }
-function buyFood() {
-
-}
-
-
-
-

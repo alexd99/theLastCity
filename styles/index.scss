@@ -167,6 +167,8 @@ html{
       flex-direction: row;
       justify-content: center;
       align-items: center;
+      margin-bottom: 45px;
+      margin-top: 10px;
       .highScore {
         font-family: highScore, openSans, sans-serif;
         font-size: 35px;
@@ -177,14 +179,14 @@ html{
         height: 50px;
       }
     }
-    .highScoreBoard > h2{
-      margin-bottom: -10px;
-    }
-    .highScoreBoard{
+    #highScoreBoard{
       display: flex;
       flex-direction: column;
       align-content: center;
       margin-bottom: 10px;
+      .highScoreText{
+        margin-top: -20px;
+      }
     }
     .graveyard{
       width:  98.5%;

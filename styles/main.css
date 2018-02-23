@@ -165,7 +165,9 @@ html #indexBody .highScoreContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  margin-bottom: 45px;
+  margin-top: 10px; }
   html #indexBody .highScoreContainer .highScore {
     font-family: highScore, openSans, sans-serif;
     font-size: 35px;
@@ -173,13 +175,13 @@ html #indexBody .highScoreContainer {
     margin-bottom: 0; }
   html #indexBody .highScoreContainer .zombieIcon {
     height: 50px; }
-html #indexBody .highScoreBoard > h2 {
-  margin-bottom: -10px; }
-html #indexBody .highScoreBoard {
+html #indexBody #highScoreBoard {
   display: flex;
   flex-direction: column;
   align-content: center;
   margin-bottom: 10px; }
+  html #indexBody #highScoreBoard .highScoreText {
+    margin-top: -20px; }
 html #indexBody .graveyard {
   width: 98.5%;
   border: 1px solid black;
