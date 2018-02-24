@@ -138,16 +138,16 @@
     </div>
 
     <div class="bottomGameContainer">
-        <h2>STORE</h2>
+        <h2 id="storeTitle">STORE</h2>
         <p id="storeText">Welcome to the store</p>
 
         <div class="storeContainer">
-
+            <div id="generalStore" class="storeContainer">
             <div class="ammoContainer">
-            <label class="priceLabel" title="Used to fight zombies, has to bought in units of 5">Price: 1 Gold For 5 Ammo</label>
-            <input type="number" step="5" min="5" placeholder="quantity" class="quantityInput" id="ammoQuantity" title="Used to fight zombies, has to bought in units of 5">
-            <button class="storeBtn" onClick="theStore('ammoQuantity', 'Ammo', 5, 5);" title="Used to fight zombies, has to bought in units of 5">Buy Ammo</button>
-        </div>
+                <label class="priceLabel" title="Used to fight zombies, has to bought in units of 5">Price: 1 Gold For 5 Ammo</label>
+                <input type="number" step="5" min="5" placeholder="quantity" class="quantityInput" id="ammoQuantity" title="Used to fight zombies, has to bought in units of 5">
+                <button class="storeBtn" onClick="theStore('ammoQuantity', 'Ammo', 5, 5);" title="Used to fight zombies, has to bought in units of 5">Buy Ammo</button>
+            </div>
 
             <div class="foodContainer">
                 <label title="Each Civilian Eats 1 Food A Day">Price: 2 Gold For 4 Food</label>
@@ -155,6 +155,7 @@
                 <button class="storeBtn" title="Each Civilian Eats 1 Food A Day" onclick="theStore('foodQuantity', 'Food', 4, 2 );">Buy Food</button>
             </div>
 
+            </div>
         </div>
 
     </div>

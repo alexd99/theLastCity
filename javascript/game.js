@@ -194,6 +194,7 @@ function advanceDay() {
         foodCalculator();
         findGold();
         zombieAttackChance();
+        displayStore();
 
         displayTotalPopulation();
         displayTotalSupplies();
@@ -238,8 +239,6 @@ function findGold() {
 // calculates if zombies are going to attack
 function zombieAttackChance() {
     let zombieAttackChance = Math.floor(Math.random() * 3) + 1;
-
-    console.log(zombieAttackChance);
 
     if (dayCount % 4) {
         if (zombieAttackChance === 1) {
@@ -351,8 +350,6 @@ function displayHighScores() {
         }
     });
 
-    console.log(game[1]);
-
     for (let i = 0; i < game.length; i++) {
         let highScoreBoardText = `<h3 class="highScoreText">${game[i].name} ..... ${game[i].score}</h3><br>`;
         $('#highScoreBoard').append(highScoreBoardText);
@@ -373,7 +370,6 @@ function clearHighScores() {
 // purchases items.
 function theStore(quantity, name, step, price) {
     quantity = Number($('#'+quantity).val());
-    console.log(quantity);
 
     let totalPrice = quantity / price;
 
@@ -393,11 +389,33 @@ function theStore(quantity, name, step, price) {
                 return false;
             }
             goldCount -= totalPrice;
-            console.log(foodCount);
         }
     }
     else{
         toastr['error'](`Must Be Bought In Sets Of ${step}`);
     }
     displayTotalSupplies();
+}
+
+// function for opening and choosing the store.
+function displayStore() {
+    let storeTitle = $('#storeTitle');
+
+    let generalStore = $('#generalStore');
+    generalStore.hide();
+
+    let open = 1;//Math.floor((Math.random() * 2) + 1);
+
+    if(open === 1) {
+        let openedStore = Math.floor((Math.random() * 2) + 1);
+
+        console.log(openedStore);
+
+        switch (openedStore) {
+            case 1:
+                generalStore.show();
+                storeTitle.html('GENERAL STORE');
+                break;
+        }
+    }
 }
