@@ -48,6 +48,9 @@ html {
     html body button {
       cursor: pointer; }
 
+html #indexBody a {
+  color: black;
+  text-decoration: none; }
 html #indexBody .cityName {
   width: 180px; }
 html #indexBody .cityNameChangerContainer {
