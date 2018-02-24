@@ -200,6 +200,7 @@ function advanceDay() {
         findGold();
         zombieAttackChance();
         displayStore();
+        personArrival();
 
         displayTotalPopulation();
         displayTotalSupplies();
@@ -239,6 +240,37 @@ function foodCalculator() {
 
 function findGold() {
     goldCount += minerCount * Math.floor(Math.random() * 5) + 1;
+}
+
+function personArrival() {
+    let randomMax;
+    switch (radioLevel) {
+        case 0:
+            randomMax = 20;
+            break;
+        case 1:
+            randomMax = 17;
+            break;
+        case 2:
+            randomMax = 15;
+            break;
+        case 3:
+            randomMax = 12;
+            break;
+        case 4:
+            randomMax = 9;
+            break;
+        case 5:
+            randomMax = 6;
+            break;
+    }
+    let personArrived = Math.floor(Math.random() * randomMax) + 1;
+
+    if (personArrived === 1){
+        populationCount += 1;
+        idleCount+= 1;
+        displayTotalPopulation();
+    }
 }
 
 // calculates if zombies are going to attack
@@ -443,7 +475,7 @@ function upgradeRadio() {
     }
     else if(radioLevel === 3 && metalCount >= 1000){
         radioLevel ++;
-        metalCount -= 1000;
+        metalCount -= 800;
     }
 
     displayTotalSupplies();
