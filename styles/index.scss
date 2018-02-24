@@ -27,15 +27,18 @@ html{
         cursor: pointer;
       }
     }
-    .instructionLinkContainer {
+    .pageLinkContainer {
       display: flex;
       justify-content: center;
       width: 150px;
       margin: auto;
-      .instructionsLink {
+      .pageLink {
         color: black;
         text-decoration: none;
       }
+    }
+    #creditsLinkBox{
+      margin-top: -15px;
     }
     .mainGameContainer{
       display: flex;
@@ -232,15 +235,6 @@ html{
           }
         }
       }
-    }
-    .townNameCredit > a{
-      color: blue;
-      text-decoration: none;
-    }
-    .townNameCredit{
-      font-weight: bold;
-      font-size: 15px;
-      margin-top: 35px;
     }
   }
 }

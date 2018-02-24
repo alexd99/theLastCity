@@ -1,0 +1,56 @@
+html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  #creditsBody {
+    padding: 0;
+    width: 50%;
+    height: auto;
+    margin: auto;
+    text-align: center;
+    a{
+      text-decoration: none;
+      color: #2d4691;
+      cursor: pointer;
+    }
+    #credits {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+    .resourcesTitleText{
+      text-decoration: underline;
+    }
+    .resources{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+    .backButton > i{
+      text-decoration: none;
+    }
+    .backButtonContainer {
+      width: 128px;
+      margin: 20px auto 0 auto;
+      .backButtonATag {
+        text-decoration: none;
+        .backButton > i {
+          margin-right: 10px;
+          font-size: 25px;
+        }
+        .backButton {
+          width: 127px;
+          height: 30px;
+          font-size: 18px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          margin: auto;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
