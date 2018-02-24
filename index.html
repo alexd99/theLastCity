@@ -17,9 +17,14 @@
 <body id="indexBody" onload="onStart();">
     <h1 id="cityName">The Last City</h1>
 
-    <div class="instructionLinkContainer">
-        <a href="instructions.html" class="instructionsLink">
+    <div class="pageLinkContainer">
+        <a href="instructions.html" class="pageLink">
             <h3 class="instructionsLinkText">Instructions</h3>
+        </a>
+    </div>
+    <div class="pageLinkContainer" id="creditsLinkBox">
+        <a href="credits.html" class="pageLink">
+            <h3 class="instructionsLinkText">Credits</h3>
         </a>
     </div>
 
@@ -187,10 +192,6 @@
     <div id="highScoreBoard">
     </div>
     <button onClick="clearHighScores();">Reset High Scores</button>
-
-    <p class="townNameCredit">
-        Town names where taken from <a target="_blank" href="http://www.fantasynamegenerators.com/apocalypse-town-names.php#.Wlo2WZM-fOQ">here</a>
-    </p>
 
     <!--game over modal-->
     <div class="modal fade" id="gameOverModal" tabindex="-1" role="dialog" aria-labelledby="gameOverModal">
