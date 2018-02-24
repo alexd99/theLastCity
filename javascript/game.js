@@ -8,6 +8,9 @@ let foodCountInsert = $('#foodCount');
 let ammoCount;
 let ammoCountInsert = $('#ammoCount');
 
+let metalCount;
+let metalCountInsert = $('#metalCount');
+
 let populationCount;
 let populationCountInsert = $('.populationCount');
 
@@ -28,6 +31,7 @@ function displayTotalSupplies() {
     goldCountInsert.html(goldCount);
     foodCountInsert.html(foodCount);
     ammoCountInsert.html(ammoCount);
+    metalCountInsert.html(metalCount);
 }
 
 //function that displays total population, and jobs
@@ -70,6 +74,7 @@ function onStart() {
     goldCount = 200;
     foodCount = 0;
     ammoCount = 25;
+    metalCount = 1000000;
     populationCount = 11;
     idleCount = populationCount;
     farmerCount = 0;
@@ -418,4 +423,29 @@ function displayStore() {
                 break;
         }
     }
+}
+
+let radioLevel = 0;
+// handles research and upgrades
+function upgradeRadio() {
+
+    if(radioLevel === 0 && metalCount >= 200){
+        radioLevel ++;
+        metalCount -= 200;
+    }
+    else if(radioLevel === 1 && metalCount >= 400){
+        radioLevel ++;
+        metalCount -= 400;
+    }
+    else if(radioLevel === 2 && metalCount >= 600){
+        radioLevel ++;
+        metalCount -= 600;
+    }
+    else if(radioLevel === 3 && metalCount >= 1000){
+        radioLevel ++;
+        metalCount -= 1000;
+    }
+
+    displayTotalSupplies();
+    $('#radioName').html(`Radio Level: ${radioLevel}`);
 }

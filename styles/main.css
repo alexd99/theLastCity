@@ -143,10 +143,23 @@ html #indexBody .mainGameContainer {
   html #indexBody .mainGameContainer .rightGameBox {
     margin: auto 10px;
     width: 22.5%; }
+    html #indexBody .mainGameContainer .rightGameBox .researchButtonBox {
+      margin-bottom: 10px; }
     html #indexBody .mainGameContainer .rightGameBox .researchPicContainer .researchPic {
       width: 95%; }
+html #indexBody #equipmentContainer {
+  width: 98.5%;
+  border: 1px solid black;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; }
+  html #indexBody #equipmentContainer .equipmentButtonBox > p {
+    font-size: 17px; }
 html #indexBody .bottomGameContainer {
-  margin: 25px auto;
+  margin: 10px auto;
   width: 98.5%;
   height: 200px;
   border: 1px solid black; }
@@ -185,7 +198,7 @@ html #indexBody #highScoreBoard {
 html #indexBody .graveyard {
   width: 98.5%;
   border: 1px solid black;
-  margin: 15px auto 0 auto;
+  margin: 10px auto 0 auto;
   text-align: center; }
   html #indexBody .graveyard .tombstoneContainer {
     width: 100%;
@@ -240,7 +253,7 @@ html #indexBody .townNameCredit {
 
 @media only screen and (max-width: 726px) {
   html #indexBody .mainGameContainer .middleGameBox {
-    height: 615px; } }
+    height: 900px; } }
 html #instructionsBody {
   color: white;
   background: url("../images/instruction'sBackground.jpg") no-repeat;
@@ -253,7 +266,7 @@ html #instructionsBody {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 800px;
+    width: 65%;
     margin: auto; }
     html #instructionsBody .storyContainer .storyText {
       text-indent: 50px; }

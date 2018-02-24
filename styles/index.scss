@@ -131,6 +131,9 @@ html{
       .rightGameBox{
         margin: auto 10px;
         width: 22.5%;
+        .researchButtonBox{
+          margin-bottom: 10px;
+        }
         .researchPicContainer{
           .researchPic{
             width: 95%;
@@ -138,8 +141,21 @@ html{
         }
       }
     }
+    #equipmentContainer{
+      width: 98.5%;
+      border: 1px solid black;
+      margin: 10px auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      .equipmentButtonBox > p {
+        font-size: 17px;
+      }
+    }
     .bottomGameContainer{
-      margin: 25px auto;
+      margin: 10px auto;
       width: 98.5%;
       height: 200px;
       border: 1px solid black;
@@ -191,7 +207,7 @@ html{
     .graveyard{
       width:  98.5%;
       border: 1px solid black;
-      margin: 15px auto 0 auto;
+      margin: 10px auto 0 auto;
       text-align: center;
       .tombstoneContainer{
         width: 100%;
@@ -273,7 +289,7 @@ html{
     #indexBody {
       .mainGameContainer{
         .middleGameBox{
-          height: 615px;
+          height: 900px;
         }
       }
     }

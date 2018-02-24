@@ -44,11 +44,13 @@
                     <h3>Gold:</h3>
                     <h3>Food:</h3>
                     <h3>Ammo:</h3>
+                    <h3>Metal:</h3>
                 </div>
                 <div class="itemTextBoxLeft">
-                    <h3 id="goldCount">0</h3>
-                    <h3 id="foodCount">0</h3>
-                    <h3 id="ammoCount">0</h3>
+                    <h3 id="goldCount"></h3>
+                    <h3 id="foodCount"></h3>
+                    <h3 id="ammoCount"></h3>
+                    <h3 id="metalCount"></h3>
                 </div>
             </div>
             <div class="inventoryPicContainer">
@@ -131,9 +133,19 @@
         </div>
         <div class="rightGameBox gameBox">
             <h2>RESEARCH</h2>
+            <div class="researchButtonBox">
+            </div>
             <div class="researchPicContainer">
                 <img src="images/lab.jpg" class="researchPic">
             </div>
+        </div>
+    </div>
+
+    <div id="equipmentContainer">
+        <h2>EQUIPMENT</h2>
+        <div class="equipmentButtonBox">
+            <p id="radioName"> Radio Level: 0</p>
+            <button onclick="upgradeRadio();" title="radios make it easier to find people to bring into your city">Upgrade Radio</button>
         </div>
     </div>
 
