@@ -190,8 +190,8 @@ function advanceDay() {
     }
     else {
         //next day
-        mainGameTextInsert.html('Nothing Happened Today');
         gameWarningsInsert.html('');
+        mainGameTextInsert.html('');
 
         dayCount += 1;
         $('#dayCount').html(dayCount);
@@ -201,6 +201,7 @@ function advanceDay() {
         zombieAttackChance();
         displayStore();
         personArrival();
+        displayDayMessage(false, false);
 
         displayTotalPopulation();
         displayTotalSupplies();
@@ -217,6 +218,21 @@ function advanceDay() {
             zombieArmyNumberParam1 = zombieArmyNumberParam1 * 8;
             zombieArmyNumberParam2 = zombieArmyNumberParam2 * 8;
         }
+    }
+}
+let clearMessage = false;
+
+function displayDayMessage(somethingHappened, message) {
+    if(somethingHappened === true){
+        if(clearMessage === true){
+            mainGameTextInsert.html('');
+            clearMessage = false
+        }
+        mainGameTextInsert.append(message + '. ');
+    }
+    else{
+        mainGameTextInsert.html('Nothing Happened Today');
+        clearMessage = true;
     }
 }
 
@@ -264,12 +280,13 @@ function personArrival() {
             randomMax = 6;
             break;
     }
-    let personArrived = Math.floor(Math.random() * randomMax) + 1;
+    let personArrived = 1;//Math.floor(Math.random() * randomMax) + 1;
 
     if (personArrived === 1){
         populationCount += 1;
         idleCount+= 1;
         displayTotalPopulation();
+        displayDayMessage(true, 'Person Arrived In Your Town');
     }
 }
 
@@ -298,6 +315,9 @@ function zombiesAttack() {
 
     let peopleKilled = 0;
 
+    if(soldierCount <= 0){
+        townDefense = 0;
+    }
     if (ammoCount <= 0) {
         ammoCount = 0;
         townDefense = soldierCount;
@@ -312,8 +332,13 @@ function zombiesAttack() {
     }
 
     if (townDefense < zombieAttack) {
-        let loopRun = Math.floor((zombieAttack - townDefense) / 5);
-
+        let loopRun;
+        if(townDefense === 0){
+            loopRun = zombieAttack;
+        }
+        else{
+            loopRun = Math.floor((zombieAttack - townDefense) / 5);
+        }
         for (let i = 1; i <= loopRun; i++) {
             personDied(false);
             peopleKilled++;
@@ -321,16 +346,16 @@ function zombiesAttack() {
     }
 
     let zombieAttackMessage = `You Were Attacked! Amount of zombies: ${amountOfZombies},  People killed: ${peopleKilled}`;
-    mainGameTextInsert.html(zombieAttackMessage);
+    displayDayMessage(true, zombieAttackMessage);
 }
 
 // displays a villagers tombstone
 function makeTombstone() {
     let soldierFirstNamesList = [
-        'Aaliyah', 'Abigail', 'Addison', 'Aiden', 'Alex', 'Alexa', 'Allison', 'Amelia', 'Andrew', 'Anna', 'Anthony', 'Aria', 'Ariana', 'Aubrey', 'Audrey', 'Ava', 'Avery', 'Benjamin', 'Brooklyn', 'Caleb', 'Camila', 'Carter', 'Charles', 'Charlotte', 'Chloe', 'Christian', 'Christopher', 'Claire', 'Colton', 'Daniel', 'David', 'Dylan', 'Elijah', 'Elizabeth', 'Ella', 'Ellie', 'Emily', 'Emma', 'Ethan', 'Evelyn', 'Gabriel', 'Grace', 'Grayson', 'Hannah', 'Harper', 'Henry', 'Hunter', 'Isaac', 'Isabella', 'Isaiah', 'Jack', 'Jackson', 'Jacob', 'James', 'Jayden', 'John', 'Jonathan', 'Joseph', 'Joshua', 'Julian', 'Landon', 'Layla', 'Leah', 'Levi', 'Liam', 'Lillian', 'Lily', 'Logan', 'Lucas', 'Luke', 'Madison', 'Mason', 'Matthew', 'Mia', 'Michael', 'Natalie', 'Nathan', 'Noah', 'Nora', 'Oliver', 'Olivia', 'Owen', 'Paisley', 'Penelope', 'Riley', 'Ryan', 'Samantha', 'Samuel', 'Savannah', 'Scarlett', 'Sebastian', 'Skylar', 'Sofia', 'Sophia', 'Victoria', 'Violet', 'William', 'Wyatt', 'Zoe', 'Zoey'
+        'Aaliyah', 'Abigail', 'Addison', 'Aiden', 'Alex', 'Alexa', 'Allison', 'Amelia', 'Andrew', 'Anna', 'Anthony', 'Aria', 'Ariana', 'Aubrey', 'Audrey', 'Ava', 'Avery', 'Benjamin', 'Brooklyn', 'Caleb', 'Camila', 'Carter', 'Charles', 'Charlotte', 'Chloe', 'Christian', 'Christopher', 'Claire', 'Colton', 'Daniel', 'David', 'Dylan', 'Elijah', 'Elizabeth', 'Ella', 'Ellie', 'Emily', 'Emma', 'Ethan', 'Evelyn', 'Gabriel', 'Grace', 'Grayson', 'Hannah', 'Harper', 'Henry', 'Hunter', 'Isaac', 'Isabella', 'Isaiah', 'Jack', 'Jackson', 'Jacob', 'James', 'Jayden', 'JJ', 'John', 'Joseph', 'Joshua', 'Julian', 'Landon', 'Layla', 'Leah', 'Levi', 'Liam', 'Lillian', 'Lily', 'Logan', 'Lucas', 'Luke', 'Mario', 'Mason', 'Matthew', 'Mia', 'Michael', 'Natalie', 'Nathan', 'Noah', 'Nora', 'Oliver', 'Olivia', 'Owen', 'Paisley', 'Penelope', 'Riley', 'Ryan', 'Sammie', 'Samuel', 'Savannah', 'Scarlett', 'Sebastian', 'Skylar', 'Sofia', 'Sophia', 'Victoria', 'Violet', 'William', 'Wyatt', 'Zoe', 'Zoey'
     ];
     let soldierLastNamesList = [
-        'Adams', 'Alexander', 'Allen', 'Anderson', 'Bailey', 'Baker', 'Barnes', 'Bell', 'Bennett', 'Brooks', 'Brown', 'Bryant', 'Butler', 'Campbell', 'Carter', 'Clark', 'Coleman', 'Collins', 'Cook', 'Cooper', 'Cox', 'Dahl', 'Diaz', 'Edwards', 'Evans', 'Flores', 'Foster', 'Garcia', 'Gonzales', 'Gonzalez', 'Gray', 'Green', 'Griffin', 'Hall', 'Harris', 'Hayes', 'Henderson', 'Hernandez', 'Hill', 'Howard', 'Hughes', 'Jackson', 'James', 'Jenkins', 'Johnson', 'Jones', 'Kelly', 'King', 'Lee', 'Lewis', 'Long', 'Lopez', 'Martin', 'Martinez', 'Miller', 'Mitchell', 'Moore', 'Morgan', 'Morris', 'Murphy', 'Nelson', 'Parker', 'Patterson', 'Perez', 'Perry', 'Peterson', 'Phillips', 'Powell', 'Price', 'Ramirez', 'Reed', 'Richardson', 'Rivera', 'Roberts', 'Robinson', 'Rodriguez', 'Rogers', 'Ross', 'Russell', 'Sanchez', 'Sanders', 'Scott', 'Simmons', 'Smith', 'Stewart', 'Taylor', 'Thomas', 'Thompson', 'Torres', 'Turner', 'Walker', 'Ward', 'Washington', 'Watson', 'White', 'Williams', 'Wilson', 'Wood', 'Wright', 'Young'
+        'Adams', 'Alexander', 'Allen', 'Anderson', 'Bailey', 'Baker', 'Barnes', 'Bell', 'Bennett', 'Brooks', 'Brown', 'Bryant', 'Butler', 'Campbell', 'Carlson', 'Clark', 'Coleman', 'Collins', 'Cook', 'Cooper', 'Cox', 'Dahl', 'Diaz', 'Edwards', 'Evans', 'Flores', 'Foster', 'Garcia', 'Gonzales', 'Gonzalez', 'Gray', 'Green', 'Griffin', 'Hall', 'Harris', 'Hayes', 'Henderson', 'Hernandez', 'Hill', 'Howard', 'Hughes', 'Jackson', 'James', 'Jenkins', 'Johnson', 'Jones', 'Kelly', 'King', 'Lee', 'Lewis', 'Long', 'Lopez', 'Martin', 'Martinez', 'Miller', 'Mitchell', 'Moore', 'Morgan', 'Morris', 'Murphy', 'Nelson', 'Parker', 'Patterson', 'Perez', 'Perry', 'Peterson', 'Phillips', 'Powell', 'Price', 'Ramirez', 'Reed', 'Richardson', 'Rivera', 'Roberts', 'Robinson', 'Rodriguez', 'Rogers', 'Ross', 'Russell', 'Sanchez', 'Sanders', 'Scott', 'Simmons', 'Smith', 'Stewart', 'Taylor', 'Thomas', 'Thompson', 'Torres', 'Turner', 'Walker', 'Ward', 'Washington', 'Watson', 'White', 'Williams', 'Wilson', 'Wood', 'Wright', 'Young'
     ];
 
     let soldierFirstName = Math.floor(Math.random() * soldierFirstNamesList.length);
@@ -461,21 +486,27 @@ let radioLevel = 0;
 // handles research and upgrades
 function upgradeRadio() {
 
+    let radioUpgradeText = $('#upgradeRadioText');
+
     if(radioLevel === 0 && metalCount >= 200){
         radioLevel ++;
         metalCount -= 200;
+        radioUpgradeText.html('Upgrade Radio: 400 metal')
     }
     else if(radioLevel === 1 && metalCount >= 400){
         radioLevel ++;
         metalCount -= 400;
+        radioUpgradeText.html('Upgrade Radio: 600 metal')
     }
     else if(radioLevel === 2 && metalCount >= 600){
         radioLevel ++;
         metalCount -= 600;
+        radioUpgradeText.html('Upgrade Radio: 1000 metal')
     }
     else if(radioLevel === 3 && metalCount >= 1000){
         radioLevel ++;
-        metalCount -= 800;
+        metalCount -= 1000;
+        radioUpgradeText.html('Upgrade Finished?')
     }
 
     displayTotalSupplies();
