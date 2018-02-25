@@ -148,21 +148,16 @@ html #indexBody .mainGameContainer {
   html #indexBody .mainGameContainer .rightGameBox {
     margin: auto 10px;
     width: 22.5%; }
+    html #indexBody .mainGameContainer .rightGameBox .researchInfo {
+      cursor: pointer; }
     html #indexBody .mainGameContainer .rightGameBox .researchButtonBox {
       margin-bottom: 10px; }
+      html #indexBody .mainGameContainer .rightGameBox .researchButtonBox .researchIndivButtonBox > p {
+        margin-bottom: 2px; }
+      html #indexBody .mainGameContainer .rightGameBox .researchButtonBox .researchIndivButtonBox {
+        margin-bottom: 10px; }
     html #indexBody .mainGameContainer .rightGameBox .researchPicContainer .researchPic {
       width: 95%; }
-html #indexBody #equipmentContainer {
-  width: 98.5%;
-  border: 1px solid black;
-  margin: 10px auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap; }
-  html #indexBody #equipmentContainer .equipmentButtonBox > p {
-    font-size: 17px; }
 html #indexBody .bottomGameContainer {
   margin: 10px auto;
   width: 98.5%;
@@ -225,6 +220,17 @@ html #indexBody .graveyard {
         width: 135px;
         margin-bottom: 19px;
         margin-top: -2px; }
+html #indexBody .researchModalContent {
+  margin: auto -70px; }
+  html #indexBody .researchModalContent .researchModalTextContainer {
+    margin: auto 8px; }
+    html #indexBody .researchModalContent .researchModalTextContainer .researchModalTitle {
+      text-decoration: underline;
+      margin-bottom: 5px; }
+    html #indexBody .researchModalContent .researchModalTextContainer .researchModalText {
+      text-align: left; }
+  html #indexBody .researchModalContent .researchModalCloseButton {
+    margin-bottom: 5px; }
 
 .itemTextBoxLeft, .itemTextBoxRight {
   display: flex;
@@ -246,9 +252,6 @@ html #indexBody .graveyard {
       width: 98%; }
   html #indexBody .bottomGameContainer {
     width: 98%; } }
-.dayCounter {
-  font-family: scorBoard, sans-serif; }
-
 @media only screen and (max-width: 726px) {
   html #indexBody .mainGameContainer .middleGameBox {
     height: 900px; } }

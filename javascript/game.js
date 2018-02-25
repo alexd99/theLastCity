@@ -11,6 +11,9 @@ let ammoCountInsert = $('#ammoCount');
 let metalCount;
 let metalCountInsert = $('#metalCount');
 
+let woodCount;
+let woodCountInsert = $('#woodCount');
+
 let populationCount;
 let populationCountInsert = $('.populationCount');
 
@@ -32,6 +35,8 @@ function displayTotalSupplies() {
     foodCountInsert.html(foodCount);
     ammoCountInsert.html(ammoCount);
     metalCountInsert.html(metalCount);
+    woodCountInsert.html(woodCount);
+
 }
 
 //function that displays total population, and jobs
@@ -75,6 +80,7 @@ function onStart() {
     foodCount = 0;
     ammoCount = 25;
     metalCount = 1000000;
+    woodCount = 1000;
     populationCount = 11;
     idleCount = populationCount;
     farmerCount = 0;
@@ -196,12 +202,12 @@ function advanceDay() {
         dayCount += 1;
         $('#dayCount').html(dayCount);
 
+        displayDayMessage(false, false);
         foodCalculator();
         findGold();
         zombieAttackChance();
         displayStore();
         personArrival();
-        displayDayMessage(false, false);
 
         displayTotalPopulation();
         displayTotalSupplies();
@@ -280,7 +286,7 @@ function personArrival() {
             randomMax = 6;
             break;
     }
-    let personArrived = 1;//Math.floor(Math.random() * randomMax) + 1;
+    let personArrived = Math.floor(Math.random() * randomMax) + 1;
 
     if (personArrived === 1){
         populationCount += 1;
@@ -331,8 +337,23 @@ function zombiesAttack() {
         ammoCount -= amountOfZombies;
     }
 
+    switch (wallLevel){
+        case 1:
+           townDefense += 3;
+            break;
+        case 2:
+            townDefense += 6;
+            break;
+        case 3:
+            townDefense += 9;
+            break;
+        case 4:
+            townDefense += 15;
+            break;
+    }
+
     if (townDefense < zombieAttack) {
-        let loopRun;
+        let loopRun = 0;
         if(townDefense === 0){
             loopRun = zombieAttack;
         }
@@ -471,8 +492,6 @@ function displayStore() {
     if(open === 1) {
         let openedStore = Math.floor((Math.random() * 2) + 1);
 
-        console.log(openedStore);
-
         switch (openedStore) {
             case 1:
                 generalStore.show();
@@ -491,24 +510,58 @@ function upgradeRadio() {
     if(radioLevel === 0 && metalCount >= 200){
         radioLevel ++;
         metalCount -= 200;
-        radioUpgradeText.html('Upgrade Radio: 400 metal')
+        radioUpgradeText.html('Upgrade Radio: 400 metal');
     }
     else if(radioLevel === 1 && metalCount >= 400){
         radioLevel ++;
         metalCount -= 400;
-        radioUpgradeText.html('Upgrade Radio: 600 metal')
+        radioUpgradeText.html('Upgrade Radio: 600 metal');
     }
     else if(radioLevel === 2 && metalCount >= 600){
         radioLevel ++;
         metalCount -= 600;
-        radioUpgradeText.html('Upgrade Radio: 1000 metal')
+        radioUpgradeText.html('Upgrade Radio: 1000 metal');
     }
     else if(radioLevel === 3 && metalCount >= 1000){
         radioLevel ++;
         metalCount -= 1000;
-        radioUpgradeText.html('Upgrade Finished?')
+        radioUpgradeText.html('Upgrade Finished?');
     }
 
     displayTotalSupplies();
     $('#radioName').html(`Radio Level: ${radioLevel}`);
+}
+
+let wallLevel = 0;
+
+function upgradeWalls(){
+    let wallUpgradeText = $('#upgradeWallText');
+    let wallName = $('#wallName');
+
+    if(wallLevel === 0 && woodCount >= 500){
+        wallLevel ++;
+        woodCount -= 500;
+        wallUpgradeText.html('Iron: 1000 metal');
+        wallName.html('Hard Wood Walls (1)');
+    }
+    else if(wallLevel === 1 && metalCount >= 1000){
+        wallLevel ++;
+        metalCount -= 1000;
+        wallUpgradeText.html('Steel: 1500 metal');
+        wallName.html('iron Walls (2)');
+    }
+    else if(wallLevel === 2 && metalCount >= 1500){
+        wallLevel ++;
+        metalCount -= 1500;
+        wallUpgradeText.html('Titanium: 2500 metal');
+        wallName.html('Steel Walls (3)');
+    }
+    else if(wallLevel === 3 && metalCount >= 2500){
+        wallLevel ++;
+        metalCount -= 2500;
+        wallUpgradeText.html('Upgrade finished');
+        wallName.html('Titanium Walls (4)');
+    }
+
+    displayTotalSupplies();
 }

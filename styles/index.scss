@@ -138,27 +138,23 @@ html{
       .rightGameBox{
         margin: auto 10px;
         width: 22.5%;
+        .researchInfo{
+          cursor: pointer;
+        }
         .researchButtonBox{
           margin-bottom: 10px;
+          .researchIndivButtonBox > p{
+            margin-bottom: 2px;
+          }
+          .researchIndivButtonBox{
+            margin-bottom: 10px;
+          }
         }
         .researchPicContainer{
           .researchPic{
             width: 95%;
           }
         }
-      }
-    }
-    #equipmentContainer{
-      width: 98.5%;
-      border: 1px solid black;
-      margin: 10px auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
-      .equipmentButtonBox > p {
-        font-size: 17px;
       }
     }
     .bottomGameContainer{
@@ -240,9 +236,24 @@ html{
         }
       }
     }
+    .researchModalContent {
+      margin: auto -70px;
+      .researchModalTextContainer{
+        margin: auto 8px;
+        .researchModalTitle {
+          text-decoration: underline;
+          margin-bottom: 5px;
+        }
+        .researchModalText{
+          text-align: left;
+        }
+      }
+      .researchModalCloseButton{
+        margin-bottom: 5px;
+      }
+    }
   }
 }
-
 .itemTextBoxLeft, .itemTextBoxRight{
   display: flex;
   flex-direction: column;
@@ -250,7 +261,6 @@ html{
 }
 
 @media only screen and (max-width: 1439px) {
-
   html {
     #indexBody {
       .mainGameContainer{
@@ -274,15 +284,9 @@ html{
       }
     }
   }
-
-}
-
-.dayCounter{
-  font-family: scorBoard, sans-serif;
 }
 
 @media only screen and (max-width: 726px) {
-
   html {
     #indexBody {
       .mainGameContainer{
@@ -292,5 +296,4 @@ html{
       }
     }
   }
-
 }

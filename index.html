@@ -50,12 +50,14 @@
                     <h3>Food:</h3>
                     <h3>Ammo:</h3>
                     <h3>Metal:</h3>
+                    <h3>Wood:</h3>
                 </div>
                 <div class="itemTextBoxLeft">
                     <h3 id="goldCount"></h3>
                     <h3 id="foodCount"></h3>
                     <h3 id="ammoCount"></h3>
                     <h3 id="metalCount"></h3>
+                    <h3 id="woodCount"></h3>
                 </div>
             </div>
             <div class="inventoryPicContainer">
@@ -123,7 +125,7 @@
                     </button>
                 </div>
                 <div class="converterButtonBox">
-                    <button class="mainGameBtn" onclick="turnAllToIdle();" title="Decreases The Town's Population By One">Trun All People Idle</button>
+                    <button class="mainGameBtn" onclick="turnAllToIdle();">Turn All People Idle</button>
                     <button class="mainGameBtn" onclick="confirmSendAway();" title="Decreases The Town's Population By One">Send Person Away</button>
                 </div>
 
@@ -137,22 +139,28 @@
             </div>
         </div>
         <div class="rightGameBox gameBox">
-            <h2>RESEARCH</h2>
+            <h2>RESEARCH <i class="fas fa-info-circle researchInfo" onclick="$('#researchInfoModal').modal('show');"></i></h2>
+
             <div class="researchButtonBox">
+
+                <div class="researchIndivButtonBox">
+                    <p id="radioName"> Radio Level: 0</p>
+                    <button onclick="upgradeRadio();" title="radios make it easier to find people to bring into your city">
+                        <span id="upgradeRadioText"> Upgrade Radio: 200 metal</span>
+                    </button>
+                </div>
+
+                <div class="researchIndivButtonBox">
+                    <p id="wallName"> Wood Walls (0)</p>
+                    <button onclick="upgradeWalls();" title="radios make it easier to find people to bring into your city">
+                        <span id="upgradeWallText"> Hard Wood: 500 wood</span>
+                    </button>
+                </div>
+
             </div>
             <div class="researchPicContainer">
                 <img src="images/lab.jpg" class="researchPic">
             </div>
-        </div>
-    </div>
-
-    <div id="equipmentContainer">
-        <h2>EQUIPMENT</h2>
-        <div class="equipmentButtonBox">
-            <p id="radioName"> Radio Level: 0</p>
-            <button onclick="upgradeRadio();" title="radios make it easier to find people to bring into your city">
-                <span id="upgradeRadioText"> Upgrade Radio: 200 metal</span>
-            </button>
         </div>
     </div>
 
@@ -194,6 +202,27 @@
     <div id="highScoreBoard">
     </div>
     <button onClick="clearHighScores();">Reset High Scores</button>
+
+
+    <div class="modal fade" id="researchInfoModal" tabindex="-1" role="dialog" aria-labelledby="researchInfoModal">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content researchModalContent">
+                <div class="researchModalTextContainer">
+                    <h3 class="researchModalTitle">Radio</h3>
+                    <p class="researchModalText">
+                        The radio is used to communicate with travels.
+                        The higher the radio the better chance you have of people coming to your town.
+                    </p>
+
+                    <h3 class="researchModalTitle">Walls</h3>
+                    <p class="researchModalText">
+                        Walls add more defense to your town, allowing you to hold of more zombies.
+                    </p>
+                </div>
+                <button class="researchModalCloseButton" onclick="$('#researchInfoModal').modal('hide');">CLOSE</button>
+            </div>
+        </div>
+    </div>
 
     <!--game over modal-->
     <div class="modal fade" id="gameOverModal" tabindex="-1" role="dialog" aria-labelledby="gameOverModal">
