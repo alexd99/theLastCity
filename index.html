@@ -43,13 +43,14 @@
 
     <div class="mainGameContainer">
         <div class="leftGameBox gameBox">
-            <h2>INVENTORY</h2>
+            <h2>INVENTORY <i class="fas fa-info-circle researchInfo" onclick="$('#inventoryInfoModal').modal('show');"></i></h2>
             <div class="inventoryMainContainer">
                 <div class="itemTextBoxRight">
                     <h3>Gold:</h3>
                     <h3>Food:</h3>
                     <h3>Ammo:</h3>
                     <h3>Metal:</h3>
+                    <h3>Ore:</h3>
                     <h3>Wood:</h3>
                 </div>
                 <div class="itemTextBoxLeft">
@@ -57,6 +58,7 @@
                     <h3 id="foodCount"></h3>
                     <h3 id="ammoCount"></h3>
                     <h3 id="metalCount"></h3>
+                    <h3 id="oreCount"></h3>
                     <h3 id="woodCount"></h3>
                 </div>
             </div>
@@ -235,23 +237,64 @@
     </div>
     <button onClick="clearHighScores();">Reset High Scores</button>
 
+    <!--inventory information modal-->
+    <div class="modal fade" id="inventoryInfoModal" tabindex="-1" role="dialog" aria-labelledby="inventoryInfoModal">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content infoModalContent">
+                <div class="infoModalTextContainer">
+                    <h3 class="infoModalTitle">Gold</h3>
+                    <p class="infoModalText">
+                        Gold is necessary to buy supplies from traveling merchants.
+                    </p>
 
+                    <h3 class="infoModalTitle">Food</h3>
+                    <p class="infoModalText">
+                        The town must have food to survive, if your food runs out people will start to die. Each Person in you town must have 1 food a day.
+                    </p>
+
+                    <h3 class="infoModalTitle">Ammo</h3>
+                    <p class="infoModalText">
+                        Soldiers fight better with ammo, if the ammo runs out the soldiers can still fight, just not as effectively.
+                    </p>
+
+                    <h3 class="infoModalTitle">Metal</h3>
+                    <p class="infoModalText">
+                        Metal is necessary in many upgrades.
+                    </p>
+
+                    <h3 class="infoModalTitle">Ore</h3>
+                    <p class="infoModalText">
+                        Ore is used in the forge to make metal.
+                    </p>
+
+                    <h3 class="infoModalTitle">Wood</h3>
+                    <p class="infoModalText">
+                        Wood is used in some upgrades. It is also the primary fuel for the forge.
+                    </p>
+
+                </div>
+                <button class="infoModalCloseButton" onclick="$('#inventoryInfoModal').modal('hide');">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+    <!--research information modal-->
     <div class="modal fade" id="researchInfoModal" tabindex="-1" role="dialog" aria-labelledby="researchInfoModal">
         <div class="modal-dialog modal-sm" role="document">
-            <div class="modal-content researchModalContent">
-                <div class="researchModalTextContainer">
-                    <h3 class="researchModalTitle">Radio</h3>
-                    <p class="researchModalText">
+            <div class="modal-content infoModalContent">
+                <div class="infoModalTextContainer">
+                    <h3 class="infoModalTitle">Radio</h3>
+                    <p class="infoModalText">
                         The radio is used to communicate with travels.
                         The higher the radio the better chance you have of people coming to your town.
                     </p>
 
-                    <h3 class="researchModalTitle">Walls</h3>
-                    <p class="researchModalText">
+                    <h3 class="infoModalTitle">Walls</h3>
+                    <p class="infoModalText">
                         Walls add more defense to your town, allowing you to hold of more zombies.
                     </p>
                 </div>
-                <button class="researchModalCloseButton" onclick="$('#researchInfoModal').modal('hide');">CLOSE</button>
+                <button class="infoModalCloseButton" onclick="$('#researchInfoModal').modal('hide');">CLOSE</button>
             </div>
         </div>
     </div>

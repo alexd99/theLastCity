@@ -11,6 +11,9 @@ let ammoCountInsert = $('#ammoCount');
 let metalCount;
 let metalCountInsert = $('#metalCount');
 
+let oreCount;
+let oreCountInsert = $('#oreCount');
+
 let woodCount;
 let woodCountInsert = $('#woodCount');
 
@@ -38,6 +41,7 @@ function displayTotalSupplies() {
     foodCountInsert.html(foodCount);
     ammoCountInsert.html(ammoCount);
     metalCountInsert.html(metalCount);
+    oreCountInsert.html(oreCount);
     woodCountInsert.html(woodCount);
 
 }
@@ -84,6 +88,7 @@ function onStart() {
     foodCount = 0;
     ammoCount = 25;
     metalCount = 1000000;
+    oreCount = 100;
     woodCount = 0;
     populationCount = 11;
     idleCount = populationCount;

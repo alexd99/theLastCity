@@ -84,7 +84,7 @@ html #indexBody .mainGameContainer {
   html #indexBody .mainGameContainer .gameBox {
     border: 1px solid black;
     width: 50px;
-    height: 555px; }
+    height: 580px; }
   html #indexBody .mainGameContainer .leftGameBox {
     margin: auto 10px;
     width: 22.5%; }
@@ -96,7 +96,7 @@ html #indexBody .mainGameContainer {
       height: 200px;
       margin-bottom: 10px; }
   html #indexBody .mainGameContainer .middleGameBox {
-    margin: auto 15px;
+    margin: auto 5px;
     width: 70%; }
     html #indexBody .mainGameContainer .middleGameBox .gameTextContainer {
       margin-bottom: 0;
@@ -224,16 +224,16 @@ html #indexBody .graveyard {
         width: 135px;
         margin-bottom: 19px;
         margin-top: -2px; }
-html #indexBody .researchModalContent {
+html #indexBody .infoModalContent {
   margin: auto -70px; }
-  html #indexBody .researchModalContent .researchModalTextContainer {
+  html #indexBody .infoModalContent .infoModalTextContainer {
     margin: auto 8px; }
-    html #indexBody .researchModalContent .researchModalTextContainer .researchModalTitle {
+    html #indexBody .infoModalContent .infoModalTextContainer .infoModalTitle {
       text-decoration: underline;
       margin-bottom: 5px; }
-    html #indexBody .researchModalContent .researchModalTextContainer .researchModalText {
+    html #indexBody .infoModalContent .infoModalTextContainer .infoModalText {
       text-align: left; }
-  html #indexBody .researchModalContent .researchModalCloseButton {
+  html #indexBody .infoModalContent .infoModalCloseButton {
     margin-bottom: 5px; }
 
 .itemTextBoxLeft, .itemTextBoxRight {
