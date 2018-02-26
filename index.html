@@ -78,6 +78,7 @@
                 <h2 class="mainSatsTitle">Farmers:</h2><h2 class="farmerCount mainCounter">0</h2>
                 <h2 class="mainSatsTitle">Soldiers:</h2><h2 class="soldierCount mainCounter">0</h2>
                 <h2 class="mainSatsTitle">Miners:</h2><h2 class="minerCount mainCounter">0</h2>
+                <h2 class="mainSatsTitle">Lumberjack:</h2><h2 class="lumberjackCount mainCounter">0</h2>
             </div>
             <div class="populationButtons">
 
@@ -93,6 +94,11 @@
 
                     <button onclick="jobChanger('miner', 'farmer');" id="farmerFromMiner" class="farmerBtn mainGameBtn" title="Farmers Make 4 Food A Day">
                         Make Farmer From Miner
+                    </button>
+
+
+                    <button onclick="jobChanger('lumberjack', 'farmer');" id="farmerFromLumberjack" class="farmerBtn mainGameBtn" title="Farmers Make 4 Food A Day">
+                        Make Farmer From Lumberjack
                     </button>
 
                 </div>
@@ -111,6 +117,11 @@
                         Make Soldier From Miner
                     </button>
 
+
+                    <button onclick="jobChanger('lumberjack', 'soldier')" id="soldierFromLumberjack" class="soldierBtn mainGameBtn" title="Soldiers Are Necessary To Defend Your Town">
+                        Make Soldier From Lumberjack
+                    </button>
+
                 </div>
 
                 <div class="converterButtonBox">
@@ -123,7 +134,28 @@
                     <button onclick="jobChanger('soldier', 'miner')" id="minerFromSoldier" class="minerBtn mainGameBtn"  title="Miners Mine 1 to 5 Gold Per Day">
                         Make Miner From Soldier
                     </button>
+
+                    <button onclick="jobChanger('lumberjack', 'miner')" id="minerFromLumberJack" class="minerBtn mainGameBtn"  title="Miners Mine 1 to 5 Gold Per Day">
+                        Make Miner From LumberJack
+                    </button>
                 </div>
+
+                <div class="converterButtonBox">
+                    <button onclick="jobChanger('idle', 'lumberjack')" id="lumberjackFromIdle" class="lumberJackBtn mainGameBtn" title="Miners Mine 1 to 5 Gold Per Day">
+                        Make Lumberjack From Idle
+                    </button>
+                    <button onclick="jobChanger('farmer', 'lumberjack')" id="lumberjackFromFarmer" class="lumberJackBtn mainGameBtn"  title="Miners Mine 1 to 5 Gold Per Day">
+                        Make Lumberjack From Farmer
+                    </button>
+                    <button onclick="jobChanger('soldier', 'lumberjack')" id="lumberjackFromSoldier" class="lumberJackBtn mainGameBtn"  title="Miners Mine 1 to 5 Gold Per Day">
+                        Make Lumberjack From Soldier
+                    </button>
+
+                    <button onclick="jobChanger('miner', 'lumberjack')" id="lumberjackFromMiner" class="lumberJackBtn mainGameBtn"  title="Miners Mine 1 to 5 Gold Per Day">
+                        Make Lumberjack From Miner
+                    </button>
+                </div>
+
                 <div class="converterButtonBox">
                     <button class="mainGameBtn" onclick="turnAllToIdle();">Turn All People Idle</button>
                     <button class="mainGameBtn" onclick="confirmSendAway();" title="Decreases The Town's Population By One">Send Person Away</button>

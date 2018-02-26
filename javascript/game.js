@@ -29,6 +29,9 @@ let soldierCountInsert = $('.soldierCount');
 let minerCount;
 let minerCountInsert = $('.minerCount');
 
+let lumberjackCount;
+let lumberJackCountInsert = $('.lumberjackCount');
+
 //function that displays total supplies
 function displayTotalSupplies() {
     goldCountInsert.html(goldCount);
@@ -46,6 +49,7 @@ function displayTotalPopulation() {
     farmerCountInsert.html(farmerCount);
     soldierCountInsert.html(soldierCount);
     minerCountInsert.html(minerCount);
+    lumberJackCountInsert.html(lumberjackCount);
 }
 
 // other global variables
@@ -80,12 +84,13 @@ function onStart() {
     foodCount = 0;
     ammoCount = 25;
     metalCount = 1000000;
-    woodCount = 1000;
+    woodCount = 0;
     populationCount = 11;
     idleCount = populationCount;
     farmerCount = 0;
     soldierCount = 0;
     minerCount = 0;
+    lumberjackCount = 0;
 
     $('.mainGameBtn').prop('disabled', false);
     $('.storeBtn').prop('disabled', false);
@@ -109,6 +114,9 @@ function jobChanger(currentJob, futureJob) {
         else if (futureJob === 'miner') {
             minerCount += 1
         }
+        else if (futureJob === 'lumberjack') {
+            lumberjackCount += 1
+        }
         idleCount -= 1
     }
     if (currentJob === 'farmer' && farmerCount > 0) {
@@ -117,6 +125,9 @@ function jobChanger(currentJob, futureJob) {
         }
         else if (futureJob === 'miner') {
             minerCount += 1
+        }
+        else if (futureJob === 'lumberjack') {
+            lumberjackCount += 1
         }
         farmerCount -= 1
     }
@@ -127,6 +138,9 @@ function jobChanger(currentJob, futureJob) {
         else if (futureJob === 'miner') {
             minerCount += 1
         }
+        else if (futureJob === 'lumberjack') {
+            lumberjackCount += 1
+        }
         soldierCount -= 1
     }
     if (currentJob === 'miner' && minerCount > 0) {
@@ -136,7 +150,22 @@ function jobChanger(currentJob, futureJob) {
         else if (futureJob === 'soldier') {
             soldierCount += 1
         }
+        else if (futureJob === 'lumberjack') {
+            lumberjackCount += 1
+        }
         minerCount -= 1
+    }
+    if (currentJob === 'lumberjack' && lumberjackCount > 0) {
+        if (futureJob === 'farmer') {
+            farmerCount += 1
+        }
+        else if (futureJob === 'soldier') {
+            soldierCount += 1
+        }
+        else if (futureJob === 'miner') {
+            minerCount += 1
+        }
+        lumberjackCount -= 1
     }
 
     displayTotalPopulation();
@@ -204,7 +233,7 @@ function advanceDay() {
 
         displayDayMessage(false, false);
         foodCalculator();
-        findGold();
+        gatherResources();
         zombieAttackChance();
         displayStore();
         personArrival();
@@ -260,8 +289,16 @@ function foodCalculator() {
     }
 }
 
-function findGold() {
+// how to find random number between two numbers:
+
+// You need to know the range of the random.
+// Between 50 and 80, the range is 30 (80 - 50 = 30), then you add 1.
+// Therefor, the random would look like this :
+// Math.floor(Math.random() * 31) + 50
+
+function gatherResources() {
     goldCount += minerCount * Math.floor(Math.random() * 5) + 1;
+    woodCount += lumberjackCount * Math.floor(Math.random() * 6) + 5;
 }
 
 function personArrival() {
@@ -433,9 +470,18 @@ function displayHighScores() {
         }
     });
 
-    for (let i = 0; i < game.length; i++) {
-        let highScoreBoardText = `<h3 class="highScoreText">${game[i].name} ..... ${game[i].score}</h3><br>`;
-        $('#highScoreBoard').append(highScoreBoardText);
+    if(game.length < 10){
+
+        for (let i = 0; i < game.length; i++) {
+            let highScoreBoardText = `<h3 class="highScoreText">${game[i].name} ..... ${game[i].score}</h3><br>`;
+            $('#highScoreBoard').append(highScoreBoardText);
+        }
+    }
+    else {
+        for (let i = 0; i < 10; i++) {
+            let highScoreBoardText = `<h3 class="highScoreText">${game[i].name} ..... ${game[i].score}</h3><br>`;
+            $('#highScoreBoard').append(highScoreBoardText);
+        }
     }
 }
 

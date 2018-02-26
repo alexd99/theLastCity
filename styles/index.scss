@@ -70,7 +70,7 @@ html{
       }
       .middleGameBox{
         margin: auto 15px;
-        width: 55%;
+        width: 70%;
         .gameTextContainer{
           margin-bottom: 0;
           height: 120px;
@@ -107,10 +107,10 @@ html{
           .converterButtonBox{
             margin: 10px auto;
             .mainGameBtn {
-              height: 40px;
-              width: 210px;
-              font-size: 15px;
-              margin: auto 10px;
+              height: 30px;
+              width: 200px;
+              font-size: 13px;
+              margin: 0;
             }
             .farmerBtn{
               background-color: $farmerBrown;
@@ -123,6 +123,11 @@ html{
             .minerBtn{
               background-color: $minerGold;
               color: black;
+            }
+            .lumberJackBtn{
+              background: url("../images/plaid.png") no-repeat;
+              background-size: cover;
+              color: white;
             }
           }
         }
@@ -152,7 +157,7 @@ html{
         }
         .researchPicContainer{
           .researchPic{
-            width: 95%;
+            width: 98%;
           }
         }
       }

@@ -97,7 +97,7 @@ html #indexBody .mainGameContainer {
       margin-bottom: 10px; }
   html #indexBody .mainGameContainer .middleGameBox {
     margin: auto 15px;
-    width: 55%; }
+    width: 70%; }
     html #indexBody .mainGameContainer .middleGameBox .gameTextContainer {
       margin-bottom: 0;
       height: 120px; }
@@ -127,10 +127,10 @@ html #indexBody .mainGameContainer {
       html #indexBody .mainGameContainer .middleGameBox .populationButtons .converterButtonBox {
         margin: 10px auto; }
         html #indexBody .mainGameContainer .middleGameBox .populationButtons .converterButtonBox .mainGameBtn {
-          height: 40px;
-          width: 210px;
-          font-size: 15px;
-          margin: auto 10px; }
+          height: 30px;
+          width: 200px;
+          font-size: 13px;
+          margin: 0; }
         html #indexBody .mainGameContainer .middleGameBox .populationButtons .converterButtonBox .farmerBtn {
           background-color: #533C16;
           color: white; }
@@ -140,6 +140,10 @@ html #indexBody .mainGameContainer {
         html #indexBody .mainGameContainer .middleGameBox .populationButtons .converterButtonBox .minerBtn {
           background-color: #FFD700;
           color: black; }
+        html #indexBody .mainGameContainer .middleGameBox .populationButtons .converterButtonBox .lumberJackBtn {
+          background: url("../images/plaid.png") no-repeat;
+          background-size: cover;
+          color: white; }
     html #indexBody .mainGameContainer .middleGameBox .mainButtonContainer .nextDayBtn {
       height: 29px;
       width: 166px;
@@ -157,7 +161,7 @@ html #indexBody .mainGameContainer {
       html #indexBody .mainGameContainer .rightGameBox .researchButtonBox .researchIndivButtonBox {
         margin-bottom: 10px; }
     html #indexBody .mainGameContainer .rightGameBox .researchPicContainer .researchPic {
-      width: 95%; }
+      width: 98%; }
 html #indexBody .bottomGameContainer {
   margin: 10px auto;
   width: 98.5%;
