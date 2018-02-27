@@ -75,6 +75,10 @@ html #indexBody .pageLinkContainer {
   html #indexBody .pageLinkContainer .pageLink {
     color: black;
     text-decoration: none; }
+  html #indexBody .pageLinkContainer .muteIndicator {
+    font-size: 23px;
+    margin-bottom: 5px;
+    cursor: pointer; }
 html #indexBody #creditsLinkBox {
   margin-top: -15px; }
 html #indexBody .mainGameContainer {

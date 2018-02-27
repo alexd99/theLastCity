@@ -40,6 +40,11 @@ html{
         color: black;
         text-decoration: none;
       }
+      .muteIndicator{
+        font-size: 23px;
+        margin-bottom: 5px;
+        cursor: pointer;
+      }
     }
     #creditsLinkBox{
       margin-top: -15px;
@@ -256,6 +261,9 @@ html{
       .infoModalCloseButton{
         margin-bottom: 5px;
       }
+    }
+    audio{
+      //display: none;
     }
   }
 }

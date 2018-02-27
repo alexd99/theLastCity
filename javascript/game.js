@@ -284,7 +284,7 @@ function foodCalculator() {
     if (foodCount <= 0) {
         daysWithoutFood++;
         foodCount = 0;
-        gameWarningsInsert.html('You Ran Out Of Food')
+        gameWarningsInsert.html('You Ran Out Of Food');
     }
     if (foodCount > 0) {
         daysWithoutFood = 0;
