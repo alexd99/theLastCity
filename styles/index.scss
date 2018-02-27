@@ -9,26 +9,25 @@ html{
     .cityName{
       width: 180px;
     }
-    .cityNameChangerContainer{
+    .cityInputsContainer{
       display: flex;
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      margin-bottom: 10px;
-      form{
-        div{
-          #nameChangeInput:focus {
-            outline:0;
-            border-bottom: 1px solid blue;
-          }
-          #nameChangeInput{
-            border: none;
-            border-bottom: 1px solid black;
-          }
-        }
+      .cityInput{
+        margin: auto 10px;
+        border: none;
+        border-bottom: 1px solid black;
       }
-      .randomSelector{
-        cursor: pointer;
+      .cityInput:focus{
+        outline:0;
+        border-bottom: 1px solid blue;
+      }
+      #cityNameInput{
+
+      }
+      #useNameInput{
+
       }
     }
     .pageLinkContainer {
@@ -112,7 +111,7 @@ html{
           .converterButtonBox{
             margin: 10px auto;
             .mainGameBtn {
-              height: 30px;
+              height: 35px;
               width: 200px;
               font-size: 13px;
               margin: 0;
@@ -168,26 +167,22 @@ html{
       }
     }
     .bottomGameContainer{
+      width:  98.6%;
       margin: 10px auto;
-      width: 98.5%;
-      height: 200px;
-      border: 1px solid black;
-      .storeContainer > div{
-        margin: auto 10px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      .bottomGameContentContainers{
+        width: 50%;
+        border:  1px solid black;
       }
-      .storeContainer {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
-        .storeBtn {
-          //css for store buttons
-        }
-        .quantityInput {
-          width: 72px;
-        }
-        .priceLabel {
-          font-weight: bold;
+      #forge{
+        margin-left: 4px;
+      }
+      #store{
+        margin-right: 4px;
+        .storeInput{
+          width: 70px;
         }
       }
     }
@@ -218,7 +213,7 @@ html{
       }
     }
     .graveyard{
-      width:  98.5%;
+      width:  98.6%;
       border: 1px solid black;
       margin: 10px auto 0 auto;
       text-align: center;
@@ -291,9 +286,6 @@ html{
         .rightGameBox{
           width: 98%;
         }
-      }
-      .bottomGameContainer{
-        width: 98%;
       }
     }
   }

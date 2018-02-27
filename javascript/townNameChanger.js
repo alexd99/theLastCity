@@ -26,7 +26,7 @@ function getRandomName() {
 
 
 function userChangeName() {
-    selectedName = $('#nameChangeInput').val();
+    selectedName = $('#cityNameInput').val();
     displayCityName();
     checkIfNameIsBlank();
 }

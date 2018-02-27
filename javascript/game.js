@@ -67,15 +67,15 @@ let mainGameTextInsert = $('#gameMainText');
 toastr.options = {
     "closeButton": false,
     "debug": false,
-    "newestOnTop": false,
+    "newestOnTop": true,
     "progressBar": false,
     "positionClass": "toast-top-right",
-    "preventDuplicates": true,
+    "preventDuplicates": false,
     "onclick": null,
-    "showDuration": "1000",
-    "hideDuration": "1000",
-    "timeOut": "5000",
-    "extendedTimeOut": "1000",
+    "showDuration": "10000",
+    "hideDuration": "4000",
+    "timeOut": "2000",
+    "extendedTimeOut": "2000",
     "showEasing": "swing",
     "hideEasing": "linear",
     "showMethod": "fadeIn",
@@ -88,8 +88,8 @@ function onStart() {
     foodCount = 0;
     ammoCount = 25;
     metalCount = 1000000;
-    oreCount = 100;
-    woodCount = 0;
+    oreCount = 8;
+    woodCount = 6;
     populationCount = 11;
     idleCount = populationCount;
     farmerCount = 0;
@@ -440,7 +440,23 @@ function generateScore() {
     $('.modalText').html(`Thank you for playing. Your score was ${score}`);
 
     storeScore();
+    pushScore();
 }
+
+// push score to data base
+function pushScore() {
+    let name = $('#userNameInput').val();
+
+    let database = firebase.database();
+    let databaseRef = database.ref('highScores');
+    databaseRef.push(
+        {
+            score: score,
+            userName: name
+        }
+    );
+}
+
 // closes on screen game over modal
 function closeModal() {
     $('#gameOverModal').modal('hide')
@@ -489,7 +505,6 @@ function displayHighScores() {
         }
     }
 }
-
 // clears local storage
 function clearHighScores() {
     let makeSure = window.confirm('Are You Sure You Want To Clear All High Scores? This Action Can Not Be Undone!');
@@ -502,25 +517,22 @@ function clearHighScores() {
 }
 
 // purchases items.
-function theStore(quantity, name, step, price) {
-    quantity = Number($('#'+quantity).val());
+function theStore(inputId, name, step, price) {
+    inputId = Number($('#'+inputId).val());
 
-    let totalPrice = quantity / price;
+    let totalPrice = inputId / price;
 
-    if (quantity % step === 0){
+    if (inputId % step === 0){
         if(goldCount < price){
             toastr['error']('You Do Not Have Enough Gold');
         }
         else {
-            toastr['success'](`You Successfully Bought ${quantity} ${name} For ${totalPrice} Gold`);
-            if (name === 'Ammo'){
-                ammoCount += quantity;
+            toastr['success'](`You Successfully Bought ${inputId} ${name} For ${totalPrice} Gold`);
+            if (name === 'ammo'){
+                ammoCount += inputId;
             }
-            if (name === 'Food'){
-                foodCount += quantity;
-            }
-            else {
-                return false;
+            if (name === 'food'){
+                foodCount += inputId;
             }
             goldCount -= totalPrice;
         }
@@ -531,11 +543,37 @@ function theStore(quantity, name, step, price) {
     displayTotalSupplies();
 }
 
+function theForge(fuel) {
+
+    if(fuel === 'wood') {
+        if (woodCount >= 1 && oreCount >= 2) {
+            metalCount += 1;
+            woodCount -= 1;
+            oreCount -= 2;
+            toastr['success'](`You Successfully Smelted 2 Metal`);
+        }
+        else {
+            if ( woodCount < 1){
+                toastr['error']('You Do Not Have Enough Wood');
+            }
+            else if(oreCount < 2){
+                toastr['error']('You Do Not Have Enough Ore');
+            }
+            else {
+                toastr['error']('You Do Not Have Enough Wood and Ore');
+            }
+        }
+    }
+
+    displayTotalSupplies();
+
+}
+
 // function for opening and choosing the store.
 function displayStore() {
     let storeTitle = $('#storeTitle');
 
-    let generalStore = $('#generalStore');
+    let generalStore = $('.generalStore');
     generalStore.hide();
 
     let open = 1;//Math.floor((Math.random() * 2) + 1);
