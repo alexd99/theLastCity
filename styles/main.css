@@ -48,6 +48,13 @@ html {
     html body button {
       cursor: pointer; }
 
+html #indexBody input:focus {
+  outline: 0; }
+html #indexBody input[type=text]:focus {
+  border-bottom: 1px solid blue; }
+html #indexBody input[type=text] {
+  border: none;
+  border-bottom: 1px solid black; }
 html #indexBody a {
   color: black;
   text-decoration: none; }
@@ -58,13 +65,8 @@ html #indexBody .cityInputsContainer {
   flex-direction: row;
   justify-content: center;
   align-items: center; }
-  html #indexBody .cityInputsContainer .cityInput {
-    margin: auto 10px;
-    border: none;
-    border-bottom: 1px solid black; }
-  html #indexBody .cityInputsContainer .cityInput:focus {
-    outline: 0;
-    border-bottom: 1px solid blue; }
+  html #indexBody .cityInputsContainer #cityNameInput {
+    margin: auto 10px; }
 html #indexBody .pageLinkContainer {
   display: flex;
   justify-content: center;
@@ -236,6 +238,21 @@ html #indexBody .infoModalContent {
       text-align: left; }
   html #indexBody .infoModalContent .infoModalCloseButton {
     margin-bottom: 5px; }
+html #indexBody #gameOverModal {
+  margin: auto -400px; }
+  html #indexBody #gameOverModal p {
+    margin-left: 5px;
+    text-align: left; }
+  html #indexBody #gameOverModal #gameOverModalDialog {
+    width: 400px; }
+  html #indexBody #gameOverModal #userNameInputContainer {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; }
+    html #indexBody #gameOverModal #userNameInputContainer #userNameInput {
+      margin-right: 10px; }
 
 .itemTextBoxLeft, .itemTextBoxRight {
   display: flex;

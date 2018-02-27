@@ -1,4 +1,4 @@
-let timesClicked = 2;
+let timesClicked = 1;
 let mute = false;
 
 let muteButton = $('#mute');
@@ -6,7 +6,9 @@ let unMuteButton = $('#unMute');
 
 let musicPlayer = document.getElementById("gameMusic");
 
-muteButton.hide();
+unMuteButton.hide();
+
+//muteButton.hide();
 
 function toggleMute() {
     if (timesClicked % 2 === 0){

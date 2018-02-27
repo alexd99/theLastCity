@@ -32,38 +32,12 @@
         <i class="fas fa-volume-off fa-2x muteIndicator" id="mute" title="turn the music on. you can also press M" onclick="toggleMute();"></i>
     </div>
 
-    <!--<div class="cityNameChangerContainer">-->
-        <!--<form>-->
-            <!--<div class="mdl-textfield mdl-js-textfield">-->
-                <!--<input class="mdl-textfield__input" type="text" id="nameChangeInput"-->
-                       <!--title="Name Your City" placeholder="Name Your City"  onkeyup="userChangeName();">-->
-            <!--</div>-->
-        <!--</form>-->
-
-        <!--<i class="fa fa-random fa-2x randomSelector" aria-hidden="true" title="get random city name" onclick="getRandomName();"></i>-->
-    <!--</div>-->
-
     <div class="cityInputsContainer">
     <input class="cityInput" id="cityNameInput" title="chang your cities name" type="text"
            placeholder="City Name" onkeyup="userChangeName();">
         <i class="fa fa-random fa-2x randomSelector" aria-hidden="true"
            title="get random city name" onclick="getRandomName();"></i>
-
-    <input class="cityInput" id="userNameInput" title="change user name" type="text"
-           placeholder="Username">
-
     </div>
-
-    <!--<div class="userNameInputContainer">-->
-        <!--<form>-->
-            <!--<div class="mdl-textfield mdl-js-textfield">-->
-                <!--<input class="mdl-textfield__input" type="text" id="userNameInput"-->
-                       <!--title="UserName" placeholder="Your Name">-->
-            <!--</div>-->
-        <!--</form>-->
-
-        <!--<i class="fa fa-info-circle fa-1x randomSelector" aria-hidden="true"></i>-->
-    <!--</div>-->
 
     <button id="playAgain" onclick="onStart();">PLAY AGAIN</button>
 
@@ -331,10 +305,15 @@
 
     <!--game over modal-->
     <div class="modal fade" id="gameOverModal" tabindex="-1" role="dialog" aria-labelledby="gameOverModal">
-        <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-dialog modal-lg" id="gameOverModalDialog" role="document">
             <div class="modal-content">
-                <p class="modalText">This is where high score information goes.</p>
-                <button onclick="closeModal();">CLOSE</button>
+                <h3 class="modalText">This is where high score information goes.</h3>
+                <div id="userNameInputContainer">
+                    <input id="userNameInput" title="change user name" type="text" placeholder="Username">
+                    <button onclick="pushScore();">Submit High Score</button>
+                </div>
+                <p>Keep names appropriate, any name that contain swearing or sexual content will be removed.</p>
+                <button onclick="$('#gameOverModal').modal('hide');">CLOSE</button>
             </div>
         </div>
     </div>

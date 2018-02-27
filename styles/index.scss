@@ -2,6 +2,16 @@
 
 html{
   #indexBody{
+    input:focus{
+      outline:0;
+    }
+    input[type=text]:focus {
+      border-bottom: 1px solid blue;
+    }
+    input[type=text] {
+      border: none;
+      border-bottom: 1px solid black;
+    }
     a{
       color: black;
       text-decoration: none;
@@ -14,20 +24,8 @@ html{
       flex-direction: row;
       justify-content: center;
       align-items: center;
-      .cityInput{
-        margin: auto 10px;
-        border: none;
-        border-bottom: 1px solid black;
-      }
-      .cityInput:focus{
-        outline:0;
-        border-bottom: 1px solid blue;
-      }
       #cityNameInput{
-
-      }
-      #useNameInput{
-
+        margin: auto 10px;
       }
     }
     .pageLinkContainer {
@@ -255,6 +253,26 @@ html{
       }
       .infoModalCloseButton{
         margin-bottom: 5px;
+      }
+    }
+    #gameOverModal{
+      margin: auto -400px;
+      p{
+        margin-left: 5px;
+        text-align: left;
+      }
+      #gameOverModalDialog{
+        width: 400px;
+      }
+      #userNameInputContainer{
+        margin-bottom: 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        #userNameInput{
+          margin-right: 10px;
+        }
       }
     }
     audio{
