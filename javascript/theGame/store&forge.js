@@ -24,6 +24,7 @@ function theStore(inputId, name, step, price) {
     displayTotalSupplies();
 }
 
+// function for the forge and making metal
 function theForge(fuel) {
 
     if(fuel === 'wood') {
@@ -57,7 +58,7 @@ function displayStore() {
     let generalStore = $('.generalStore');
     generalStore.hide();
 
-    let open = 1;//Math.floor((Math.random() * 2) + 1);
+    let open = Math.floor((Math.random() * 2) + 1);
 
     if(open === 1) {
         let openedStore = Math.floor((Math.random() * 2) + 1);

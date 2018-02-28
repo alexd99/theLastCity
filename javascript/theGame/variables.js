@@ -17,6 +17,7 @@ let oreCountInsert = $('#oreCount');
 let woodCount;
 let woodCountInsert = $('#woodCount');
 
+//set up global variables for population
 let populationCount;
 let populationCountInsert = $('.populationCount');
 
@@ -34,6 +35,20 @@ let minerCountInsert = $('.minerCount');
 
 let lumberjackCount;
 let lumberJackCountInsert = $('.lumberjackCount');
+
+// other global variables
+let dayCount = 0;
+let daysWithoutFood = 0;
+let radioLevel = 0;
+let wallLevel = 0;
+let score;
+let clearMessage = false;
+let zombieArmyNumberParam1 = 8;
+let zombieArmyNumberParam2 = 1;
+let peopleKilled = 0;
+
+let gameWarningsInsert = $('#gameWarnings');
+let mainGameTextInsert = $('#gameMainText');
 
 //function that displays total supplies
 function displayTotalSupplies() {
@@ -55,17 +70,3 @@ function displayTotalPopulation() {
     minerCountInsert.html(minerCount);
     lumberJackCountInsert.html(lumberjackCount);
 }
-
-// other global variables
-let dayCount = 0;
-let daysWithoutFood = 0;
-let radioLevel = 0;
-let wallLevel = 0;
-let score;
-let clearMessage = false;
-let zombieArmyNumberParam1 = 8;
-let zombieArmyNumberParam2 = 1;
-let peopleKilled = 0;
-
-let gameWarningsInsert = $('#gameWarnings');
-let mainGameTextInsert = $('#gameMainText');

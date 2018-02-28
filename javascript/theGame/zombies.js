@@ -1,3 +1,4 @@
+// calculates if the zombies are going to attack or not
 function zombieAttackChance() {
     let zombieAttackChance = Math.floor(Math.random() * 3) + 1;
 

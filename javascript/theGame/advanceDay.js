@@ -26,10 +26,6 @@ function onStart() {
     displayHighScores();
 }
 
-
-
-
-
 // advances the day and runs all function associated with day advancement. Also checks if the game is over
 function advanceDay() {
     if (populationCount <= 0) {
