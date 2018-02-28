@@ -180,16 +180,26 @@ function foodCalculator() {
 function gatherResources() {
     goldCount += minerCount * Math.floor(Math.random() * 5) + 1;
     woodCount += lumberjackCount * Math.floor(Math.random() * 6) + 5;
+    lumberJackDeath();
+    minerDeath()
 }
 
 //calculates if a lumberjack dies
 function lumberJackDeath() {
-    // let deathChance = Math.floor(Math.random() * 30) + 1;
-
-    let deathChance = 1;
+    let deathChance = Math.floor(Math.random() * 30) + 1;
 
     if (deathChance === 1){
         personDied(false);
         displayDayMessage(true, 'A lumberjack died')
+    }
+}
+
+//calculates if a miner dies
+function minerDeath() {
+    let deathChance = Math.floor(Math.random() * 45) + 1;
+
+    if (deathChance === 1){
+        personDied(false);
+        displayDayMessage(true, 'A miner died')
     }
 }
