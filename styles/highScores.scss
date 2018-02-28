@@ -1,9 +1,11 @@
+@import "colorPalette";
+
 html {
   padding: 0;
   margin: 0;
   width: 100%;
   height: auto;
-  body {
+  #highScoresBody {
     padding: 0;
     margin: 0;
     width: 100%;
@@ -30,34 +32,74 @@ html {
         }
       }
     }
-    #localHighScoreTable{
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      margin: auto;
-      width: 50%;
-      td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
+    .highScoreTitleContainer {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: -40px;
+      align-items: center;
+      justify-content: center;
+      .highScore{
+        font-family: highScore, sans-serif;
+        font-size: 45px;
       }
-
-      tr:nth-child(even) {
-        background-color: #fff;
+      .zombieIcon{
+        height: 65px;
       }
-      tr:nth-child(odd) {
-        background-color: #fff;
-      }
-      .localPlace{
-        width: 35px;
-        text-align: center
-      }
-      .medalContainer {
+    }
+    .clearScores{
+      font-size: 13px;
+      border-radius:  0%;
+      margin-bottom: 10px;
+    }
+    .tables {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      .localHighScoreTableContainer{
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        .medalImage {
-          width: 18px;
+        flex-direction: column;
+      }
+      table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 45%;
+        margin: 10px 10px;
+        .publicHighScoreCaption{
+          margin-bottom: 34px;
+        }
+        caption{
+          font-size: 25px;
+          font-weight: bold;
+          button{
+            margin-bottom: 5px;
+            border-radius: 0%;
+            font-size: 13px;
+          }
+        }
+        td, th {
+          border: 1px solid #ddd;
+          text-align: left;
+          padding: 8px;
+        }
+
+        tr:nth-child(even) {
+          background-color: #fff;
+        }
+        tr:nth-child(odd) {
+          background-color: #fff;
+        }
+        .localPlace {
+          width: 35px;
+          text-align: center
+        }
+        .medalContainer {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          .medalImage {
+            width: 18px;
+          }
         }
       }
     }

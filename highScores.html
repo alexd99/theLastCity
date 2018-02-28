@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="htmlPackages/fontawesome-5.0.6/web-fonts-with-css/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="styles/main.css">
 </head>
-<body onload="displayHighScores();">
+<body id="highScoresBody" onload="displayLocalHighScores(); displayPublicHighScores();">
     <div class="backButtonContainer">
         <a href="index.html" class="backButtonATag">
             <button class="backButton">
@@ -20,19 +20,34 @@
         </a>
     </div>
 
-    <h1>High Scores</h1>
+    <div class="highScoreTitleContainer">
+        <p class="highScore">HIGH SCORES</p>
+        <img src="assets/images/zombieIcon.png" class="zombieIcon">
+    </div>
 
-    <h2>Local High Scores</h2>
-    <button onClick="clearHighScores();">Reset High Scores</button>
+    <div class="tables">
 
-    <table id="localHighScoreTable">
-        <tr>
-            <th class="localPlace">Place</th>
-            <th>City Name</th>
-            <th>Date</th>
-            <th>Score</th>
-        </tr>
-    </table>
+        <table id="localHighScoreTable">
+            <caption>Local High Scores<br><button onclick="clearHighScores();">Reset Scores</button></caption>
+            <tr>
+                <th class="localPlace">Place</th>
+                <th>City Name</th>
+                <th>Date</th>
+                <th>Score</th>
+            </tr>
+        </table>
+
+        <table id="publicHighScoreTable">
+            <caption class="publicHighScoreCaption">Public High Scores</caption>
+            <tr>
+                <th class="localPlace">Place</th>
+                <th>Player's Name</th>
+                <th>Date</th>
+                <th>Score</th>
+            </tr>
+        </table>
+
+    </div>
 
 <script src="htmlPackages/jquery-3.2.1.min.js"></script>
 <script src="javascript/scores/displayScores.js"></script>

@@ -179,20 +179,6 @@ html #indexBody .bottomGameContainer {
     margin-right: 4px; }
     html #indexBody .bottomGameContainer #store .storeInput {
       width: 70px; }
-html #indexBody .highScoreContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 45px;
-  margin-top: 10px; }
-  html #indexBody .highScoreContainer .highScore {
-    font-family: highScore, openSans, sans-serif;
-    font-size: 35px;
-    font-weight: bold;
-    margin-bottom: 0; }
-  html #indexBody .highScoreContainer .zombieIcon {
-    height: 50px; }
 html #indexBody #highScoreBoard {
   display: flex;
   flex-direction: column;
@@ -375,20 +361,20 @@ html {
   margin: 0;
   width: 100%;
   height: auto; }
-  html body {
+  html #highScoresBody {
     padding: 0;
     margin: 0;
     width: 100%;
     height: auto; }
-    html body .backButtonContainer {
+    html #highScoresBody .backButtonContainer {
       width: 128px;
       margin-bottom: 10px; }
-      html body .backButtonContainer .backButtonATag {
+      html #highScoresBody .backButtonContainer .backButtonATag {
         text-decoration: none; }
-        html body .backButtonContainer .backButtonATag .backButton > i {
+        html #highScoresBody .backButtonContainer .backButtonATag .backButton > i {
           margin-right: 10px;
           font-size: 25px; }
-        html body .backButtonContainer .backButtonATag .backButton {
+        html #highScoresBody .backButtonContainer .backButtonATag .backButton {
           width: 127px;
           height: 30px;
           font-size: 18px;
@@ -398,28 +384,59 @@ html {
           align-items: center;
           margin: auto;
           cursor: pointer; }
-    html body #localHighScoreTable {
-      font-family: arial, sans-serif;
-      border-collapse: collapse;
-      margin: auto;
-      width: 50%; }
-      html body #localHighScoreTable td, html body #localHighScoreTable th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px; }
-      html body #localHighScoreTable tr:nth-child(even) {
-        background-color: #fff; }
-      html body #localHighScoreTable tr:nth-child(odd) {
-        background-color: #fff; }
-      html body #localHighScoreTable .localPlace {
-        width: 35px;
-        text-align: center; }
-      html body #localHighScoreTable .medalContainer {
+    html #highScoresBody .highScoreTitleContainer {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: -40px;
+      align-items: center;
+      justify-content: center; }
+      html #highScoresBody .highScoreTitleContainer .highScore {
+        font-family: highScore, sans-serif;
+        font-size: 45px; }
+      html #highScoresBody .highScoreTitleContainer .zombieIcon {
+        height: 65px; }
+    html #highScoresBody .clearScores {
+      font-size: 13px;
+      border-radius: 0%;
+      margin-bottom: 10px; }
+    html #highScoresBody .tables {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly; }
+      html #highScoresBody .tables .localHighScoreTableContainer {
         display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center; }
-        html body #localHighScoreTable .medalContainer .medalImage {
-          width: 18px; }
+        flex-direction: column; }
+      html #highScoresBody .tables table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 45%;
+        margin: 10px 10px; }
+        html #highScoresBody .tables table .publicHighScoreCaption {
+          margin-bottom: 34px; }
+        html #highScoresBody .tables table caption {
+          font-size: 25px;
+          font-weight: bold; }
+          html #highScoresBody .tables table caption button {
+            margin-bottom: 5px;
+            border-radius: 0%;
+            font-size: 13px; }
+        html #highScoresBody .tables table td, html #highScoresBody .tables table th {
+          border: 1px solid #ddd;
+          text-align: left;
+          padding: 8px; }
+        html #highScoresBody .tables table tr:nth-child(even) {
+          background-color: #fff; }
+        html #highScoresBody .tables table tr:nth-child(odd) {
+          background-color: #fff; }
+        html #highScoresBody .tables table .localPlace {
+          width: 35px;
+          text-align: center; }
+        html #highScoresBody .tables table .medalContainer {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center; }
+          html #highScoresBody .tables table .medalContainer .medalImage {
+            width: 18px; }
 
 /*# sourceMappingURL=main.css.map */

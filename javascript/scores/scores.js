@@ -5,34 +5,6 @@ function generateScore() {
 
     storeScore();
 }
-//push score to data base
-function pushScore() {
-    let name = $('#userNameInput').val();
-
-    if(name === ''){
-        toastr["error"]("Please Include A Username");
-    }
-    // else{
-    //     let database = firebase.database();
-    //     let databaseRef = database.ref('highScores');
-    //     databaseRef.push({score: score, userName: name});
-    //     toastr["success"]("Score Added");
-    //     $('#gameOverModal').modal('hide');
-    // }
-    else{
-        db.collection("scores").add({
-            userName: name,
-            score: score
-        })
-            .then(function(docRef) {
-                console.log("Document written with ID: ", docRef.id);
-            })
-            .catch(function(error) {
-                console.error("Error adding document: ", error);
-            });
-    }
-}
-
 function setDate() {
     let date  = new Date().getDate();
     let month = new Date().getMonth();
@@ -79,6 +51,24 @@ function setDate() {
     }
 
     finalDate = `${month}/${date}/${year}`;
+}
+
+//push score to data base
+function pushScore() {
+    let name = $('#userNameInput').val();
+
+    setDate();
+
+    if(name === ''){
+        toastr["error"]("Please Include A Username");
+    }
+    else{
+        let database = firebase.database();
+        let databaseRef = database.ref('highScores');
+        databaseRef.push({score: score, userName: name, date: finalDate});
+        toastr["success"]("Score Added");
+        $('#gameOverModal').modal('hide');
+    }
 }
 
 // stores your score in local storage

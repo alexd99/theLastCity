@@ -34,7 +34,6 @@ function advanceDay() {
         $('.storeBtn').prop('disabled', true);
         $('#playAgain').show();
         generateScore();
-        displayHighScores();
     }
     else {
         //next day
