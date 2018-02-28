@@ -12,12 +12,24 @@ function pushScore() {
     if(name === ''){
         toastr["error"]("Please Include A Username");
     }
+    // else{
+    //     let database = firebase.database();
+    //     let databaseRef = database.ref('highScores');
+    //     databaseRef.push({score: score, userName: name});
+    //     toastr["success"]("Score Added");
+    //     $('#gameOverModal').modal('hide');
+    // }
     else{
-        let database = firebase.database();
-        let databaseRef = database.ref('highScores');
-        databaseRef.push({score: score, userName: name});
-        toastr["success"]("Score Added");
-        $('#gameOverModal').modal('hide');
+        db.collection("scores").add({
+            userName: name,
+            score: score
+        })
+            .then(function(docRef) {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch(function(error) {
+                console.error("Error adding document: ", error);
+            });
     }
 }
 
