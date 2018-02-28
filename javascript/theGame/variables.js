@@ -47,6 +47,7 @@ let zombieArmyNumberParam1 = 8;
 let zombieArmyNumberParam2 = 1;
 let peopleKilled = 0;
 let totalPeopleKilled = 0;
+let finalDate;
 
 let gameWarningsInsert = $('#gameWarnings');
 let mainGameTextInsert = $('#gameMainText');

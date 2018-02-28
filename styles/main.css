@@ -81,10 +81,13 @@ html #indexBody .pageLinkContainer {
     cursor: pointer; }
 html #indexBody #creditsLinkBox {
   margin-top: -15px; }
+html #indexBody #scoresLinkBox {
+  margin-top: -15px; }
 html #indexBody .mainGameContainer {
   display: flex;
   flex-direction: row;
-  justify-content: center; }
+  justify-content: center;
+  margin-top: 15px; }
   html #indexBody .mainGameContainer .gameBox {
     border: 1px solid black;
     width: 50px;
@@ -142,7 +145,7 @@ html #indexBody .mainGameContainer {
           background-color: #FFD700;
           color: black; }
         html #indexBody .mainGameContainer .middleGameBox .populationButtons .converterButtonBox .lumberJackBtn {
-          background: url("../assests/images/plaid.png") no-repeat;
+          background: url("../assets/images/plaid.png") no-repeat;
           background-size: cover;
           color: white; }
     html #indexBody .mainGameContainer .middleGameBox .mainButtonContainer .nextDayBtn {
@@ -272,7 +275,7 @@ html #indexBody #gameOverModal {
     height: 900px; } }
 html #instructionsBody {
   color: white;
-  background: url("../assests/images/instruction'sBackground.jpg") no-repeat;
+  background: url("../assets/images/instruction'sBackground.jpg") no-repeat;
   background-size: cover; }
   html #instructionsBody p {
     text-align: justify; }
@@ -366,5 +369,57 @@ html {
           align-items: center;
           margin: auto;
           cursor: pointer; }
+
+html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: auto; }
+  html body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto; }
+    html body .backButtonContainer {
+      width: 128px;
+      margin-bottom: 10px; }
+      html body .backButtonContainer .backButtonATag {
+        text-decoration: none; }
+        html body .backButtonContainer .backButtonATag .backButton > i {
+          margin-right: 10px;
+          font-size: 25px; }
+        html body .backButtonContainer .backButtonATag .backButton {
+          width: 127px;
+          height: 30px;
+          font-size: 18px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          margin: auto;
+          cursor: pointer; }
+    html body #localHighScoreTable {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      margin: auto;
+      width: 50%; }
+      html body #localHighScoreTable td, html body #localHighScoreTable th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px; }
+      html body #localHighScoreTable tr:nth-child(even) {
+        background-color: #fff; }
+      html body #localHighScoreTable tr:nth-child(odd) {
+        background-color: #fff; }
+      html body #localHighScoreTable .localPlace {
+        width: 35px;
+        text-align: center; }
+      html body #localHighScoreTable .medalContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center; }
+        html body #localHighScoreTable .medalContainer .medalImage {
+          width: 18px; }
 
 /*# sourceMappingURL=main.css.map */

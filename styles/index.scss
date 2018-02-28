@@ -46,10 +46,14 @@ html{
     #creditsLinkBox{
       margin-top: -15px;
     }
+    #scoresLinkBox{
+      margin-top: -15px;
+    }
     .mainGameContainer{
       display: flex;
       flex-direction: row;
       justify-content: center;
+      margin-top: 15px;
       .gameBox{
         border: 1px solid black;
         width: 50px;
@@ -121,7 +125,7 @@ html{
               color: black;
             }
             .lumberJackBtn{
-              background: url("../assests/images/plaid.png") no-repeat;
+              background: url("../assets/images/plaid.png") no-repeat;
               background-size: cover;
               color: white;
             }

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>The Last City</title>
-    
-    <link rel="icon" href="assests/images/favIcon.png">
+
+    <link rel="icon" href="assets/images/favIcon.png">
 
     <link rel="stylesheet" href="htmlPackages/bootstrap-3.3.7-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="htmlPackages/fontawesome-5.0.6/web-fonts-with-css/css/fontawesome-all.min.css">
@@ -25,6 +25,12 @@
     <div class="pageLinkContainer" id="creditsLinkBox">
         <a href="credits.html" class="pageLink">
             <h3 class="instructionsLinkText">Credits</h3>
+        </a>
+    </div>
+
+    <div class="pageLinkContainer" id="scoresLinkBox">
+        <a href="highScores.html" class="pageLink">
+            <h3 class="instructionsLinkText">High Scores</h3>
         </a>
     </div>
     <div class="pageLinkContainer">
@@ -192,6 +198,14 @@
                     </button>
                 </div>
 
+
+                <div class="researchIndivButtonBox">
+                    <p id="farmName"> Basic Farm(0)</p>
+                    <button onclick="upgradeFarm();" title="radios make it easier to find people to bring into your city">
+                        <span id="upgradeFarmText"> Fences: 50 wood</span>
+                    </button>
+                </div>
+
             </div>
         </div>
     </div>
@@ -228,12 +242,11 @@
 
     <div class="highScoreContainer">
         <p class="highScore">HIGH SCORES</p>
-        <img src="assests/images/zombieIcon.png" class="zombieIcon">
+        <img src="assets/images/zombieIcon.png" class="zombieIcon">
     </div>
 
     <div id="highScoreBoard">
     </div>
-    <button onClick="clearHighScores();">Reset High Scores</button>
 
     <!--inventory information modal-->
     <div class="modal fade" id="inventoryInfoModal" tabindex="-1" role="dialog" aria-labelledby="inventoryInfoModal">
@@ -314,7 +327,7 @@
 
     <!--audio for testing purposes-->
     <audio id="gameMusic" autoplay loop muted>
-        <source src="assests/music/0_2_01.mp3" type="audio/mpeg">
+        <source src="assets/music/0_2_01.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
 
@@ -346,15 +359,15 @@
 <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-<script src="javascript/dataBase/databaseConfig.js"></script>
-<script src="javascript/dataBase/dataBaseScores.js"></script>
+<script src="javascript/scores/databaseConfig.js"></script>
+<script src="javascript/scores/dataBaseScores.js"></script>
 
 <!--The Game-->
 <script src="javascript/theGame/variables.js"></script>
 <script src="javascript/theGame/advanceDay.js"></script>
 <script src="javascript/theGame/population.js"></script>
 <script src="javascript/theGame/research.js"></script>
-<script src="javascript/theGame/scores.js"></script>
+<script src="javascript/scores/scores.js"></script>
 <script src="javascript/theGame/store&forge.js"></script>
 <script src="javascript/theGame/zombies.js"></script>
 

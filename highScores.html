@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>High Scores</title>
+
+    <link rel="icon" href="assets/images/favIcon.png">
+
+    <link rel="stylesheet" href="htmlPackages/fontawesome-5.0.6/web-fonts-with-css/css/fontawesome-all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body onload="displayHighScores();">
+    <div class="backButtonContainer">
+        <a href="index.html" class="backButtonATag">
+            <button class="backButton">
+                <i class="fas fa-caret-left"></i>BACK
+            </button>
+        </a>
+    </div>
+
+    <h1>High Scores</h1>
+
+    <h2>Local High Scores</h2>
+    <button onClick="clearHighScores();">Reset High Scores</button>
+
+    <table id="localHighScoreTable">
+        <tr>
+            <th class="localPlace">Place</th>
+            <th>City Name</th>
+            <th>Date</th>
+            <th>Score</th>
+        </tr>
+    </table>
+
+<script src="htmlPackages/jquery-3.2.1.min.js"></script>
+<script src="javascript/scores/displayScores.js"></script>
+<script src="javascript/scores/scores.js"></script>
+</body>
+</html>

@@ -61,3 +61,8 @@ function upgradeWalls(){
 
     displayTotalSupplies();
 }
+
+function upgradeFarm(){
+    let farmUpgradeText = $('#upgradeWallText');
+    let farmName = $('#wallName');
+}

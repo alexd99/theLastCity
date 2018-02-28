@@ -33,57 +33,75 @@ function pushScore() {
     }
 }
 
+function setDate() {
+    let date  = new Date().getDate();
+    let month = new Date().getMonth();
+    let year = new Date().getFullYear();
+
+    switch(month)
+    {
+        case 0:
+            month="January";
+            break;
+        case 1:
+            month="February";
+            break;
+        case 2:
+            month="March";
+            break;
+        case 3:
+            month="April";
+            break;
+        case 4:
+            month="May";
+            break;
+        case 5:
+            month="June";
+            break;
+        case 6:
+            month="July";
+            break;
+        case 7:
+            month="August";
+            break;
+        case 8:
+            month="September";
+            break;
+        case 9:
+            month="October";
+            break;
+        case 10:
+            month="November";
+            break;
+        case 11:
+            month="December";
+            break;
+    }
+
+    finalDate = `${month}/${date}/${year}`;
+}
+
 // stores your score in local storage
 function storeScore() {
+
+    setDate();
+
     let cityName = $(document).find("title").text();
 
     let game = JSON.parse( localStorage.getItem('game')) || [];
 
 
-    game.push({name: cityName, score: score});
+    game.push({name: cityName, score: score, scoreDate: finalDate});
 
     localStorage.setItem('game', JSON.stringify(game));
 }
 
-// displays high scores from local storage
-function displayHighScores() {
-
-    let game = JSON.parse(localStorage.getItem('game')) || [];
-
-    game.sort((a, b) => {
-        if (a.score > b.score) {
-            return -1;
-        }
-        else if (a.score < b.score) {
-            return 1
-        }
-        else {
-            return 0
-        }
-    });
-
-    $('#highScoreBoard').html('');
-
-    if(game.length < 10){
-        for (let i = 0; i < game.length; i++) {
-            let highScoreBoardText = `<h3 class="highScoreText">${game[i].name} ..... ${game[i].score}</h3><br>`;
-            $('#highScoreBoard').append(highScoreBoardText);
-        }
-    }
-    else {
-        for (let i = 0; i < 10; i++) {
-            let highScoreBoardText = `<h3 class="highScoreText">${game[i].name} ..... ${game[i].score}</h3><br>`;
-            $('#highScoreBoard').append(highScoreBoardText);
-        }
-    }
-}
 // clears local storage
 function clearHighScores() {
     let makeSure = window.confirm('Are You Sure You Want To Clear All High Scores? This Action Can Not Be Undone!');
 
     if (makeSure === true) {
         localStorage.clear();
-        toastr["info"]("Scores Reset");
-        $('#highScoreBoard').html('');
+        $('.localScoreTableRow').html('');
     }
 }

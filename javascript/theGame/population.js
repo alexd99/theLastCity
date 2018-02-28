@@ -155,7 +155,7 @@ function makeTombstone() {
 
     let finalName = (selectedFirstName + ' ' + selectedLastName);
 
-    let tombstone = `<div class="tombstone" style=" margin-right: 20px; margin-left: 20px;"><img src="images/tombstone.png" class="tombstone"> <p class="tombstoneText">Here Lies ${finalName}</p></div>`;
+    let tombstone = `<div class="tombstone" style=" margin-right: 20px; margin-left: 20px;"><img src="assets/images/tombstone.png" class="tombstone"> <p class="tombstoneText">Here Lies ${finalName}</p></div>`;
 
     $('.tombstoneContainer').append(tombstone);
 }

@@ -1,0 +1,65 @@
+html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    .backButtonContainer {
+      width: 128px;
+      margin-bottom: 10px;
+      .backButtonATag {
+        text-decoration: none;
+        .backButton > i {
+          margin-right: 10px;
+          font-size: 25px;
+        }
+        .backButton {
+          width: 127px;
+          height: 30px;
+          font-size: 18px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          margin: auto;
+          cursor: pointer;
+        }
+      }
+    }
+    #localHighScoreTable{
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      margin: auto;
+      width: 50%;
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+
+      tr:nth-child(even) {
+        background-color: #fff;
+      }
+      tr:nth-child(odd) {
+        background-color: #fff;
+      }
+      .localPlace{
+        width: 35px;
+        text-align: center
+      }
+      .medalContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        .medalImage {
+          width: 18px;
+        }
+      }
+    }
+  }
+}
