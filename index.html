@@ -62,9 +62,6 @@
                     <h3 id="woodCount"></h3>
                 </div>
             </div>
-            <div class="inventoryPicContainer">
-                <img src="images/inventory.png" class="inventoryPic">
-            </div>
         </div>
         <div class="middleGameBox gameBox">
             <div class="gameTextContainer">
@@ -191,13 +188,10 @@
                 <div class="researchIndivButtonBox">
                     <p id="wallName"> Wood Walls (0)</p>
                     <button onclick="upgradeWalls();" title="radios make it easier to find people to bring into your city">
-                        <span id="upgradeWallText"> Hard Wood: 500 wood</span>
+                        <span id="upgradeWallText"> Hard Wood: 100 wood</span>
                     </button>
                 </div>
 
-            </div>
-            <div class="researchPicContainer">
-                <img src="images/lab.jpg" class="researchPic">
             </div>
         </div>
     </div>
@@ -324,20 +318,44 @@
         Your browser does not support the audio element.
     </audio>
 
-<script src="javascript/jquery-3.2.1.min.js"></script>
+<!--html libraries-->
+<script src="htmlPackages/jquery-3.2.1.min.js"></script>
 <script src="htmlPackages/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script src="htmlPackages/toastr/build/toastr.min.js"></script>
-<script src="javascript/townNameChanger.js"></script>
-<script src="javascript/game.js"></script>
-<script src="javascript/music.js"></script>
-<script src="javascript/dataBaseScores.js"></script>
+<script>
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "10000",
+        "hideDuration": "4000",
+        "timeOut": "2000",
+        "extendedTimeOut": "2000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    };
+</script>
 
 <!--set up the database-->
 <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase-database.js"></script>
 <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
-<script src="javascript/databaseConfig.js"></script>
+<script src="javascript/dataBase/databaseConfig.js"></script>
 
+<!--The Game-->
+<script src="javascript/theGame/variables.js"></script>
+<script src="javascript/theGame/advanceDay.js"></script>
+<script src="javascript/theGame/population.js"></script>
+<script src="javascript/theGame/research.js"></script>
+<script src="javascript/theGame/scores.js"></script>
+<script src="javascript/theGame/store&forge.js"></script>
+<script src="javascript/theGame/zombies.js"></script>
 
 </body>
 </html>

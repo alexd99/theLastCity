@@ -96,9 +96,6 @@ html #indexBody .mainGameContainer {
       display: flex;
       flex-direction: row;
       justify-content: center; }
-    html #indexBody .mainGameContainer .leftGameBox .inventoryPicContainer .inventoryPic {
-      height: 200px;
-      margin-bottom: 10px; }
   html #indexBody .mainGameContainer .middleGameBox {
     margin: auto 5px;
     width: 70%; }
@@ -164,8 +161,6 @@ html #indexBody .mainGameContainer {
         margin-bottom: 2px; }
       html #indexBody .mainGameContainer .rightGameBox .researchButtonBox .researchIndivButtonBox {
         margin-bottom: 10px; }
-    html #indexBody .mainGameContainer .rightGameBox .researchPicContainer .researchPic {
-      width: 98%; }
 html #indexBody .bottomGameContainer {
   width: 98.6%;
   margin: 10px auto;
