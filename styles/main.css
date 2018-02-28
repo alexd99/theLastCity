@@ -1,9 +1,9 @@
 @font-face {
   font-family: highScore;
-  src: url(../fonts/MonstersAttack.ttf); }
+  src: url(fonts/MonstersAttack.ttf); }
 @font-face {
   font-family: openSans;
-  src: url(../fonts/OpenSans.ttf); }
+  src: url(fonts/OpenSans.ttf); }
 html {
   padding: 0;
   margin: 0;
@@ -142,7 +142,7 @@ html #indexBody .mainGameContainer {
           background-color: #FFD700;
           color: black; }
         html #indexBody .mainGameContainer .middleGameBox .populationButtons .converterButtonBox .lumberJackBtn {
-          background: url("../images/plaid.png") no-repeat;
+          background: url("../assests/images/plaid.png") no-repeat;
           background-size: cover;
           color: white; }
     html #indexBody .mainGameContainer .middleGameBox .mainButtonContainer .nextDayBtn {
@@ -272,7 +272,7 @@ html #indexBody #gameOverModal {
     height: 900px; } }
 html #instructionsBody {
   color: white;
-  background: url("../images/instruction'sBackground.jpg") no-repeat;
+  background: url("../assests/images/instruction'sBackground.jpg") no-repeat;
   background-size: cover; }
   html #instructionsBody p {
     text-align: justify; }
