@@ -11,6 +11,9 @@ let ammoCountInsert = $('#ammoCount');
 let metalCount;
 let metalCountInsert = $('#metalCount');
 
+let wireCount;
+let wireCountInsert = $('#wireCount');
+
 let oreCount;
 let oreCountInsert = $('#oreCount');
 
@@ -59,6 +62,7 @@ function displayTotalSupplies() {
     foodCountInsert.html(foodCount);
     ammoCountInsert.html(ammoCount);
     metalCountInsert.html(metalCount);
+    wireCountInsert.html(wireCount);
     oreCountInsert.html(oreCount);
     woodCountInsert.html(woodCount);
 

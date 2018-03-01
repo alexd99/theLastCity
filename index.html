@@ -56,6 +56,7 @@
                     <h3>Food:</h3>
                     <h3>Ammo:</h3>
                     <h3>Metal:</h3>
+                    <h3>Wire:</h3>
                     <h3>Ore:</h3>
                     <h3>Wood:</h3>
                 </div>
@@ -64,6 +65,7 @@
                     <h3 id="foodCount"></h3>
                     <h3 id="ammoCount"></h3>
                     <h3 id="metalCount"></h3>
+                    <h3 id="wireCount"></h3>
                     <h3 id="oreCount"></h3>
                     <h3 id="woodCount"></h3>
                 </div>
@@ -220,8 +222,13 @@
             </div>
 
             <div class="storeItems generalStore">
-                <input type="number" class="storeInput" title="ammoInput" id="foodInput" min="2" step="" placeholder="quantity">
+                <input type="number" class="storeInput" title="ammoInput" id="foodInput" min="2" step="2" placeholder="quantity">
                 <button class="storeBtn" onclick="theStore('foodInput', 'food', 2, 2)">Buy Food: 1 gold for 2 food</button>
+            </div>
+
+            <div class="storeItems metalStore">
+                <input type="number" class="storeInput" title="ammoInput" id="wireInput" min="10" step="10" placeholder="quantity">
+                <button class="storeBtn" onclick="theStore('wireInput', 'wire', 10, 10)">Buy Wire: 1 gold for 10 wire</button>
             </div>
 
         </div>
@@ -266,6 +273,11 @@
                     <h3 class="infoModalTitle">Metal</h3>
                     <p class="infoModalText">
                         Metal is necessary in many upgrades.
+                    </p>
+
+                    <h3 class="infoModalTitle">Wire</h3>
+                    <p class="infoModalText">
+                        Wire is used in some upgrades. Wire is only available from traveling merchants.
                     </p>
 
                     <h3 class="infoModalTitle">Ore</h3>

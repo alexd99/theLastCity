@@ -10,16 +10,18 @@ function upgradeRadio() {
     else if(radioLevel === 1 && metalCount >= 400){
         radioLevel ++;
         metalCount -= 400;
-        radioUpgradeText.html('Upgrade Radio: 600 metal');
+        radioUpgradeText.html('Upgrade Radio: 600 metal and 50 wire');
     }
-    else if(radioLevel === 2 && metalCount >= 600){
+    else if(radioLevel === 2 && metalCount >= 600 && wireCount >= 50){
         radioLevel ++;
         metalCount -= 600;
-        radioUpgradeText.html('Upgrade Radio: 1000 metal');
+        wireCount -= 50;
+        radioUpgradeText.html('Upgrade Radio: 1000 metal and 100 wire');
     }
-    else if(radioLevel === 3 && metalCount >= 1000){
+    else if(radioLevel === 3 && metalCount >= 1000 && wireCount >= 100){
         radioLevel ++;
         metalCount -= 1000;
+        wireCount -= 100;
         radioUpgradeText.html('Upgrade Finished?');
     }
 

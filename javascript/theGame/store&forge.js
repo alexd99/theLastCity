@@ -3,23 +3,29 @@ function theStore(inputId, name, step, price) {
 
     let totalPrice = inputId / price;
 
-    if (inputId % step === 0){
-        if(goldCount < price){
-            toastr['error']('You Do Not Have Enough Gold');
+    if(inputId > 0) {
+
+        if (inputId % step === 0) {
+            if (goldCount < price) {
+                toastr['error']('You Do Not Have Enough Gold');
+            }
+            else {
+                toastr['success'](`You Successfully Bought ${inputId} ${name} For ${totalPrice} Gold`);
+                if (name === 'ammo') {
+                    ammoCount += inputId;
+                }
+                if (name === 'food') {
+                    foodCount += inputId;
+                }
+                if (name === 'wire') {
+                    wireCount += inputId;
+                }
+                goldCount -= totalPrice;
+            }
         }
         else {
-            toastr['success'](`You Successfully Bought ${inputId} ${name} For ${totalPrice} Gold`);
-            if (name === 'ammo'){
-                ammoCount += inputId;
-            }
-            if (name === 'food'){
-                foodCount += inputId;
-            }
-            goldCount -= totalPrice;
+            toastr['error'](`Must Be Bought In Sets Of ${step}`);
         }
-    }
-    else{
-        toastr['error'](`Must Be Bought In Sets Of ${step}`);
     }
     displayTotalSupplies();
 }
@@ -58,6 +64,9 @@ function displayStore() {
     let generalStore = $('.generalStore');
     generalStore.hide();
 
+    let metalStore = $('.metalStore');
+    metalStore.hide();
+
     let open = Math.floor((Math.random() * 2) + 1);
 
     if(open === 1) {
@@ -67,6 +76,10 @@ function displayStore() {
             case 1:
                 generalStore.show();
                 storeTitle.html('GENERAL STORE');
+                break;
+            case 2:
+                metalStore.show();
+                storeTitle.html('METAL STORE');
                 break;
         }
     }

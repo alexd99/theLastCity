@@ -5,6 +5,7 @@ function onStart() {
     ammoCount = 25;
     metalCount = 1000000;
     oreCount = 8;
+    wireCount = 10000;
     woodCount = 600;
     populationCount = 11;
     idleCount = populationCount;
