@@ -63,6 +63,26 @@ function upgradeWalls(){
 }
 
 function upgradeFarm(){
-    let farmUpgradeText = $('#upgradeWallText');
-    let farmName = $('#wallName');
+    let farmUpgradeText = $('#upgradeFarmText');
+    let farmName = $('#farmName');
+
+    if(farmLevel === 0 && woodCount >= 50){
+      farmLevel ++;
+      woodCount -= 50;
+      farmUpgradeText.html('Sprinklers: 50 metal');
+      farmName.html('Fence (1)');
+    }
+    else if(farmLevel === 1 && metalCount >=50){
+      farmLevel ++;
+      metalCount -= 50;
+      farmUpgradeText.html('Quality fence and Sprinklers: 100 wood and 100 metal');
+      farmName.html('Sprinklers (2)');
+    }
+    else if (farmLevel === 2 && woodCount >=100 && metalCount >= 100) {
+      farmLevel ++;
+      woodCount -=100;
+      metalCount -= 100;
+      farmUpgradeText.html('Upgrade Finished');
+      farmName.html('Quality Fence and Sprinklers (3)');
+    }
 }

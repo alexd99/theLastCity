@@ -41,6 +41,7 @@ let dayCount = 0;
 let daysWithoutFood = 0;
 let radioLevel = 0;
 let wallLevel = 0;
+let farmLevel = 0;
 let score;
 let clearMessage = false;
 let zombieArmyNumberParam1 = 8;

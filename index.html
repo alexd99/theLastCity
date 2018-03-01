@@ -293,12 +293,54 @@
                     <p class="infoModalText">
                         The radio is used to communicate with travels.
                         The higher the radio the better chance you have of people coming to your town.
-                    </p>
+
+                        <p onclick="showModalBreakDown('radioBreakdown', 'showResearchBreakdown', 'hideResearchBreakdown');"
+                           id="showResearchBreakdown" class="breakDown">Show Breakdown</p>
+
+                        <p onclick="hideModalBreakDown('radioBreakdown', 'showResearchBreakdown', 'hideResearchBreakdown');"
+                           id="hideResearchBreakdown" class="hideBreakDown breakDown">Hide Breakdown</p>
+
+                        <div class="researchBreakDown" id="radioBreakdown">
+                          <p>Level 0: chance of people arriving 1/20</p>
+                          <p>Level 1: chance of people arriving 1/17</p>
+                          <p>Level 3: chance of people arriving 1/12</p>
+                          <p>Level 0: chance of people arriving 1/9</p>
+                        </div>
 
                     <h3 class="infoModalTitle">Walls</h3>
                     <p class="infoModalText">
                         Walls add more defense to your town, allowing you to hold of more zombies.
+
+                        <p onclick="showModalBreakDown('wallBreakdown', 'showWallBreakdown', 'hideWallBreakdown');"
+                           id="showWallBreakdown" class="breakDown">Show Breakdown</p>
+
+                        <p onclick="hideModalBreakDown('wallBreakdown', 'showWallBreakdown', 'hideWallBreakdown');"
+                           id="hideWallBreakdown" class="hideBreakDown breakDown">Hide Breakdown</p>
+
+                        <div class="researchBreakDown" id="wallBreakdown">
+                            <p>Level 0: added defense 0</p>
+                            <p>Level 1: added defense 1</p>
+                            <p>Level 2: added defense 2</p>
+                            <p>Level 3: added defense 4</p>
+                            <p>Level 4: added defense 6</p>
+                        </div>
+                    <h3 class="infoModalTitle">Farm</h3>
+                    <p class="infoModalText">
+                        Farms allow you to grow food, the higher the farm level the more food a farmer can grow.
                     </p>
+                    <p onclick="showModalBreakDown('farmBreakdown', 'showFarmBreakdown', 'hideFarmBreakdown');"
+                       id="showFarmBreakdown" class="breakDown">Show Breakdown</p>
+
+                    <p onclick="hideModalBreakDown('farmBreakdown', 'showFarmBreakdown', 'hideFarmBreakdown');"
+                       id="hideFarmBreakdown" class="hideBreakDown breakDown">Hide Breakdown</p>
+
+                    <div class="researchBreakDown" id="farmBreakdown">
+                        <p>Level 0: food grown by farmer 4</p>
+                        <p>Level 1: food grown by farmer 5</p>
+                        <p>Level 2: food grown by farmer 6</p>
+                        <p>Level 3: food grown by farmer 7</p>
+
+                    </div>
                 </div>
                 <button class="infoModalCloseButton" onclick="$('#researchInfoModal').modal('hide');">CLOSE</button>
             </div>
@@ -377,6 +419,7 @@
 <!--other js files-->
 <script src="javascript/music.js"></script>
 <script src="javascript/townNameChanger.js"></script>
+<script src="javascript/modalBreakDown.js"></script>
 
 </body>
 </html>

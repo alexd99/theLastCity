@@ -215,6 +215,9 @@ html{
         }
       }
     }
+    .breakDown{
+      cursor: pointer;
+    }
     .infoModalContent {
       margin: auto -70px;
       .infoModalTextContainer{
@@ -284,7 +287,6 @@ html{
     }
   }
 }
-
 @media only screen and (max-width: 726px) {
   html {
     #indexBody {

@@ -214,6 +214,8 @@ html #indexBody .graveyard {
         width: 135px;
         margin-bottom: 19px;
         margin-top: -2px; }
+html #indexBody .breakDown {
+  cursor: pointer; }
 html #indexBody .infoModalContent {
   margin: auto -70px; }
   html #indexBody .infoModalContent .infoModalTextContainer {

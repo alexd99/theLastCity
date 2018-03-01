@@ -81,6 +81,9 @@ function personDied(sentAway) {
         else if (minerCount > 0) {
             minerCount -= 1
         }
+        else if (lumberjackCount > 0) {
+          lumberjackCount -= 1;
+        }
         populationCount -= 1;
     }
 
@@ -161,6 +164,24 @@ function makeTombstone() {
 }
 
 function foodCalculator() {
+
+    switch (farmLevel) {
+      case 0:
+        foodCount += farmerCount * 4;
+        break;
+      case 1:
+        foodCount += farmerCount * 5;
+        break;
+      case 2:
+        foodCount += farmerCount * 6;
+        break;
+      case 3:
+        foodCount += farmerCount * 7;
+        break;
+    }
+
+    console.log(foodCount);
+
     foodCount += farmerCount * 4;
     foodCount -= populationCount;
 
