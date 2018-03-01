@@ -11,6 +11,11 @@ let localEndRef = 10;
 
 let globalStartRef = 0;
 let globalEndRef = 10;
+
+$( document ).ready(function() {
+    displayGlobalHighScores(0,10);
+    displayLocalHighScores(0,10);
+});
 // displays high scores from local storage
 function displayLocalHighScores(forLoopStarNumber, forLoopEndNumber) {
 
