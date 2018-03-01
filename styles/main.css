@@ -4,6 +4,9 @@
 @font-face {
   font-family: openSans;
   src: url(fonts/OpenSans.ttf); }
+@font-face {
+  font-family: arcade;
+  src: url(fonts/arcade.ttf); }
 html {
   padding: 0;
   margin: 0;
@@ -365,7 +368,9 @@ html {
     padding: 0;
     margin: 0;
     width: 100%;
-    height: auto; }
+    height: auto;
+    background-color: black;
+    color: white; }
     html #highScoresBody .backButtonContainer {
       width: 128px;
       margin-bottom: 10px; }
@@ -383,7 +388,10 @@ html {
           justify-content: center;
           align-items: center;
           margin: auto;
-          cursor: pointer; }
+          cursor: pointer;
+          background-color: white;
+          border: none;
+          color: black; }
     html #highScoresBody .highScoreTitleContainer {
       display: flex;
       flex-direction: row;
@@ -403,9 +411,6 @@ html {
       display: flex;
       flex-direction: row;
       justify-content: space-evenly; }
-      html #highScoresBody .tables .localHighScoreTableContainer {
-        display: flex;
-        flex-direction: column; }
       html #highScoresBody .tables table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
@@ -424,11 +429,15 @@ html {
           border: 1px solid #ddd;
           text-align: left;
           padding: 8px; }
-        html #highScoresBody .tables table tr:nth-child(even) {
-          background-color: #fff; }
-        html #highScoresBody .tables table tr:nth-child(odd) {
-          background-color: #fff; }
+        html #highScoresBody .tables table tr {
+          background-color: black;
+          color: white;
+          font-family: arcade, openSans, sans-serif;
+          font-size: 13px; }
         html #highScoresBody .tables table .localPlace {
+          width: 35px;
+          text-align: center; }
+        html #highScoresBody .tables table .globalPlace {
           width: 35px;
           text-align: center; }
         html #highScoresBody .tables table .medalContainer {
@@ -438,5 +447,18 @@ html {
           align-items: center; }
           html #highScoresBody .tables table .medalContainer .medalImage {
             width: 18px; }
+    html #highScoresBody #tableNavigateContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly; }
+      html #highScoresBody #tableNavigateContainer .tableNavigate {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 45%;
+        margin: 10px 10px;
+        font-family: arcade, openSans, sans-serif;
+        font-size: 11px;
+        cursor: pointer; }
 
 /*# sourceMappingURL=main.css.map */

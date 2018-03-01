@@ -10,6 +10,8 @@ html {
     margin: 0;
     width: 100%;
     height: auto;
+    background-color: black;
+    color:  white;
     .backButtonContainer {
       width: 128px;
       margin-bottom: 10px;
@@ -29,6 +31,9 @@ html {
           align-items: center;
           margin: auto;
           cursor: pointer;
+          background-color: white;
+          border: none;
+          color: black;
         }
       }
     }
@@ -55,10 +60,6 @@ html {
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
-      .localHighScoreTableContainer{
-        display: flex;
-        flex-direction: column;
-      }
       table {
         font-family: arial, sans-serif;
         border-collapse: collapse;
@@ -81,14 +82,17 @@ html {
           text-align: left;
           padding: 8px;
         }
-
-        tr:nth-child(even) {
-          background-color: #fff;
-        }
-        tr:nth-child(odd) {
-          background-color: #fff;
+        tr{
+          background-color: black;
+          color: white;
+          font-family: arcade, openSans, sans-serif;
+          font-size: 13px;
         }
         .localPlace {
+          width: 35px;
+          text-align: center
+        }
+        .globalPlace {
           width: 35px;
           text-align: center
         }
@@ -101,6 +105,20 @@ html {
             width: 18px;
           }
         }
+      }
+    }
+    #tableNavigateContainer{
+      display: flex;flex-direction: row;
+      justify-content: space-evenly;
+      .tableNavigate{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 45%;
+        margin: 10px 10px;
+        font-family:  arcade, openSans, sans-serif;
+        font-size: 11px;
+        cursor: pointer;
       }
     }
   }

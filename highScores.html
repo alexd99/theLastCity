@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="htmlPackages/fontawesome-5.0.6/web-fonts-with-css/css/fontawesome-all.min.css">
     <link rel="stylesheet" href="styles/main.css">
 </head>
-<body id="highScoresBody" onload="displayLocalHighScores(); displayPublicHighScores();">
+<body id="highScoresBody" onload="displayLocalHighScores(0,10); displayGlobalHighScores(0, 10);">
     <div class="backButtonContainer">
         <a href="index.html" class="backButtonATag">
             <button class="backButton">
@@ -36,9 +36,8 @@
                 <th>Score</th>
             </tr>
         </table>
-
         <table id="publicHighScoreTable">
-            <caption class="publicHighScoreCaption">Public High Scores</caption>
+            <caption class="publicHighScoreCaption">Global High Scores</caption>
             <tr>
                 <th class="localPlace">Place</th>
                 <th>Player's Name</th>
@@ -47,6 +46,17 @@
             </tr>
         </table>
 
+    </div>
+
+    <div id="tableNavigateContainer">
+        <div class="tableNavigate">
+            <p onclick="previousLocalScores();">Previous 10</p>
+            <p onclick="nextLocalScores();">Next 10</p>
+        </div>
+        <div class="tableNavigate">
+            <p onclick="previousGlobalScores();">Previous 10</p>
+            <p onclick="nextGlobalScores();">Next 10</p>
+        </div>
     </div>
 
 <script src="htmlPackages/jquery-3.2.1.min.js"></script>
