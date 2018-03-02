@@ -254,6 +254,17 @@ html{
         }
       }
     }
+    #oneChanceStoreModalText > p{
+      text-indent: 50px;
+      text-align: left;
+      margin: auto 8px;
+      #oneChanceStoreButtonContainer{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
     audio{
       //display: none;
     }
@@ -263,6 +274,9 @@ html{
   display: flex;
   flex-direction: column;
   margin-left:  10px;
+}
+.legendaryItem{
+  color: #7A24C2;
 }
 
 @media only screen and (max-width: 1439px) {

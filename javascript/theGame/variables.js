@@ -39,6 +39,10 @@ let minerCountInsert = $('.minerCount');
 let lumberjackCount;
 let lumberJackCountInsert = $('.lumberjackCount');
 
+// legendary item counts
+
+let goldWireCount = 0;
+
 // other global variables
 let dayCount = 0;
 let daysWithoutFood = 0;

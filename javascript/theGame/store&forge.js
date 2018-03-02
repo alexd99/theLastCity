@@ -84,3 +84,15 @@ function displayStore() {
         }
     }
 }
+
+function oneChanceStore(itemSelected){
+    let itemNameInput =  $('.itemTextBoxRight');
+    let itemCountInsert = $('.itemTextBoxLeft');
+    if(itemSelected === 'goldWire'){
+        goldWireCount += 1;
+      itemNameInput.append(`<h3 class="legendaryItem">Gold Wire</h3>`);
+      itemCountInsert.append(`<h3 id="goldWire">${goldWireCount}</h3>`)
+
+    }
+    $('#oneChanceStoreModal').modal('hide');
+}
