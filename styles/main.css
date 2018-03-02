@@ -50,6 +50,8 @@ html {
       outline: 0; }
     html body button {
       cursor: pointer; }
+    html body .topTitle {
+      margin-top: -10px; }
 
 html #indexBody input:focus {
   outline: 0; }
@@ -273,9 +275,18 @@ html #indexBody #oneChanceStoreModalText > p {
       width: 98%; }
     html #indexBody .mainGameContainer .rightGameBox {
       width: 98%; } }
-@media only screen and (max-width: 726px) {
+@media only screen and (max-width: 830px) {
   html #indexBody .mainGameContainer .middleGameBox {
-    height: 900px; } }
+    height: 715px; } }
+@media only screen and (max-width: 830px) {
+  html #indexBody .mainGameContainer .middleGameBox {
+    height: 775px; } }
+@media only screen and (max-width: 414px) {
+  html #indexBody .mainGameContainer .middleGameBox {
+    height: 1090px; } }
+@media only screen and (max-width: 380px) {
+  html #indexBody .mainGameContainer .middleGameBox {
+    height: 1145px; } }
 html #instructionsBody {
   color: white;
   background: url("../assets/images/instruction'sBackground.jpg") no-repeat;
@@ -295,8 +306,7 @@ html #instructionsBody {
   html #instructionsBody .backButton > i {
     text-decoration: none; }
   html #instructionsBody .backButtonContainer {
-    width: 128px;
-    margin: auto; }
+    width: 128px; }
     html #instructionsBody .backButtonContainer .backButtonATag {
       text-decoration: none; }
       html #instructionsBody .backButtonContainer .backButtonATag .backButton > i {
@@ -334,7 +344,7 @@ html {
   height: auto; }
   html #creditsBody {
     padding: 0;
-    width: 50%;
+    width: 100%;
     height: auto;
     margin: auto;
     text-align: center; }
@@ -344,8 +354,10 @@ html {
       cursor: pointer; }
     html #creditsBody #credits {
       display: flex;
-      flex-direction: row;
-      justify-content: space-evenly; }
+      flex-direction: column;
+      justify-content: center; }
+      html #creditsBody #credits .creditsTitle {
+        text-decoration: underline; }
     html #creditsBody .resourcesTitleText {
       text-decoration: underline; }
     html #creditsBody .resources {
@@ -355,8 +367,7 @@ html {
     html #creditsBody .backButton > i {
       text-decoration: none; }
     html #creditsBody .backButtonContainer {
-      width: 128px;
-      margin: 20px auto 0 auto; }
+      width: 128px; }
       html #creditsBody .backButtonContainer .backButtonATag {
         text-decoration: none; }
         html #creditsBody .backButtonContainer .backButtonATag .backButton > i {
@@ -461,6 +472,8 @@ html {
           align-items: center; }
           html #highScoresBody .tables table .medalContainer .medalImage {
             width: 18px; }
+      html #highScoresBody .tables .mobileTableNavigate {
+        display: none; }
     html #highScoresBody #tableNavigateContainer {
       display: flex;
       flex-direction: row;
@@ -474,5 +487,20 @@ html {
         font-family: arcade, openSans, sans-serif;
         font-size: 11px;
         cursor: pointer; }
+
+@media only screen and (max-width: 944px) {
+  html #highScoresBody .tables {
+    display: flex;
+    flex-direction: column;
+    align-items: center; }
+    html #highScoresBody .tables .dateColumn, html #highScoresBody .tables .globalDate, html #highScoresBody .tables .localDate {
+      display: none; }
+    html #highScoresBody .tables .mobileTableNavigate {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      width: 100%; }
+    html #highScoresBody .tables .mobileTableNavigate > p {
+      cursor: pointer; } }
 
 /*# sourceMappingURL=main.css.map */

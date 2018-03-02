@@ -20,7 +20,7 @@
         </a>
     </div>
 
-    <div class="highScoreTitleContainer">
+    <div class="highScoreTitleContainer topTitle">
         <p class="highScore">HIGH SCORES</p>
         <img src="assets/images/zombieIcon.png" class="zombieIcon">
     </div>
@@ -32,19 +32,27 @@
             <tr>
                 <th class="localPlace">Place</th>
                 <th>City Name</th>
-                <th>Date</th>
+                <th class="dateColumn">Date</th>
                 <th>Score</th>
             </tr>
         </table>
+        <div class="mobileTableNavigate">
+            <p onclick="previousLocalScores();">Previous 10</p>
+            <p onclick="nextLocalScores();">Next 10</p>
+        </div>
         <table id="publicHighScoreTable">
             <caption class="publicHighScoreCaption">Global High Scores</caption>
             <tr>
                 <th class="localPlace">Place</th>
                 <th>Player's Name</th>
-                <th>Date</th>
+                <th class="dateColumn">Date</th>
                 <th>Score</th>
             </tr>
         </table>
+        <div class="mobileTableNavigate">
+            <p onclick="previousGlobalScores();">Previous 10</p>
+            <p onclick="nextGlobalScores();">Next 10</p>
+        </div>
 
     </div>
 

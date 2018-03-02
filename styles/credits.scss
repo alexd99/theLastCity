@@ -5,7 +5,7 @@ html {
   height: auto;
   #creditsBody {
     padding: 0;
-    width: 50%;
+    width: 100%;
     height: auto;
     margin: auto;
     text-align: center;
@@ -16,8 +16,11 @@ html {
     }
     #credits {
       display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
+      flex-direction: column;
+      justify-content: center;
+      .creditsTitle{
+        text-decoration: underline;
+      }
     }
     .resourcesTitleText{
       text-decoration: underline;
@@ -32,7 +35,6 @@ html {
     }
     .backButtonContainer {
       width: 128px;
-      margin: 20px auto 0 auto;
       .backButtonATag {
         text-decoration: none;
         .backButton > i {

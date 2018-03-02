@@ -301,14 +301,49 @@ html{
     }
   }
 }
-@media only screen and (max-width: 726px) {
+@media only screen and (max-width: 830px) {
   html {
     #indexBody {
       .mainGameContainer{
         .middleGameBox{
-          height: 900px;
+          height: 715px;
         }
       }
     }
   }
 }
+@media only screen and (max-width: 830px) {
+  html {
+    #indexBody {
+      .mainGameContainer{
+        .middleGameBox{
+          height: 775px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 414px) {
+  html {
+    #indexBody {
+      .mainGameContainer{
+        .middleGameBox{
+          height: 1090px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 380px) {
+  html {
+    #indexBody {
+      .mainGameContainer{
+        .middleGameBox{
+          height: 1145px;
+        }
+      }
+    }
+  }
+}
+
