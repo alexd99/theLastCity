@@ -37,6 +37,8 @@ function advanceDay() {
         generateScore();
     }
     else {
+
+        attacked = false;
         //next day
         gameWarningsInsert.html('');
         mainGameTextInsert.html('');
@@ -50,13 +52,10 @@ function advanceDay() {
         zombieAttackChance();
         displayStore();
         personArrival();
+        dayEvents();
 
         displayTotalPopulation();
         displayTotalSupplies();
-
-        if (dayCount === 50){
-            $('#oneChanceStoreModal').modal('show');
-        }
 
         if ((dayCount % 20) === 0) {
             zombieArmyNumberParam1 = zombieArmyNumberParam1 * 2;

@@ -22,7 +22,15 @@ function upgradeRadio() {
         radioLevel ++;
         metalCount -= 1000;
         wireCount -= 100;
-        radioUpgradeText.html('Upgrade Finished?');
+        radioUpgradeText.html('Final Upgrade: 1000 metal, 100 wire, and 1 gold wire');
+    }
+    else if(radioLevel === 4 && metalCount >= 1000 && wireCount >= 100 && goldWireCount >= 1){
+        radioLevel ++;
+        metalCount -= 1000;
+        wireCount -= 100;
+        goldWireCount -=1;
+        radioUpgradeText.html('Upgrade Finished');
+        $('.goldWire').hide();
     }
 
     displayTotalSupplies();
@@ -56,9 +64,19 @@ function upgradeWalls(){
     }
     else if(wallLevel === 3 && woodCount>= 200 && metalCount >= 100){
         wallLevel ++;
-        metalCount -= 2500;
-        wallUpgradeText.html('Upgrade finished');
+        woodCount -= 200;
+        metalCount -= 100;
+        wallUpgradeText.html('Final Upgrade: 200 wood, 100 metal, and 1 steel plate');
         wallName.html('2 Reinforce Walls (4)');
+    }
+    else if(wallLevel === 4 && woodCount>= 200 && metalCount >= 100 && steelPlateCount >= 1){
+        wallLevel ++;
+        woodCount -= 200;
+        metalCount -= 100;
+        steelPlateCount -= 1;
+        wallUpgradeText.html('Upgrade finished');
+        wallName.html('2 steel plated reinforced walls (5)');
+        $('.steelPlate').hide();
     }
 
     displayTotalSupplies();
@@ -84,7 +102,16 @@ function upgradeFarm(){
       farmLevel ++;
       woodCount -=100;
       metalCount -= 100;
-      farmUpgradeText.html('Upgrade Finished');
+      farmUpgradeText.html('Final Upgrade: 100 wood, 100 metal, and quality tools');
       farmName.html('Quality Fence and Sprinklers (3)');
+    }
+    else if (farmLevel === 3 && woodCount >=100 && metalCount >= 100 && qualityToolsCount >= 1) {
+        farmLevel ++;
+        woodCount -=100;
+        metalCount -= 100;
+        qualityToolsCount -= 1;
+        $('.qualityTools').hide();
+        farmUpgradeText.html('Upgrade Finished');
+        farmName.html('Quality Farm (4)');
     }
 }

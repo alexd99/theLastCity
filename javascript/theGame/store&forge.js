@@ -88,11 +88,24 @@ function displayStore() {
 function oneChanceStore(itemSelected){
     let itemNameInput =  $('.itemTextBoxRight');
     let itemCountInsert = $('.itemTextBoxLeft');
+
     if(itemSelected === 'goldWire'){
         goldWireCount += 1;
-      itemNameInput.append(`<h3 class="legendaryItem">Gold Wire</h3>`);
-      itemCountInsert.append(`<h3 id="goldWire">${goldWireCount}</h3>`)
-
+      itemNameInput.append(`<h3 class="legendaryItem goldWire">Gold Wire:</h3>`);
+      itemCountInsert.append(`<h3 id="goldWire" class="goldWire legendaryItem">${goldWireCount}</h3>`)
     }
+
+    if(itemSelected === 'steelPlate'){
+        steelPlateCount += 1;
+        itemNameInput.append(`<h3 class="legendaryItem steelPlate">Steel Plate:</h3>`);
+        itemCountInsert.append(`<h3 id="steelPlate" class="steelPlate legendaryItem">${steelPlateCount}</h3>`)
+    }
+
+    if(itemSelected === 'qualityTools'){
+        qualityToolsCount += 1;
+        itemNameInput.append(`<h3 class="legendaryItem qualityTools">Quality Tools:</h3>`);
+        itemCountInsert.append(`<h3 id="steelPlate" class="qualityTools legendaryItem">${qualityToolsCount}</h3>`)
+    }
+
     $('#oneChanceStoreModal').modal('hide');
 }

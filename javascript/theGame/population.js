@@ -165,6 +165,8 @@ function makeTombstone() {
 
 function foodCalculator() {
 
+    foodCount -= populationCount;
+
     switch (farmLevel) {
       case 0:
         foodCount += farmerCount * 4;
@@ -178,12 +180,9 @@ function foodCalculator() {
       case 3:
         foodCount += farmerCount * 7;
         break;
+      case 4:
+        foodCount += farmerCount * 8
     }
-
-    console.log(foodCount);
-
-    foodCount += farmerCount * 4;
-    foodCount -= populationCount;
 
     if (foodCount <= 0) {
         daysWithoutFood++;

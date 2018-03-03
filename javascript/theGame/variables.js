@@ -42,6 +42,8 @@ let lumberJackCountInsert = $('.lumberjackCount');
 // legendary item counts
 
 let goldWireCount = 0;
+let steelPlateCount = 0;
+let qualityToolsCount = 0;
 
 // other global variables
 let dayCount = 0;
@@ -56,6 +58,7 @@ let zombieArmyNumberParam2 = 1;
 let peopleKilled = 0;
 let totalPeopleKilled = 0;
 let finalDate;
+let attacked = false;
 
 let gameWarningsInsert = $('#gameWarnings');
 let mainGameTextInsert = $('#gameMainText');
@@ -69,7 +72,6 @@ function displayTotalSupplies() {
     wireCountInsert.html(wireCount);
     oreCountInsert.html(oreCount);
     woodCountInsert.html(woodCount);
-
 }
 
 //function that displays total population, and jobs
