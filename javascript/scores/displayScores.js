@@ -40,6 +40,10 @@ function displayLocalHighScores(forLoopStarNumber, forLoopEndNumber) {
 
     $('.localHighScoreTableRow').html('');
 
+    if(game.length < 10){
+        forLoopEndNumber = game.length;
+    }
+
     for (let i = forLoopStarNumber; i < forLoopEndNumber; i++) {
 
          if(i === 0){
