@@ -106,6 +106,19 @@ html {
           }
         }
       }
+      .mobileTableNavigate > button{
+        font-family:  arcade, openSans, sans-serif;
+        font-size: 12px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: white;
+      }
+      .mobileTableNavigate > p{
+        font-family:  arcade, openSans, sans-serif;
+        font-size: 12px;
+        color: white;
+      }
       .mobileTableNavigate{
         display: none;
       }
@@ -113,15 +126,25 @@ html {
     #tableNavigateContainer{
       display: flex;flex-direction: row;
       justify-content: space-evenly;
+      .tableNavigate > button{
+        font-family:  arcade, openSans, sans-serif;
+        font-size: 12px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: white;
+      }
+      .tableNavigate > p{
+        color: white;
+        font-family: arcade, openSans, sans-serif;
+        font-size: 12px;
+      }
       .tableNavigate{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         width: 45%;
         margin: 10px 10px;
-        font-family:  arcade, openSans, sans-serif;
-        font-size: 11px;
-        cursor: pointer;
       }
     }
   }
@@ -143,8 +166,6 @@ html {
           flex-direction: row;
           justify-content: space-evenly;
           width: 100%;
-          font-family: arcade, openSans, sans-serif;
-          font-size: 11px;
         }
         .mobileTableNavigate > p{
           cursor: pointer;

@@ -12,9 +12,14 @@ let localEndRef = 10;
 let globalStartRef = 0;
 let globalEndRef = 10;
 
+let localPageNumber = 1;
+let globalPageNumber = 1;
+let globalPageNumberMaxPage = 0;
+
 $( document ).ready(function() {
     displayGlobalHighScores(0,10);
     displayLocalHighScores(0,10);
+    displayLocalTotalPages();
 });
 // displays high scores from local storage
 function displayLocalHighScores(forLoopStarNumber, forLoopEndNumber) {
@@ -80,8 +85,6 @@ function displayLocalHighScores(forLoopStarNumber, forLoopEndNumber) {
         $('#localHighScoreTable').append(localScoreTableRow);
 
     }
-
-    console.log(localScoreTableRow);
 }
 
 function displayGlobalHighScores(forLoopStarNumber, forLoopEndNumber) {
@@ -93,9 +96,9 @@ function displayGlobalHighScores(forLoopStarNumber, forLoopEndNumber) {
         $.get('https://thelastcity-ad.firebaseio.com/highScores/.json', function (data, status) {
             let scores = data;
 
-
             for (let scoresAndNames in scores) {
                 scoresArray.push(scores[scoresAndNames]);
+                globalPageNumberMaxPage ++;
             }
 
             scoresArray.sort((a, b) => {
@@ -111,6 +114,7 @@ function displayGlobalHighScores(forLoopStarNumber, forLoopEndNumber) {
             });
 
             globalScoresForLoop(forLoopStarNumber, forLoopEndNumber);
+            displayGlobalTotalPages();
 
         });
     }
@@ -119,11 +123,19 @@ function displayGlobalHighScores(forLoopStarNumber, forLoopEndNumber) {
     }
 }
 
+function displayLocalTotalPages() {
+    let localPageNumberMaxPage = Math.ceil(game.length /10);
+
+    $('.localPageInsert').html(`${localPageNumber}/${localPageNumberMaxPage}`)
+}
+
 function nextLocalScores() {
     if(localEndRef <= game.length){
         $('.localScoreTableRow').html('');
         localStartRef += 10;
         localEndRef += 10;
+        localPageNumber ++;
+        displayLocalTotalPages();
         displayLocalHighScores(localStartRef, localEndRef);
     }
 }
@@ -134,16 +146,28 @@ function previousLocalScores() {
         localStartRef = 0;
         localEndRef = 10;
     }
+    if(localPageNumber !== 1) {
+        localPageNumber--;
+        displayLocalTotalPages();
+    }
     $('.localScoreTableRow').html('');
     displayLocalHighScores(localStartRef, localEndRef);
-
 }
+
+function displayGlobalTotalPages() {
+    let globalPageNumberMaxPage = Math.ceil(scoresArray.length /10);
+
+    $('.globalPageInsert').html(`${globalPageNumber}/${globalPageNumberMaxPage}`)
+}
+
 
 function nextGlobalScores() {
     if(globalEndRef <= scoresArray.length){
         $('.globalScoreTableRow').html('');
         globalStartRef += 10;
         globalEndRef += 10;
+        globalPageNumber ++;
+        displayGlobalTotalPages();
         displayGlobalHighScores(globalStartRef, globalEndRef);
     }
 }
@@ -153,6 +177,10 @@ function previousGlobalScores() {
     if (globalStartRef <= 0) {
         globalStartRef = 0;
         globalEndRef = 10;
+    }
+    if(globalPageNumber !== 1) {
+        globalPageNumber--;
+        displayGlobalTotalPages();
     }
     $('.globalScoreTableRow').html('');
     displayGlobalHighScores(globalStartRef, globalEndRef);

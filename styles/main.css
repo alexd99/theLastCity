@@ -497,21 +497,40 @@ html {
           align-items: center; }
           html #highScoresBody .tables table .medalContainer .medalImage {
             width: 18px; }
+      html #highScoresBody .tables .mobileTableNavigate > button {
+        font-family: arcade, openSans, sans-serif;
+        font-size: 12px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: white; }
+      html #highScoresBody .tables .mobileTableNavigate > p {
+        font-family: arcade, openSans, sans-serif;
+        font-size: 12px;
+        color: white; }
       html #highScoresBody .tables .mobileTableNavigate {
         display: none; }
     html #highScoresBody #tableNavigateContainer {
       display: flex;
       flex-direction: row;
       justify-content: space-evenly; }
+      html #highScoresBody #tableNavigateContainer .tableNavigate > button {
+        font-family: arcade, openSans, sans-serif;
+        font-size: 12px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        color: white; }
+      html #highScoresBody #tableNavigateContainer .tableNavigate > p {
+        color: white;
+        font-family: arcade, openSans, sans-serif;
+        font-size: 12px; }
       html #highScoresBody #tableNavigateContainer .tableNavigate {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         width: 45%;
-        margin: 10px 10px;
-        font-family: arcade, openSans, sans-serif;
-        font-size: 11px;
-        cursor: pointer; }
+        margin: 10px 10px; }
 
 @media only screen and (max-width: 944px) {
   html #highScoresBody .tables {
@@ -524,9 +543,7 @@ html {
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
-      width: 100%;
-      font-family: arcade, openSans, sans-serif;
-      font-size: 11px; }
+      width: 100%; }
     html #highScoresBody .tables .mobileTableNavigate > p {
       cursor: pointer; }
   html #highScoresBody #tableNavigateContainer .tableNavigate {
