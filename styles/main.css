@@ -161,13 +161,13 @@ html #indexBody .mainGameContainer {
   html #indexBody .mainGameContainer .rightGameBox {
     margin: auto 10px;
     width: 22.5%; }
-    html #indexBody .mainGameContainer .rightGameBox .researchInfo {
+    html #indexBody .mainGameContainer .rightGameBox .researchContainer .researchInfo {
       cursor: pointer; }
-    html #indexBody .mainGameContainer .rightGameBox .researchButtonBox {
+    html #indexBody .mainGameContainer .rightGameBox .researchContainer .researchButtonBox {
       margin-bottom: 10px; }
-      html #indexBody .mainGameContainer .rightGameBox .researchButtonBox .researchIndivButtonBox > p {
+      html #indexBody .mainGameContainer .rightGameBox .researchContainer .researchButtonBox .researchIndivButtonBox > p {
         margin-bottom: 2px; }
-      html #indexBody .mainGameContainer .rightGameBox .researchButtonBox .researchIndivButtonBox {
+      html #indexBody .mainGameContainer .rightGameBox .researchContainer .researchButtonBox .researchIndivButtonBox {
         margin-bottom: 10px; }
 html #indexBody .bottomGameContainer {
   width: 98.6%;
@@ -184,17 +184,10 @@ html #indexBody .bottomGameContainer {
     margin-right: 4px; }
     html #indexBody .bottomGameContainer #store .storeInput {
       width: 70px; }
-html #indexBody #highScoreBoard {
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-  margin-bottom: 10px; }
-  html #indexBody #highScoreBoard .highScoreText {
-    margin-top: -20px; }
 html #indexBody .graveyard {
   width: 98.6%;
   border: 1px solid black;
-  margin: 10px auto 0 auto;
+  margin: 10px auto;
   text-align: center; }
   html #indexBody .graveyard .tombstoneContainer {
     width: 100%;
@@ -216,6 +209,16 @@ html #indexBody .graveyard {
         width: 135px;
         margin-bottom: 19px;
         margin-top: -2px; }
+html #indexBody .buildingContainer > button {
+  margin: 5px auto; }
+html #indexBody .buildingContainer {
+  border: 1px solid black;
+  width: 98.6%;
+  margin: auto; }
+  html #indexBody .buildingContainer .buildingButtonBox > p {
+    margin-bottom: 2px; }
+  html #indexBody .buildingContainer .buildingButtonBox {
+    margin-bottom: 10px; }
 html #indexBody .breakDown {
   cursor: pointer; }
 html #indexBody .infoModalContent {
@@ -499,8 +502,12 @@ html {
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
-      width: 100%; }
+      width: 100%;
+      font-family: arcade, openSans, sans-serif;
+      font-size: 11px; }
     html #highScoresBody .tables .mobileTableNavigate > p {
-      cursor: pointer; } }
+      cursor: pointer; }
+  html #highScoresBody #tableNavigateContainer .tableNavigate {
+    display: none; } }
 
 /*# sourceMappingURL=main.css.map */

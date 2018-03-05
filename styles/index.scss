@@ -140,19 +140,21 @@ html{
           }
         }
       }
-      .rightGameBox{
+      .rightGameBox {
         margin: auto 10px;
         width: 22.5%;
-        .researchInfo{
-          cursor: pointer;
-        }
-        .researchButtonBox{
-          margin-bottom: 10px;
-          .researchIndivButtonBox > p{
-            margin-bottom: 2px;
+        .researchContainer {
+          .researchInfo {
+            cursor: pointer;
           }
-          .researchIndivButtonBox{
+          .researchButtonBox {
             margin-bottom: 10px;
+            .researchIndivButtonBox > p {
+              margin-bottom: 2px;
+            }
+            .researchIndivButtonBox {
+              margin-bottom: 10px;
+            }
           }
         }
       }
@@ -177,19 +179,10 @@ html{
         }
       }
     }
-    #highScoreBoard{
-      display: flex;
-      flex-direction: column;
-      align-content: center;
-      margin-bottom: 10px;
-      .highScoreText{
-        margin-top: -20px;
-      }
-    }
     .graveyard{
       width:  98.6%;
       border: 1px solid black;
-      margin: 10px auto 0 auto;
+      margin: 10px auto;
       text-align: center;
       .tombstoneContainer{
         width: 100%;
@@ -213,6 +206,20 @@ html{
             margin-top: -2px;
           }
         }
+      }
+    }
+    .buildingContainer > button{
+      margin: 5px auto;
+    }
+    .buildingContainer{
+      border: 1px solid black;
+      width: 98.6%;
+      margin: auto;
+      .buildingButtonBox > p{
+        margin-bottom: 2px;
+      }
+      .buildingButtonBox{
+        margin-bottom: 10px;
       }
     }
     .breakDown{

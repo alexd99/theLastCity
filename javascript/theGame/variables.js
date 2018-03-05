@@ -40,10 +40,17 @@ let lumberjackCount;
 let lumberJackCountInsert = $('.lumberjackCount');
 
 // legendary item counts
-
 let goldWireCount = 0;
 let steelPlateCount = 0;
 let qualityToolsCount = 0;
+
+// building variables
+let availableBuildingSpace = 10;
+let usedBuildingSpace = 0;
+let maxBuildingSpace = 2;
+let populationCap = 20;
+let foodCap = 200;
+let totalHouses = 0;
 
 // other global variables
 let dayCount = 0;

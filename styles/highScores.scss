@@ -143,9 +143,16 @@ html {
           flex-direction: row;
           justify-content: space-evenly;
           width: 100%;
+          font-family: arcade, openSans, sans-serif;
+          font-size: 11px;
         }
         .mobileTableNavigate > p{
           cursor: pointer;
+        }
+      }
+      #tableNavigateContainer {
+        .tableNavigate{
+          display: none;
         }
       }
     }

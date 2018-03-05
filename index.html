@@ -71,6 +71,7 @@
                 </div>
             </div>
         </div>
+
         <div class="middleGameBox gameBox">
             <div class="gameTextContainer">
               <p id="gameMainText" class="gameText">
@@ -181,35 +182,44 @@
                 <h3 id="dayCount"></h3>
             </div>
         </div>
+
         <div class="rightGameBox gameBox">
-            <h2>RESEARCH <i class="fas fa-info-circle researchInfo" onclick="$('#researchInfoModal').modal('show');"></i></h2>
 
-            <div class="researchButtonBox">
+            <div class="researchContainer">
+                <h2>
+                    RESEARCH
+                    <i class="fas fa-info-circle researchInfo" onclick="$('#researchInfoModal').modal('show');"></i>
+                </h2>
 
-                <div class="researchIndivButtonBox">
-                    <p id="radioName"> Radio Level: 0</p>
-                    <button onclick="upgradeRadio();" title="radios make it easier to find people to bring into your city">
-                        <span id="upgradeRadioText"> Upgrade Radio: 200 metal</span>
-                    </button>
+                <div class="researchButtonBox">
+
+                    <div class="researchIndivButtonBox">
+                        <p id="radioName"> Radio Level: 0</p>
+                        <button onclick="upgradeRadio();" title="radios make it easier to find people to bring into your city">
+                            <span id="upgradeRadioText"> Upgrade Radio: 200 metal</span>
+                        </button>
+                    </div>
+
+                    <div class="researchIndivButtonBox">
+                        <p id="wallName"> Wood Walls (0)</p>
+                        <button onclick="upgradeWalls();" title="radios make it easier to find people to bring into your city">
+                            <span id="upgradeWallText"> Hard Wood: 100 wood</span>
+                        </button>
+                    </div>
+
+
+                    <div class="researchIndivButtonBox">
+                        <p id="farmName"> Basic Farm(0)</p>
+                        <button onclick="upgradeFarm();" title="radios make it easier to find people to bring into your city">
+                            <span id="upgradeFarmText"> Fences: 50 wood</span>
+                        </button>
+                    </div>
+
                 </div>
-
-                <div class="researchIndivButtonBox">
-                    <p id="wallName"> Wood Walls (0)</p>
-                    <button onclick="upgradeWalls();" title="radios make it easier to find people to bring into your city">
-                        <span id="upgradeWallText"> Hard Wood: 100 wood</span>
-                    </button>
-                </div>
-
-
-                <div class="researchIndivButtonBox">
-                    <p id="farmName"> Basic Farm(0)</p>
-                    <button onclick="upgradeFarm();" title="radios make it easier to find people to bring into your city">
-                        <span id="upgradeFarmText"> Fences: 50 wood</span>
-                    </button>
-                </div>
-
             </div>
+
         </div>
+
     </div>
 
     <div class="bottomGameContainer">
@@ -236,6 +246,21 @@
         <div class="bottomGameContentContainers" id="forge">
             <h2>FORGE</h2>
             <button onclick="theForge('wood');">Forge 2 metal | fuel wood</button>
+        </div>
+
+    </div>
+
+    <div class="buildingContainer">
+        <h2>
+            BUILDINGS
+            <i class="fas fa-info-circle researchInfo" onclick="$('#researchInfoModal').modal('show');"></i>
+        </h2>
+
+        <p id="buildingSpaceUsedText">0 out of 10 building space used </p>
+
+        <div class="buildingButtonBox">
+            <p id="totalHousesBuilt">0 House(s) Built </p>
+            <button onclick="buildBuilding('house')">Build House 200 Wood</button>
         </div>
 
     </div>
@@ -441,6 +466,7 @@
 <script src="javascript/theGame/store&forge.js"></script>
 <script src="javascript/theGame/zombies.js"></script>
 <script src="javascript/theGame/dayEvents.js"></script>
+<script src="javascript/theGame/buildings.js"></script>
 
 <!--other js files-->
 <script src="javascript/music.js"></script>

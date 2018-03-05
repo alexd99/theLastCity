@@ -136,10 +136,15 @@ function personArrival() {
     let personArrived = Math.floor(Math.random() * randomMax) + 1;
 
     if (personArrived === 1){
-        populationCount += 1;
-        idleCount+= 1;
-        displayTotalPopulation();
-        displayDayMessage(true, 'Person Arrived In Your Town');
+        if( populationCount < populationCap) {
+            populationCount += 1;
+            idleCount += 1;
+            displayTotalPopulation();
+            displayDayMessage(true, 'Person Arrived In Your Town');
+        }
+        else {
+            displayDayMessage(true, 'Person Arrived In Your Town, But You Had No Room For Them');
+        }
     }
 }
 
