@@ -17,9 +17,9 @@ let globalPageNumber = 1;
 let globalPageNumberMaxPage = 0;
 
 function onLoad () {
-    displayLocalTotalPages();
     displayGlobalHighScores(0,10);
     displayLocalHighScores(0,10);
+    displayLocalTotalPages();
 }
 // displays high scores from local storage
 function displayLocalHighScores(forLoopStarNumber, forLoopEndNumber) {
