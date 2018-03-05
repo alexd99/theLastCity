@@ -15,34 +15,53 @@
 
 </head>
 <body id="indexBody" onload="onStart();">
-    <h1 id="cityName">The Last City</h1>
 
-    <div class="pageLinkContainer">
-        <a href="instructions.html" class="pageLink">
-            <h3 class="instructionsLinkText">Instructions</h3>
-        </a>
-    </div>
-    <div class="pageLinkContainer" id="creditsLinkBox">
-        <a href="credits.html" class="pageLink">
-            <h3 class="instructionsLinkText">Credits</h3>
-        </a>
-    </div>
+    <div id="topBar">
 
-    <div class="pageLinkContainer" id="scoresLinkBox">
-        <a href="highScores.html" class="pageLink">
-            <h3 class="instructionsLinkText">High Scores</h3>
-        </a>
-    </div>
-    <div class="pageLinkContainer">
-        <i class="fas fa-volume-up fa-2x muteIndicator" id="unMute" title="mute the music. you can also press M" onclick="toggleMute();"></i>
-        <i class="fas fa-volume-off fa-2x muteIndicator" id="mute" title="turn the music on. you can also press M" onclick="toggleMute();"></i>
-    </div>
+        <div id="gameTitle">
+            <h1 id="cityName">The Last City</h1>
 
-    <div class="cityInputsContainer">
-    <input class="cityInput" id="cityNameInput" title="chang your cities name" type="text"
-           placeholder="City Name" onkeyup="userChangeName();">
-        <i class="fa fa-random fa-2x randomSelector" aria-hidden="true"
-           title="get random city name" onclick="getRandomName();"></i>
+            <div class="cityInputsContainer">
+                <input class="cityInput" id="cityNameInput" title="chang your cities name" type="text"
+                       placeholder="City Name" onkeyup="userChangeName();">
+                <i class="fa fa-random fa-2x randomSelector" aria-hidden="true"
+                   title="get random city name" onclick="getRandomName();"></i>
+            </div>
+
+            <div class="pageLinkContainer">
+
+                <a href="instructions.html" class="pageLink">
+                    <h3 class="instructionsLinkText">Instructions</h3>
+                </a>
+
+                <a href="credits.html" class="pageLink">
+                    <h3 class="instructionsLinkText">Credits</h3>
+                </a>
+
+                <a href="highScores.html" class="pageLink">
+                    <h3 class="instructionsLinkText">High Scores</h3>
+                </a>
+
+            </div>
+            <i class="fas fa-volume-up fa-2x muteIndicator" id="unMute" title="mute the music. you can also press M" onclick="toggleMute();"></i>
+            <i class="fas fa-volume-off fa-2x muteIndicator" id="mute" title="turn the music on. you can also press M" onclick="toggleMute();"></i>
+        </div>
+
+        <div class="buildingContainer">
+            <h2>
+                BUILDINGS
+                <i class="fas fa-info-circle researchInfo" onclick="$('#researchInfoModal').modal('show');"></i>
+            </h2>
+
+            <p id="buildingSpaceUsedText">0 out of 10 building space used </p>
+
+            <div class="buildingButtonBox">
+                <p id="totalHousesBuilt">0 House(s) Built </p>
+                <button onclick="buildBuilding('house')">Build House 200 Wood</button>
+            </div>
+
+        </div>
+
     </div>
 
     <button id="playAgain" onclick="onStart();">PLAY AGAIN</button>
@@ -246,21 +265,6 @@
         <div class="bottomGameContentContainers" id="forge">
             <h2>FORGE</h2>
             <button onclick="theForge('wood');">Forge 2 metal | fuel wood</button>
-        </div>
-
-    </div>
-
-    <div class="buildingContainer">
-        <h2>
-            BUILDINGS
-            <i class="fas fa-info-circle researchInfo" onclick="$('#researchInfoModal').modal('show');"></i>
-        </h2>
-
-        <p id="buildingSpaceUsedText">0 out of 10 building space used </p>
-
-        <div class="buildingButtonBox">
-            <p id="totalHousesBuilt">0 House(s) Built </p>
-            <button onclick="buildBuilding('house')">Build House 200 Wood</button>
         </div>
 
     </div>

@@ -16,6 +16,29 @@ html{
       color: black;
       text-decoration: none;
     }
+    #topBar{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      #gameTitle{
+        width: 25%;
+      }
+      .buildingContainer > button{
+        margin: 5px auto;
+      }
+      .buildingContainer{
+        border: 1px solid black;
+        margin: auto 5px;
+        width: 75%;
+        .buildingButtonBox > p{
+          margin-bottom: 2px;
+        }
+        .buildingButtonBox{
+          margin-bottom: 10px;
+        }
+      }
+    }
     .cityName{
       width: 180px;
     }
@@ -28,10 +51,14 @@ html{
         margin: auto 10px;
       }
     }
+    .pageLinkContainer > a{
+      margin: auto 10px;
+    }
     .pageLinkContainer {
       display: flex;
       justify-content: center;
-      width: 150px;
+      align-items: center;
+      width: 90%;
       margin: auto;
       .pageLink {
         color: black;
@@ -208,20 +235,6 @@ html{
         }
       }
     }
-    .buildingContainer > button{
-      margin: 5px auto;
-    }
-    .buildingContainer{
-      border: 1px solid black;
-      width: 98.6%;
-      margin: auto;
-      .buildingButtonBox > p{
-        margin-bottom: 2px;
-      }
-      .buildingButtonBox{
-        margin-bottom: 10px;
-      }
-    }
     .breakDown{
       cursor: pointer;
     }
@@ -303,6 +316,33 @@ html{
         }
         .rightGameBox{
           width: 98%;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1332px) {
+  html {
+    #indexBody {
+      #topBar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .buildingContainer{
+          width: 98.6%;
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 830px) {
+  html {
+    #indexBody {
+      .mainGameContainer{
+        .middleGameBox{
+          height: 715px;
         }
       }
     }
