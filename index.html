@@ -50,14 +50,45 @@
         <div class="buildingContainer">
             <h2>
                 BUILDINGS
-                <i class="fas fa-info-circle researchInfo" onclick="$('#researchInfoModal').modal('show');"></i>
+                <i class="fas fa-info-circle researchInfo" onclick="$('#buildingInfoModal').modal('show');"></i>
             </h2>
 
-            <p id="buildingSpaceUsedText">0 out of 10 building space used </p>
+            <div class="buildingContainerContent">
 
-            <div class="buildingButtonBox">
-                <p id="totalHousesBuilt">0 House(s) Built </p>
-                <button onclick="buildBuilding('house')">Build House 200 Wood</button>
+                <div class="buildingFacts">
+                    <p id="buildingSpaceUsedText"></p>
+                    <p id="foodCap"></p>
+                    <p id="populationCap"></p>
+                    <p id="totalSilosBuilt"></p>
+                    <p id="totalSheltersBuilt"></p>
+                    <p id="totalHousesBuilt"></p>
+
+                </div>
+
+                <div class="buildingButtons">
+
+                    <div class="buildingButtonBox" id="sendSoldierToClaimLand">
+                        <button onclick="claimLand(false);">Send Soldiers To Claim land</button>
+                        <input title="soldiers sent" type="number" id="claimLandSoldiers" placeholder="amount">
+                    </div>
+
+                    <div class="buildingButtonBox">
+                        <button onclick="buildBuilding('shelter')">Build Shelter: 100 Wood</button>
+                        <button onclick="destroyBuilding('shelter')">Destroy Shelter</button>
+                    </div>
+
+                    <div class="buildingButtonBox">
+                        <button onclick="buildBuilding('house')">Build House: 200 Wood</button>
+                        <button onclick="destroyBuilding('house')">Destroy House</button>
+                    </div>
+
+                    <div class="buildingButtonBox">
+                        <button onclick="buildBuilding('silo')">Build Silo: 1000 Wood and 500 Metal</button>
+                        <button onclick="destroyBuilding('silo')">Destroy Silo</button>
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
@@ -345,12 +376,13 @@
                           <p>Level 0: chance of people arriving 1/20</p>
                           <p>Level 1: chance of people arriving 1/17</p>
                           <p>Level 3: chance of people arriving 1/12</p>
-                          <p>Level 0: chance of people arriving 1/9</p>
+                          <p>Level 4: chance of people arriving 1/9</p>
+                          <p>Level 5: chance of people arriving 1/6</p>
                         </div>
 
                     <h3 class="infoModalTitle">Walls</h3>
                     <p class="infoModalText">
-                        Walls add more defense to your town, allowing you to hold of more zombies.
+                        Walls add more defense to your town, allowing you to hold off more zombies.
 
                         <p onclick="showModalBreakDown('wallBreakdown', 'showWallBreakdown', 'hideWallBreakdown');"
                            id="showWallBreakdown" class="breakDown">Show Breakdown</p>
@@ -364,6 +396,7 @@
                             <p>Level 2: added defense 2</p>
                             <p>Level 3: added defense 4</p>
                             <p>Level 4: added defense 6</p>
+                            <p>Level 5: added defense 8</p>
                         </div>
                     <h3 class="infoModalTitle">Farm</h3>
                     <p class="infoModalText">
@@ -380,10 +413,40 @@
                         <p>Level 1: food grown by farmer 5</p>
                         <p>Level 2: food grown by farmer 6</p>
                         <p>Level 3: food grown by farmer 7</p>
+                        <p>Level 4: food grown by farmer 8</p>
 
                     </div>
                 </div>
                 <button class="infoModalCloseButton" onclick="$('#researchInfoModal').modal('hide');">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+    <!--building information modal-->
+    <div class="modal fade" id="buildingInfoModal" tabindex="-1" role="dialog" aria-labelledby="researchInfoModal">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content infoModalContent">
+                <div class="infoModalTextContainer">
+
+
+                    <h3 class="infoModalTitle">Land</h3>
+                    <p>You have limited space for building. You can always claim more though</p>
+
+
+                    <h3 class="infoModalTitle">Claiming Land</h3>
+                    <p>Send your soldiers out to claim land, the amount of land claimed is equal to the about of soldiers sent, but be careful while soldiers are claiming land they cannot defend your town.</p>
+
+                    <h3 class="infoModalTitle">Shelter</h3>
+                    <p>Each shelter takes up 1 building space and provides 2 more population space</p>
+
+                    <h3 class="infoModalTitle">House</h3>
+                    <p>Each house takes up 1 building space and provides 4 more population space</p>
+
+                    <h3 class="infoModalTitle">Silo</h3>
+                    <p>Each silo takes up 4 building spaces and provides 100 more food space</p>
+
+                </div>
+                <button class="infoModalCloseButton" onclick="$('#buildingInfoModal').modal('hide');">CLOSE</button>
             </div>
         </div>
     </div>

@@ -8,9 +8,109 @@ function buildBuilding(type) {
         woodCount -= 200;
         populationCap += 4;
 
-        $('#totalHousesBuilt').html(`${totalHouses} House(s) Built`);
+    }
+    if(type === 'shelter' && woodCount >= 100 && availableBuildingSpace >= 1){
+        totalShelters++;
+        usedBuildingSpace ++;
+        woodCount -= 100;
+        populationCap += 2;
+
+
+    }
+    if(type === 'silo' && woodCount >= 1000 && metalCount > 500 && availableBuildingSpace >= 4){
+        totalSilos++;
+        usedBuildingSpace += 4;
+        woodCount -= 100;
+        metalCount -= 50;
+        foodCap += 100;
+    }
+    displayTotalSupplies();
+    displayBuildingFacts();
+}
+
+function destroyBuilding(type) {
+
+    if(type === 'house'&& totalHouses > 0){
+        let houseConfirm = window.confirm('Are you sure you want to destroy a house? All citizens assigned to this house will be sent away.');
+        if(houseConfirm === true) {
+            totalHouses--;
+            usedBuildingSpace--;
+            populationCap -= 4;
+        }
+    }
+    if(type === 'shelter' && totalShelters > 0 ){
+        let shelterConfirm = window.confirm('Are you sure you want to destroy a shelter? All citizens assigned to this shelter will be sent away.');
+        if(shelterConfirm === true) {
+            totalShelters--;
+            usedBuildingSpace--;
+            populationCap -= 2;
+        }
     }
 
-    $('#buildingSpaceUsedText').html(`${usedBuildingSpace} out of ${maxBuildingSpace} building space used`);
+    if(type === 'silo' && totalShelters > 0 ){
+        let siloConfirm = window.confirm('Are you sure you want to destroy a Silo?');
+        if(siloConfirm === true) {
+            totalSilos--;
+            usedBuildingSpace -= 4;
+            foodCap -= 100;
+        }
+    }
+
     displayTotalSupplies();
+    displayBuildingFacts()
+}
+
+
+function displayBuildingFacts() {
+    availableBuildingSpace = maxBuildingSpace - usedBuildingSpace;
+
+    $('#buildingSpaceUsedText').html(`${usedBuildingSpace} out of ${maxBuildingSpace} building space used`);
+    $('#populationCap').html(`${populationCount} out of ${populationCap} house spaces used`);
+    $('#foodCap').html(`${foodCount} out of ${foodCap} food storage used`);
+    $('#totalSheltersBuilt').html(`${totalShelters} Shelter(s) Built`);
+    $('#totalHousesBuilt').html(`${totalHouses} House(s) Built`);
+    $('#totalSilosBuilt').html(`${totalSilos} Silo(s) Built`);
+}
+
+function claimLand(nextDay) {
+
+    let amountOfSoldiers = Number($('#claimLandSoldiers').val());
+
+    if(amountOfSoldiers > 0 && nextDay === false) {
+
+        if (amountOfSoldiers > soldierCount) {
+            toastr['error']('You do not have enough soldiers');
+        }
+        else if (claimingLand === false) {
+            claimingLand = true;
+            soldiersClaiming = amountOfSoldiers;
+            soldierCount -= amountOfSoldiers;
+            displayTotalPopulation();
+            toastr['success']('Soldiers claiming land');
+        }
+        else {
+            toastr['error']('Soldiers already claiming land');
+        }
+    }
+
+    if(nextDay === true && claimingLand === true){
+
+        let soldiersKilled = 0;
+
+        let deathChance = Math.floor(Math.random() * 10) + 1;
+
+        if(deathChance === 1){
+            soldiersKilled = Math.floor(Math.random() * soldiersClaiming) + 1;
+        }
+
+        let livingSoldiers = soldiersClaiming -= soldiersKilled;
+
+        soldierCount += livingSoldiers;
+        maxBuildingSpace += livingSoldiers;
+
+        displayDayMessage(true, `soldiers successfully claimed ${livingSoldiers} land. Soldiers killed: ${soldiersKilled}`);
+
+        soldiersClaiming = 0;
+        claimingLand = false;
+    }
 }

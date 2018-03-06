@@ -76,10 +76,35 @@ html #indexBody #topBar {
     border: 1px solid black;
     margin: auto 5px;
     width: 75%; }
-    html #indexBody #topBar .buildingContainer .buildingButtonBox > p {
-      margin-bottom: 2px; }
-    html #indexBody #topBar .buildingContainer .buildingButtonBox {
-      margin-bottom: 10px; }
+    html #indexBody #topBar .buildingContainer .buildingContainerContent > div {
+      margin: auto 10px; }
+    html #indexBody #topBar .buildingContainer .buildingContainerContent {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center; }
+      html #indexBody #topBar .buildingContainer .buildingContainerContent .buildingButtons {
+        width: 75%;
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
+        flex-wrap: wrap; }
+        html #indexBody #topBar .buildingContainer .buildingContainerContent .buildingButtons #sendSoldierToClaimLand {
+          margin-bottom: 14px; }
+          html #indexBody #topBar .buildingContainer .buildingContainerContent .buildingButtons #sendSoldierToClaimLand input {
+            width: 100px; }
+        html #indexBody #topBar .buildingContainer .buildingContainerContent .buildingButtons .buildingButtonBox > p {
+          margin-bottom: 2px; }
+        html #indexBody #topBar .buildingContainer .buildingContainerContent .buildingButtons .buildingButtonBox {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin: auto 5px 10px 5px; }
+          html #indexBody #topBar .buildingContainer .buildingContainerContent .buildingButtons .buildingButtonBox button {
+            width: 250px;
+            margin-bottom: 5px; }
 html #indexBody .cityName {
   width: 180px; }
 html #indexBody .cityInputsContainer {
@@ -266,6 +291,8 @@ html #indexBody #oneChanceStoreModalText > p {
     flex-direction: row;
     justify-content: space-between;
     align-items: center; }
+html #indexBody #buildingInfoModal .infoModalTextContainer p {
+  text-align: left; }
 
 .itemTextBoxLeft, .itemTextBoxRight {
   display: flex;

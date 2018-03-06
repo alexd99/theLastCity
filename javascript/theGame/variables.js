@@ -49,8 +49,12 @@ let availableBuildingSpace = 10;
 let usedBuildingSpace = 0;
 let maxBuildingSpace = 2;
 let populationCap = 20;
-let foodCap = 200;
+let foodCap = 20;
+let totalShelters = 0;
 let totalHouses = 0;
+let totalSilos = 0;
+let claimingLand = false;
+let soldiersClaiming = 0;
 
 // other global variables
 let dayCount = 0;

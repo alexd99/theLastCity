@@ -172,21 +172,28 @@ function foodCalculator() {
 
     foodCount -= populationCount;
 
-    switch (farmLevel) {
-      case 0:
-        foodCount += farmerCount * 4;
-        break;
-      case 1:
-        foodCount += farmerCount * 5;
-        break;
-      case 2:
-        foodCount += farmerCount * 6;
-        break;
-      case 3:
-        foodCount += farmerCount * 7;
-        break;
-      case 4:
-        foodCount += farmerCount * 8
+    if(foodCount < foodCap) {
+
+        switch (farmLevel) {
+            case 0:
+                foodCount += farmerCount * 4;
+                break;
+            case 1:
+                foodCount += farmerCount * 5;
+                break;
+            case 2:
+                foodCount += farmerCount * 6;
+                break;
+            case 3:
+                foodCount += farmerCount * 7;
+                break;
+            case 4:
+                foodCount += farmerCount * 8
+        }
+
+        if(foodCount > foodCap){
+            foodCount = foodCap;
+        }
     }
 
     if (foodCount <= 0) {

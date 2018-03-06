@@ -31,11 +31,45 @@ html{
         border: 1px solid black;
         margin: auto 5px;
         width: 75%;
-        .buildingButtonBox > p{
-          margin-bottom: 2px;
+        .buildingContainerContent > div{
+          margin: auto 10px;
         }
-        .buildingButtonBox{
-          margin-bottom: 10px;
+        .buildingContainerContent{
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          .buildingFacts{
+
+          }
+          .buildingButtons{
+            width: 75%;
+            display: flex;
+            flex-direction: row;
+            justify-content: left;
+            align-items: center;
+            flex-wrap: wrap;
+            #sendSoldierToClaimLand{
+              margin-bottom: 14px;
+              input{
+                width: 100px;
+              }
+            }
+            .buildingButtonBox > p{
+              margin-bottom: 2px;
+            }
+            .buildingButtonBox{
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              margin: auto 5px 10px 5px;
+              button{
+                width: 250px;
+                margin-bottom: 5px;
+              }
+            }
+          }
         }
       }
     }
@@ -283,6 +317,13 @@ html{
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+      }
+    }
+    #buildingInfoModal{
+      .infoModalTextContainer{
+        p{
+          text-align: left;
+        }
       }
     }
     audio{
