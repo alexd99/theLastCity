@@ -14,6 +14,8 @@ function onStart() {
     minerCount = 0;
     lumberjackCount = 0;
 
+    preachedModalOpened = false;
+
     dayCount = 0;
     $('#dayCount').html(dayCount);
 
@@ -45,12 +47,14 @@ function advanceDay() {
     zombieAttackChance();
     displayStore();
     personArrival();
-    dayEvents();
+    specialEvents();
 
     claimLand(true);
     displayTotalPopulation();
     displayTotalSupplies();
     displayBuildingFacts();
+
+    win();
 
     if ((dayCount % 20) === 0) {
         zombieArmyNumberParam1 = zombieArmyNumberParam1 * 2;
@@ -67,12 +71,18 @@ function advanceDay() {
 
     // game over
     if(populationCount <= 0){
-        $('#gameOverModal').modal({backdrop: 'static', keyboard: false});
-        $('.mainGameBtn').prop('disabled', true);
-        $('.storeBtn').prop('disabled', true);
-        $('#playAgain').show();
-        generateScore();
+       gameOver('lost');
     }
+
+    preaching();
+}
+
+function gameOver(winBy) {
+    $('#gameOverModal').modal({backdrop: 'static', keyboard: false});
+    $('.mainGameBtn').prop('disabled', true);
+    $('.storeBtn').prop('disabled', true);
+    $('#playAgain').show();
+    generateScore(winBy);
 }
 
 function displayDayMessage(somethingHappened, message) {

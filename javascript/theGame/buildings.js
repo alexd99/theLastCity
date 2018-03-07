@@ -20,9 +20,14 @@ function buildBuilding(type) {
     if(type === 'silo' && woodCount >= 1000 && metalCount > 500 && availableBuildingSpace >= 4){
         totalSilos++;
         usedBuildingSpace += 4;
-        woodCount -= 100;
-        metalCount -= 50;
+        woodCount -= 1000;
+        metalCount -= 500;
         foodCap += 100;
+    }
+    if(type === 'fortification' && metalCount >= 1500 &&  availableBuildingSpace >= 4){
+        totalFortifications++;
+        usedBuildingSpace += 4;
+        metalCount -= 1500;
     }
     displayTotalSupplies();
     displayBuildingFacts();
@@ -30,12 +35,16 @@ function buildBuilding(type) {
 
 function destroyBuilding(type) {
 
-    if(type === 'house'&& totalHouses > 0){
+    if(type === 'house' && totalHouses > 0){
         let houseConfirm = window.confirm('Are you sure you want to destroy a house? All citizens assigned to this house will be sent away.');
         if(houseConfirm === true) {
             totalHouses--;
             usedBuildingSpace--;
             populationCap -= 4;
+
+            for(let i = 0; i< 4; i++){
+                personDied(true);
+            }
         }
     }
     if(type === 'shelter' && totalShelters > 0 ){
@@ -44,15 +53,25 @@ function destroyBuilding(type) {
             totalShelters--;
             usedBuildingSpace--;
             populationCap -= 2;
+
+            for(let i = 0; i< 2; i++){
+                personDied(true);
+            }
         }
     }
-
-    if(type === 'silo' && totalShelters > 0 ){
+    if(type === 'silo' && totalSilos > 0 ){
         let siloConfirm = window.confirm('Are you sure you want to destroy a Silo?');
         if(siloConfirm === true) {
             totalSilos--;
             usedBuildingSpace -= 4;
             foodCap -= 100;
+        }
+    }
+    if(type === 'fortification' && totalFortifications > 0 ){
+        let fortificationConfirm = window.confirm('Are you sure you want to destroy a fortification?');
+        if(fortificationConfirm === true) {
+            totalFortifications--;
+            usedBuildingSpace -= 4;
         }
     }
 
@@ -70,6 +89,7 @@ function displayBuildingFacts() {
     $('#totalSheltersBuilt').html(`${totalShelters} Shelter(s) Built`);
     $('#totalHousesBuilt').html(`${totalHouses} House(s) Built`);
     $('#totalSilosBuilt').html(`${totalSilos} Silo(s) Built`);
+    $('#totalFortificationsBuilt').html(`${totalFortifications} fortifications(s) Built`);
 }
 
 function claimLand(nextDay) {

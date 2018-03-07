@@ -1,7 +1,22 @@
 // generates final score
-function generateScore() {
-    score = ((dayCount * 2) + ammoCount + (goldCount * 5) + foodCount) - (totalPeopleKilled * 3);
-    $('.modalText').html(`Thank you for playing. Your score was ${score}`);
+function generateScore(winBy) {
+
+    if(winBy !== 'lost'){
+        score = (ammoCount + (goldCount * 5) + foodCount + 1000000) - (totalPeopleKilled * 3) - (dayCount) ;
+    }
+    else {
+        score = (ammoCount + (goldCount * 5) + foodCount) - (totalPeopleKilled * 3) - (dayCount) ;
+    }
+
+    if(winBy === 'fortifications'){
+        $('.modalText').html(`Game won by fortification. Your score was ${score}`);
+    }
+    if(winBy === 'zombies'){
+        $('.modalText').html(`Game won/lost by everyone turning into zombies. Your score was ${score}`);
+    }
+    else if(winBy === 'lost') {
+        $('.modalText').html(`Thank you for playing. Your score was ${score}`);
+    }
 
     storeScore();
 }

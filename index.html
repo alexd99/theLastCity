@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="styles/main.css">
 
 </head>
-<body id="indexBody" onload="onStart();">
+<body id="indexBody" onload="onStart(); console.log(`Please No Cheating. Looking at the code is fine, but please don't alter any variables`);">
 
     <div id="topBar">
 
@@ -62,6 +62,7 @@
                     <p id="totalSilosBuilt"></p>
                     <p id="totalSheltersBuilt"></p>
                     <p id="totalHousesBuilt"></p>
+                    <p id="totalFortificationsBuilt"></p>
 
                 </div>
 
@@ -87,6 +88,10 @@
                         <button onclick="destroyBuilding('silo')">Destroy Silo</button>
                     </div>
 
+                    <div class="buildingButtonBox">
+                        <button onclick="buildBuilding('fortification')">Build Fortifications: 1500 metal</button>
+                        <button onclick="destroyBuilding('fortification ')">Destroy fortification</button>
+                    </div>
                 </div>
 
             </div>
@@ -301,8 +306,8 @@
     </div>
 
     <div class="graveyard">
-        <h2>The Graveyard</h2>item
-        <p>Here Lie The Faithful Soldiers Who Died For Your City</p>
+        <h2>The Graveyard</h2>
+        <p>Here Lie The Faithful Citizens Who Died For Your City</p>
         <div class="tombstoneContainer">
         </div>
     </div>
@@ -445,6 +450,10 @@
                     <h3 class="infoModalTitle">Silo</h3>
                     <p>Each silo takes up 4 building spaces and provides 100 more food space</p>
 
+                    <h3 class="infoModalTitle">Fortifications</h3>
+                    <p>Each fortification takes up 4 building spaces and provides 1.5 more defense</p>
+
+
                 </div>
                 <button class="infoModalCloseButton" onclick="$('#buildingInfoModal').modal('hide');">CLOSE</button>
             </div>
@@ -452,15 +461,46 @@
     </div>
 
     <!--one chance store modal-->
-    <div class="modal fade" id="oneChanceStoreModal" tabindex="-1" role="dialog" aria-labelledby="gameOverModal">
+    <div class="modal fade" id="oneChanceStoreModal" tabindex="-1" role="dialog" aria-labelledby="oneChanceStore">
         <div class="modal-dialog modal-lg" id="oneChanceStoreDialog" role="document">
-            <div class="modal-content" id="oneChanceStoreModalText">
+            <div class="modal-content modalText" id="oneChanceStoreModalText">
                 <p>It has been 50 days since you first arrived in this town you have faced many battles, but you are nowhere near safety. You walk through your town. The villagers are tired from last nights fight, but they are still prepared to fight. Suddenly a villager runs up to you. "come quickly" He shouts at you "A merchant is approaching". This is good, merchants always bring up yours and the villagers spirits. Once you reach the wall the merchant looks you in the eye and says "I  have some legendary objects that may help your city". You smile at the prospect of such a great opportunity. "You may only have one item though, and I will probably never return to your town so choose wisely" he concludes. </p>
                 <div id="oneChanceStoreButtonContainer">
                    <button id="oneChanceStoreGoldWireBtn" onclick="oneChanceStore('goldWire')">Gold Wire</button>
                    <button id="oneChanceStoreSteelPlatesBtn" onclick="oneChanceStore('steelPlate')">Steel Plate</button>
                    <button id="oneChanceStoreQualityTools" onclick="oneChanceStore('qualityTools')">Quality Tools</button>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!--2 fortifications modal-->
+    <div class="modal fade" id="fortificationsModal" tabindex="-1" role="dialog" aria-labelledby="2Fortifications">
+        <div class="modal-dialog modal-lg" id="fortificationsDialog" role="document">
+            <div class="modal-content modalText" id="fortificationsText">
+                <p>Yesterday marked a great day for your city, you built your second fortification. You have begun to notice that this fortification are a very powerful tool against these zombies. As you look at the wall of metal that the fortification consists of you get an idea. You run to your head builder, and he confirms that our idea would work. If your town can build 10 fortifications and have the level 5 walls you could hold of the zombies through any attack, you would no longer have to worry about people dying.</p>
+                <button class="infoModalCloseButton" onclick="$('#fortificationsModal').modal('hide');">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
+    <!--village preach modal-->
+    <div class="modal fade" id="villagePreachModal" tabindex="-1" role="dialog" aria-labelledby="2Fortifications">
+        <div class="modal-dialog modal-lg" id="villagePreachDialog" role="document">
+            <div class="modal-content modalText" id="VillagePreachText">
+                <p>The day started out like any normal day. You walked through your city talking to citizens and encouraging people. You turn around a corner and see a gathering of your citizens. You walk into the group and you hear the "pastor" preaching about how zombies are a gift from Zomgulor. The preacher begs people to walk out of the city and git bit so they can reach enlightenment. "This is crazy" you yell. but people are interested in what he has to say. You can call this meeting to an end, or you could continue to let people worship Zomgulor.</p>
+                <button class="infoModalCloseButton" onclick="preachChoice(false);">End Meeting</button>
+                <button class="infoModalCloseButton" onclick="preachChoice(true);">Let Meeting Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- second village preach modal-->
+    <div class="modal fade" id="villagePreach1Modal" tabindex="-1" role="dialog" aria-labelledby="2Fortifications">
+        <div class="modal-dialog modal-sm" id="villagePreach1Dialog" role="document">
+            <div class="modal-content modalText" id="Village1PreachText">
+                <p>The meeting disburses and the religion and it's zealots will soon be forgotten</p>
+                <button class="infoModalCloseButton" onclick="$('#villagePreach1Modal').modal('hide');">Close</button>
             </div>
         </div>
     </div>
@@ -480,7 +520,6 @@
         </div>
     </div>
 
-    <!--audio for testing purposes-->
     <audio id="gameMusic" autoplay loop muted>
         <source src="assets/music/0_2_01.mp3" type="audio/mpeg">
     </audio>
@@ -532,7 +571,7 @@
 <script src="javascript/scores/scores.js"></script>
 <script src="javascript/theGame/store&forge.js"></script>
 <script src="javascript/theGame/zombies.js"></script>
-<script src="javascript/theGame/dayEvents.js"></script>
+<script src="javascript/theGame/specialEvents.js"></script>
 <script src="javascript/theGame/buildings.js"></script>
 
 <!--other js files-->

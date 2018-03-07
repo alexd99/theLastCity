@@ -308,7 +308,7 @@ html{
         }
       }
     }
-    #oneChanceStoreModalText > p{
+   .modalText > p{
       text-indent: 50px;
       text-align: left;
       margin: auto 8px;
@@ -324,6 +324,13 @@ html{
         p{
           text-align: left;
         }
+      }
+    }
+    #villagePreach1Modal{
+      margin: auto 180px;
+      .modalText{
+        text-align: center;
+        text-indent: 0;
       }
     }
     audio{
@@ -378,60 +385,14 @@ html{
     }
   }
 }
-@media only screen and (max-width: 830px) {
+@media only screen and (max-width: 1439px) {
   html {
     #indexBody {
       .mainGameContainer{
-        .middleGameBox{
-          height: 715px;
+        .gameBox{
+          height: auto;
         }
       }
     }
   }
 }
-@media only screen and (max-width: 830px) {
-  html {
-    #indexBody {
-      .mainGameContainer{
-        .middleGameBox{
-          height: 715px;
-        }
-      }
-    }
-  }
-}
-@media only screen and (max-width: 830px) {
-  html {
-    #indexBody {
-      .mainGameContainer{
-        .middleGameBox{
-          height: 775px;
-        }
-      }
-    }
-  }
-}
-@media only screen and (max-width: 414px) {
-  html {
-    #indexBody {
-      .mainGameContainer{
-        .middleGameBox{
-          height: 1090px;
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 380px) {
-  html {
-    #indexBody {
-      .mainGameContainer{
-        .middleGameBox{
-          height: 1145px;
-        }
-      }
-    }
-  }
-}
-

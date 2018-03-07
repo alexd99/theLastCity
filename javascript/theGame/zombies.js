@@ -55,6 +55,8 @@ function zombiesAttack() {
                 break;
         }
 
+        townDefense += totalFortifications * 1.5;
+
         if (townDefense < zombieAttack) {
             let loopRun = 0;
             if (townDefense === 0) {

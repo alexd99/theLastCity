@@ -46,13 +46,14 @@ let qualityToolsCount = 0;
 
 // building variables
 let availableBuildingSpace = 10;
-let usedBuildingSpace = 0;
-let maxBuildingSpace = 2;
-let populationCap = 20;
+let usedBuildingSpace = 4;
+let maxBuildingSpace = 8;
+let populationCap = 16;
 let foodCap = 20;
 let totalShelters = 0;
-let totalHouses = 0;
+let totalHouses = 4;
 let totalSilos = 0;
+let totalFortifications = 0;
 let claimingLand = false;
 let soldiersClaiming = 0;
 
@@ -70,6 +71,8 @@ let peopleKilled = 0;
 let totalPeopleKilled = 0;
 let finalDate;
 let attacked = false;
+let daysPreached = 0;
+let preachedModalOpened = false;
 
 let gameWarningsInsert = $('#gameWarnings');
 let mainGameTextInsert = $('#gameMainText');

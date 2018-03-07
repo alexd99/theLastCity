@@ -21,6 +21,7 @@ function getRandomName() {
     randomName = Math.floor(Math.random() * names.length);
     selectedName = names[randomName];
     displayCityName();
+    $('#cityNameInput').val('');
 }
 
 
