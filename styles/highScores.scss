@@ -12,31 +12,6 @@ html {
     height: auto;
     background-color: black;
     color:  white;
-    .backButtonContainer {
-      width: 128px;
-      margin-bottom: 10px;
-      .backButtonATag {
-        text-decoration: none;
-        .backButton > i {
-          margin-right: 10px;
-          font-size: 25px;
-        }
-        .backButton {
-          width: 127px;
-          height: 30px;
-          font-size: 18px;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          margin: auto;
-          cursor: pointer;
-          background-color: white;
-          border: none;
-          color: black;
-        }
-      }
-    }
     .highScoreTitleContainer {
       display: flex;
       flex-direction: row;

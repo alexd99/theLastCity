@@ -83,6 +83,7 @@ function gameOver(winBy) {
     $('.storeBtn').prop('disabled', true);
     $('#playAgain').show();
     generateScore(winBy);
+    setAchievements(winBy);
 }
 
 function displayDayMessage(somethingHappened, message) {

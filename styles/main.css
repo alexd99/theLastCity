@@ -52,6 +52,29 @@ html {
       cursor: pointer; }
     html body .topTitle {
       margin-top: -10px; }
+    html body .backButton > i {
+      text-decoration: none; }
+    html body .backButtonContainer {
+      width: 128px;
+      margin-bottom: 10px; }
+      html body .backButtonContainer .backButtonATag {
+        text-decoration: none; }
+        html body .backButtonContainer .backButtonATag .backButton > i {
+          margin-right: 10px;
+          font-size: 25px; }
+        html body .backButtonContainer .backButtonATag .backButton {
+          width: 127px;
+          height: 30px;
+          font-size: 18px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          margin: auto;
+          cursor: pointer;
+          background-color: white;
+          border: none;
+          color: black; }
 
 html #indexBody input:focus {
   outline: 0; }
@@ -118,10 +141,17 @@ html #indexBody .pageLinkContainer > a {
   margin: auto 10px; }
 html #indexBody .pageLinkContainer {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 90%;
   margin: auto; }
+  html #indexBody .pageLinkContainer div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center; }
   html #indexBody .pageLinkContainer .pageLink {
     color: black;
     text-decoration: none; }
@@ -331,7 +361,9 @@ html #indexBody #villagePreach1Modal {
       margin: auto; } }
 @media only screen and (max-width: 1439px) {
   html #indexBody .mainGameContainer .gameBox {
-    height: auto; } }
+    height: auto; }
+  html #indexBody .pageLinkContainer div {
+    flex-direction: column; } }
 html #instructionsBody {
   color: white;
   background: url("../assets/images/instruction'sBackground.jpg") no-repeat;
@@ -348,25 +380,6 @@ html #instructionsBody {
     margin: auto; }
     html #instructionsBody .storyContainer .storyText {
       text-indent: 50px; }
-  html #instructionsBody .backButton > i {
-    text-decoration: none; }
-  html #instructionsBody .backButtonContainer {
-    width: 128px; }
-    html #instructionsBody .backButtonContainer .backButtonATag {
-      text-decoration: none; }
-      html #instructionsBody .backButtonContainer .backButtonATag .backButton > i {
-        margin-right: 10px;
-        font-size: 25px; }
-      html #instructionsBody .backButtonContainer .backButtonATag .backButton {
-        width: 127px;
-        height: 30px;
-        font-size: 18px;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        cursor: pointer; }
   html #instructionsBody table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
@@ -409,25 +422,6 @@ html {
       display: flex;
       flex-direction: row;
       justify-content: space-evenly; }
-    html #creditsBody .backButton > i {
-      text-decoration: none; }
-    html #creditsBody .backButtonContainer {
-      width: 128px; }
-      html #creditsBody .backButtonContainer .backButtonATag {
-        text-decoration: none; }
-        html #creditsBody .backButtonContainer .backButtonATag .backButton > i {
-          margin-right: 10px;
-          font-size: 25px; }
-        html #creditsBody .backButtonContainer .backButtonATag .backButton {
-          width: 127px;
-          height: 30px;
-          font-size: 18px;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          margin: auto;
-          cursor: pointer; }
 
 html {
   padding: 0;
@@ -441,27 +435,6 @@ html {
     height: auto;
     background-color: black;
     color: white; }
-    html #highScoresBody .backButtonContainer {
-      width: 128px;
-      margin-bottom: 10px; }
-      html #highScoresBody .backButtonContainer .backButtonATag {
-        text-decoration: none; }
-        html #highScoresBody .backButtonContainer .backButtonATag .backButton > i {
-          margin-right: 10px;
-          font-size: 25px; }
-        html #highScoresBody .backButtonContainer .backButtonATag .backButton {
-          width: 127px;
-          height: 30px;
-          font-size: 18px;
-          display: flex;
-          flex-direction: row;
-          justify-content: center;
-          align-items: center;
-          margin: auto;
-          cursor: pointer;
-          background-color: white;
-          border: none;
-          color: black; }
     html #highScoresBody .highScoreTitleContainer {
       display: flex;
       flex-direction: row;
@@ -568,5 +541,38 @@ html {
       cursor: pointer; }
   html #highScoresBody #tableNavigateContainer .tableNavigate {
     display: none; } }
+html {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  height: auto; }
+  html #achievementsBody {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: auto;
+    background-color: black;
+    color: #fff; }
+    html #achievementsBody #mainAchievementBox {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap; }
+      html #achievementsBody #mainAchievementBox .achievementBox {
+        width: 200px; }
+        html #achievementsBody #mainAchievementBox .achievementBox .achievementBoxTitleText {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center; }
+          html #achievementsBody #mainAchievementBox .achievementBox .achievementBoxTitleText i {
+            font-size: 1.5em;
+            margin: auto 5px; }
+        html #achievementsBody #mainAchievementBox .achievementBox p {
+          margin-top: -10px;
+          text-align: left; }
+      html #achievementsBody #mainAchievementBox .gold {
+        color: gold; }
 
 /*# sourceMappingURL=main.css.map */
