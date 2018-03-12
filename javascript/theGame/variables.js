@@ -73,6 +73,8 @@ let finalDate;
 let attacked = false;
 let daysPreached = 0;
 let preachedModalOpened = false;
+let winterTime = false;
+let daysOfWinter = 0;
 
 let gameWarningsInsert = $('#gameWarnings');
 let mainGameTextInsert = $('#gameMainText');

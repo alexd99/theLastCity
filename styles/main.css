@@ -560,7 +560,8 @@ html {
       align-items: center;
       flex-wrap: wrap; }
       html #achievementsBody #mainAchievementBox .achievementBox {
-        width: 200px; }
+        width: 200px;
+        margin: auto 10px; }
         html #achievementsBody #mainAchievementBox .achievementBox .achievementBoxTitleText {
           display: flex;
           flex-direction: row;

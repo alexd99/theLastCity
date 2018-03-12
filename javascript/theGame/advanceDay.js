@@ -69,6 +69,20 @@ function advanceDay() {
         zombieArmyNumberParam2 = zombieArmyNumberParam2 * 8;
     }
 
+
+    if(dayCount % 270 === 0){
+        winterTime = true;
+    }
+    if(winterTime === true){
+        daysOfWinter ++;
+    }
+    if(daysOfWinter === 90){
+        winterTime = false;
+        daysOfWinter = 0;
+    }
+
+
+
     // game over
     if(populationCount <= 0){
        gameOver('lost');

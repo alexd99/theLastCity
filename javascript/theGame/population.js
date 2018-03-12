@@ -172,7 +172,7 @@ function foodCalculator() {
 
     foodCount -= populationCount;
 
-    if(foodCount < foodCap) {
+    if(foodCount < foodCap && winterTime === false) {
 
         switch (farmLevel) {
             case 0:
