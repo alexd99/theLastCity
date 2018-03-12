@@ -48,6 +48,7 @@ function advanceDay() {
     displayStore();
     personArrival();
     specialEvents();
+    setAchievements();
 
     claimLand(true);
     displayTotalPopulation();

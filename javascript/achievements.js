@@ -10,8 +10,10 @@ function setAchievements(winBy) {
         }
 
         if (moralityCheck === 'false') {
-            localStorage.setItem('morality', 'true')
+            localStorage.setItem('morality', 'true');
+            toastr['success']('You earned the Morality achievement');
         }
+
     }
 
     if (winBy === 'fortifications'){
@@ -24,7 +26,23 @@ function setAchievements(winBy) {
         }
 
         if (fortificationsCheck === 'false') {
-            localStorage.setItem('fortifications', 'true')
+            localStorage.setItem('fortifications', 'true');
+            toastr['success']('You earned the Invincible achievement');
+        }
+    }
+
+    if(lumberjackCount >= 20){
+        let lumberjackCheck = localStorage.getItem('lumberjackShirts');
+
+        if(lumberjackCheck === null)
+        {
+            localStorage.setItem('lumberjackShirts', 'false');
+            setAchievements();
+        }
+
+        if (lumberjackCheck === 'false') {
+            localStorage.setItem('lumberjackShirts', 'true');
+            toastr['success']('You earned the Shirtless Jacks achievement');
         }
     }
 
@@ -36,4 +54,7 @@ function showAchievements() {
 
     let fortificationsAchievement = localStorage.getItem('fortifications');
     if (fortificationsAchievement === 'true'){$('.invincibleAchievement').addClass('gold');}
+
+    let shirtlessJacksAchievement = localStorage.getItem('lumberjackShirts');
+    if (shirtlessJacksAchievement === 'true'){$('.shirtlessJacksAchievement').addClass('gold');}
 }

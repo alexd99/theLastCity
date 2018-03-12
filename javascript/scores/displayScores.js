@@ -2,7 +2,9 @@ let localScoreTableRow;
 let globalScoreTableRow;
 
 let game;
+let displayedGame = [];
 let scoresArray = [];
+let displayedScoresArray = [];
 
 let globalVariableCallCount = 0;
 
@@ -38,6 +40,19 @@ function displayLocalHighScores(forLoopStarNumber, forLoopEndNumber) {
         }
     });
 
+    for (let i = 0; i < game.length; i++) {
+        JSON.stringify(game[i].score);
+        displayedGame.push(
+            {
+                name: game[i].name,
+                scoreDate: game[i].scoreDate,
+                score: game[i].score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+            }
+        );
+    }
+
+    console.log(displayedGame);
+
     $('.localHighScoreTableRow').html('');
 
     if(game.length < 10){
@@ -50,9 +65,9 @@ function displayLocalHighScores(forLoopStarNumber, forLoopEndNumber) {
             localScoreTableRow = `
             <tr class="localScoreTableRow">
                 <td class="localPlace"><div class="medalContainer"><img class="medalImage" src="assets/images/gold-medal.png">${i+1}</div></td>
-                <td class="localName">${game[i].name}</td>
-                <td class="localDate">${game[i].scoreDate}</td>
-                <td class="localScore">${game[i].score}</td>
+                <td class="localName">${displayedGame[i].name}</td>
+                <td class="localDate">${displayedGame[i].scoreDate}</td>
+                <td class="localScore">${displayedGame[i].score}</td>
             </tr>
         `;
         }
@@ -60,9 +75,9 @@ function displayLocalHighScores(forLoopStarNumber, forLoopEndNumber) {
             localScoreTableRow = `
             <tr class="localScoreTableRow">
                 <td class="localPlace"><div class="medalContainer"><img class="medalImage" src="assets/images/silver-medal.png">${i+1}</div></td>
-                <td class="localName">${game[i].name}</td>
-                <td class="localDate">${game[i].scoreDate}</td>
-                <td class="localScore">${game[i].score}</td>
+                <td class="localName">${displayedGame[i].name}</td>
+                <td class="localDate">${displayedGame[i].scoreDate}</td>
+                <td class="localScore">${displayedGame[i].score}</td>
             </tr>
         `;
         }
@@ -70,9 +85,9 @@ function displayLocalHighScores(forLoopStarNumber, forLoopEndNumber) {
             localScoreTableRow = `
             <tr class="localScoreTableRow">
                 <td class="localPlace"><div class="medalContainer"><img class="medalImage" src="assets/images/bronze-medal.png">${i+1}</div></td>
-                <td class="localName">${game[i].name}</td>
-                <td class="localDate">${game[i].scoreDate}</td>
-                <td class="localScore">${game[i].score}</td>
+                <td class="localName">${displayedGame[i].name}</td>
+                <td class="localDate">${displayedGame[i].scoreDate}</td>
+                <td class="localScore">${displayedGame[i].score}</td>
             </tr>
         `;
         }
@@ -80,9 +95,9 @@ function displayLocalHighScores(forLoopStarNumber, forLoopEndNumber) {
             localScoreTableRow = `
             <tr class="localScoreTableRow">
                 <td class="localPlace">${i+1}</td>
-                <td class="localName">${game[i].name}</td>
-                <td class="localDate">${game[i].scoreDate}</td>
-                <td class="localScore">${game[i].score}</td>
+                <td class="localName">${displayedGame[i].name}</td>
+                <td class="localDate">${displayedGame[i].scoreDate}</td>
+                <td class="localScore">${displayedGame[i].score}</td>
             </tr>
         `;
         }
@@ -116,6 +131,19 @@ function displayGlobalHighScores(forLoopStarNumber, forLoopEndNumber) {
                     return 0
                 }
             });
+
+            for (let i = 0; i < scoresArray.length; i++) {
+                JSON.stringify(scoresArray[i].score);
+                displayedScoresArray.push(
+                    {
+                        userName: scoresArray[i].userName,
+                        date: scoresArray[i].date,
+                        score: scoresArray[i].score.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ")
+                    }
+                );
+            }
+
+            console.log(displayedScoresArray);
 
             globalScoresForLoop(forLoopStarNumber, forLoopEndNumber);
             displayGlobalTotalPages();
@@ -198,9 +226,9 @@ function globalScoresForLoop( forLoopStarNumber, forLoopEndNumber) {
             globalScoreTableRow = `
             <tr class="globalScoreTableRow">
                 <td class="globalPlace"><div class="medalContainer"><img class="medalImage" src="assets/images/gold-medal.png">${i + 1}</div></td>
-                <td class="globalName">${scoresArray[i].userName}</td>
-                <td class="globalDate">${scoresArray[i].date}</td>
-                <td class="globalScore">${scoresArray[i].score}</td>
+                <td class="globalName">${displayedScoresArray[i].userName}</td>
+                <td class="globalDate">${displayedScoresArray[i].date}</td>
+                <td class="globalScore">${displayedScoresArray[i].score}</td>
             </tr>
         `;
         }
@@ -208,9 +236,9 @@ function globalScoresForLoop( forLoopStarNumber, forLoopEndNumber) {
             globalScoreTableRow = `
             <tr class="globalScoreTableRow">
                 <td class="globalPlace"><div class="medalContainer"><img class="medalImage" src="assets/images/silver-medal.png">${i + 1}</div></td>
-                <td class="globalName">${scoresArray[i].userName}</td>
-                <td class="globalDate">${scoresArray[i].date}</td>
-                <td class="globalScore">${scoresArray[i].score}</td>
+                <td class="globalName">${displayedScoresArray[i].userName}</td>
+                <td class="globalDate">${displayedScoresArray[i].date}</td>
+                <td class="globalScore">${displayedScoresArray[i].score}</td>
             </tr>
         `;
         }
@@ -218,9 +246,9 @@ function globalScoresForLoop( forLoopStarNumber, forLoopEndNumber) {
             globalScoreTableRow = `
             <tr class="globalScoreTableRow">
                 <td class="globalPlace"><div class="medalContainer"><img class="medalImage" src="assets/images/bronze-medal.png">${i + 1}</div></td>
-                <td class="globalName">${scoresArray[i].userName}</td>
-                <td class="globalDate">${scoresArray[i].date}</td>
-                <td class="globalScore">${scoresArray[i].score}</td>
+                <td class="globalName">${displayedScoresArray[i].userName}</td>
+                <td class="globalDate">${displayedScoresArray[i].date}</td>
+                <td class="globalScore">${displayedScoresArray[i].score}</td>
             </tr>
         `;
         }
@@ -229,9 +257,9 @@ function globalScoresForLoop( forLoopStarNumber, forLoopEndNumber) {
             globalScoreTableRow = `
             <tr class="globalScoreTableRow">
                 <td class="globalPlace">${i + 1}</td>
-                <td class="globalName">${scoresArray[i].userName}</td>
-                <td class="globalDate">${scoresArray[i].date}</td>
-                <td class="globalScore">${scoresArray[i].score}</td>
+                <td class="globalName">${displayedScoresArray[i].userName}</td>
+                <td class="globalDate">${displayedScoresArray[i].date}</td>
+                <td class="globalScore">${displayedScoresArray[i].score}</td>
             </tr>
         `;
         }
