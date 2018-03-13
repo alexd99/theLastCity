@@ -20,6 +20,9 @@ function theStore(inputId, name, step, price) {
                 if (name === 'wire') {
                     wireCount += inputId;
                 }
+                if (name === 'ore') {
+                    oreCount += inputId;
+                }
                 goldCount -= totalPrice;
             }
         }
@@ -52,6 +55,25 @@ function theForge(fuel) {
             }
         }
     }
+    else if(fuel === 'coal'){
+        if (coalCount >= 1 && oreCount >= 2) {
+            metalCount += 1;
+            woodCount -= 1;
+            oreCount -= 2;
+            toastr['success'](`You Successfully Smelted 2 Metal`);
+        }
+        else {
+            if ( coalCount < 1){
+                toastr['error']('You Do Not Have Enough Coal');
+            }
+            else if(oreCount < 2){
+                toastr['error']('You Do Not Have Enough Ore');
+            }
+            else {
+                toastr['error']('You Do Not Have Enough Coal and Ore');
+            }
+        }
+    }
 
     displayTotalSupplies();
 
@@ -70,6 +92,7 @@ function displayStore() {
     let open = Math.floor((Math.random() * 2) + 1);
 
     if(open === 1) {
+        toastr['info']('The store is opened');
         let openedStore = Math.floor((Math.random() * 2) + 1);
 
         switch (openedStore) {

@@ -46,6 +46,21 @@ function setAchievements(winBy) {
         }
     }
 
+    if (winBy === 'courage'){
+        let courageCheck = localStorage.getItem('courage');
+
+        if(courageCheck === null)
+        {
+            localStorage.setItem('courage', 'false');
+            setAchievements('courage');
+        }
+
+        if (courageCheck === 'false') {
+            localStorage.setItem('courage', 'true');
+            toastr['success']('You earned the Heroic Monument achievement');
+        }
+    }
+
     if(lumberjackCount >= 20){
         let lumberjackCheck = localStorage.getItem('lumberjackShirts');
 
@@ -72,6 +87,9 @@ function showAchievements() {
 
     let medicalWarfareAchievement = localStorage.getItem('cure');
     if (medicalWarfareAchievement === 'true'){$('.medicalWarfareAchievement').addClass('gold');}
+
+    let heroicMonumentAchievement = localStorage.getItem('courage');
+    if (heroicMonumentAchievement === 'true'){$('.heroicMonumentAchievement').addClass('gold');}
 
     let shirtlessJacksAchievement = localStorage.getItem('lumberjackShirts');
     if (shirtlessJacksAchievement === 'true'){$('.shirtlessJacksAchievement').addClass('gold');}

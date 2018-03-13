@@ -17,6 +17,9 @@ let wireCountInsert = $('#wireCount');
 let oreCount;
 let oreCountInsert = $('#oreCount');
 
+let coalCount;
+let coalCountInsert = $('#coalCount');
+
 let woodCount;
 let woodCountInsert = $('#woodCount');
 
@@ -93,6 +96,7 @@ function displayTotalSupplies() {
     metalCountInsert.html(metalCount);
     wireCountInsert.html(wireCount);
     oreCountInsert.html(oreCount);
+    coalCountInsert.html(coalCount);
     woodCountInsert.html(woodCount);
 }
 

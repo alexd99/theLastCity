@@ -5,6 +5,7 @@ function onStart() {
     ammoCount = 25;
     metalCount = 1000000;
     oreCount = 8;
+    coalCount = 0;
     wireCount = 1000000;
     woodCount = 1000000;
     populationCount = 11;
@@ -21,6 +22,7 @@ function onStart() {
 
     $('.mainGameBtn').prop('disabled', false);
     $('.storeBtn').prop('disabled', false);
+    $('.storeItems').hide();
     $('#playAgain').hide();
     $('#theCureContainer').hide();
     $('.tombstoneContainer').html('');

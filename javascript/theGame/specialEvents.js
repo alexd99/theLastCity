@@ -13,7 +13,7 @@ function specialEvents() {
     }
 
     if(dayCount > 50 && preachedModalOpened === false){
-        let villagePreachChance = Math.floor((Math.random() * 55) + 1);
+        let villagePreachChance = Math.floor((Math.random() * 100) + 1);
 
         if(villagePreachChance === 1){
             //open village preach chance
@@ -21,6 +21,17 @@ function specialEvents() {
         }
 
         preachedModalOpened = true;
+    }
+
+    if (dayCount > 100){
+
+        let lastStandChance = Math.floor((Math.random() * 2) + 1);
+
+        if(lastStandChance === 1){
+            //open last stand chance
+            $('#lastStandModal').modal({backdrop: 'static', keyboard: false});
+        }
+
     }
 
     if(totalResearchCenters >= 1){
@@ -42,6 +53,19 @@ function win() {
         gameOver('fortifications');
     }
 
+}
+
+function lastStandChoice(choice) {
+    $('#lastStandModal').modal('hide');
+    $('#lastStandModal2').modal({backdrop: 'static', keyboard: false});
+
+    if(choice === 'flee'){
+    $('#lastStandText2').html(`<p>You are still a coward and flee. As you run you hear the screams of the citizens behind you. You soldiers are shocked by your actions but continue to fight bravely. As you near the north wall, the wall opposite from the breached one, you see it break and zombies pour into the city. There is nowhere to run. You can't live with the thought of being one of those monsters. You reach for your rifle, but don't feel it, it must have dropped sometime when you were running. All you have is a knife. You grab it and quickly slit your throat. "one less zombie" is your final words. </p><button onclick="gameOver('lost');$('#lastStandModal2').modal('hide');">Next</button>`)
+    }
+    else{
+        $('#lastStandText2').html(`<p>You grab your rifle and quickly unload your first clip, then your second, third... You are shooting as fast as you can, trying to save as many citizens as possible, but it is not enough. You remember what the General before you did, you soon realize you must do the same if anyone is to survive. You run back inside your house and next to the doorway is your beloved pair of short swords. You grab them both and run back outside and charge the hoard. You don't last long before getting bit, but you still fight. You feel the virus taking effect as you kill you the 10th zombie. You know you need to end the virus soon so that the villagers don't have to worry about killing you. as the 20th zombie falls you fall on your sword, stopping the virus from spreading. The town pulls through this attack, but not unscathed. The town has a new leader now, hopefully, he is luckier than you. Your sacrifice will always be remembered by the citizens of ${ document.title}.</p>
+<button onclick="gameOver('courage');$('#lastStandModal2').modal('hide');">Next</button>`)
+    }
 }
 
 function preachChoice(preach) {

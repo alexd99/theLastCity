@@ -17,6 +17,9 @@ function generateScore(winBy) {
     if(winBy === 'cure'){
         $('.modalText').html(`Game won by finding the cure. Your score was ${score}`);
     }
+    if(winBy === 'courage'){
+        $('.modalText').html(`Game won by being a hero. Your score was ${score}`);
+    }
     else if(winBy === 'lost') {
         $('.modalText').html(`Thank you for playing. Your score was ${score}`);
     }

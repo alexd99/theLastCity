@@ -243,6 +243,9 @@ html{
       .bottomGameContentContainers{
         width: 50%;
         border:  1px solid black;
+        button{
+          margin-bottom: 10px;
+        }
       }
       #forge{
         margin-left: 4px;

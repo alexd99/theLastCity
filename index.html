@@ -126,6 +126,7 @@
                     <h3>Metal:</h3>
                     <h3>Wire:</h3>
                     <h3>Ore:</h3>
+                    <h3>Coal:</h3>
                     <h3>Wood:</h3>
                 </div>
                 <div class="itemTextBoxLeft">
@@ -135,6 +136,7 @@
                     <h3 id="metalCount"></h3>
                     <h3 id="wireCount"></h3>
                     <h3 id="oreCount"></h3>
+                    <h3 id="coalCount"></h3>
                     <h3 id="woodCount"></h3>
                 </div>
             </div>
@@ -301,7 +303,7 @@
 
     <div class="bottomGameContainer">
         <div class="bottomGameContentContainers" id="store">
-            <h2>STORE</h2>
+            <h2 id="storeTitle">STORE</h2>
 
             <div class="storeItems generalStore">
                 <input type="number" class="storeInput" title="ammoInput" id="ammoInput" min="5" step="5" placeholder="quantity">
@@ -318,11 +320,17 @@
                 <button class="storeBtn" onclick="theStore('wireInput', 'wire', 10, 10)">Buy Wire: 1 gold for 10 wire</button>
             </div>
 
+            <div class="storeItems metalStore">
+                <input type="number" class="storeInput" title="oreInput" id="oreInput" min="3" step="3" placeholder="quantity">
+                <button class="storeBtn" onclick="theStore('oreInput', 'ore',3, 3)">Buy Ore: 1 gold for 3 ore</button>
+            </div>
+
         </div>
 
         <div class="bottomGameContentContainers" id="forge">
             <h2>FORGE</h2>
             <button onclick="theForge('wood');">Forge 2 metal | fuel wood</button>
+            <button onclick="theForge('coal');">Forge 2 metal | fuel coal</button>
         </div>
 
     </div>
@@ -527,6 +535,28 @@
             </div>
         </div>
     </div>
+
+    <!--last stand modal-->
+    <div class="modal fade" id="lastStandModal" tabindex="-1" role="dialog" aria-labelledby="2Fortifications">
+        <div class="modal-dialog modal-lg" id="lastStandDialog" role="document">
+            <div class="modal-content modalText" id="lastStandText">
+                <p>you are deep in a nightmare about the first break out. you dream about your wife and three kids, they had just been bitten and they turn to you and you have no choice but to run. You couldn't bring your self to kill your family, but if you had killed your family there would have been more time for other people to run and more survivors. You blame yourself for the lives of many, because of your cowardice. You wake up as you hear a banging on your door. "General", a voice screams, "the walls have fallen and zombies are on the streets we need to evacuate." You hop out of bed and grab the rifle by your bed and run outside. Some citizens are fleeing while others are fighting. It is chaos. The zombies are killing people left and right. You remember your nightmare from seconds before. You need to decide on whether you're going to fight or flee. </p>
+                <button class="infoModalCloseButton" onclick="lastStandChoice('flee');">Flee</button>
+                <button class="infoModalCloseButton" onclick="lastStandChoice('fight');">Fight</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="lastStandModal2" tabindex="-1" role="dialog" aria-labelledby="2Fortifications">
+        <div class="modal-dialog modal-lg" id="lastStandDialog2" role="document">
+            <div class="modal-content modalText" id="lastStandText2">
+
+            </div>
+        </div>
+    </div>
+
+
+
 
     <!-- cure modal-->
     <div class="modal fade" id="cureModal" tabindex="-1" role="dialog" aria-labelledby="2Fortifications">
