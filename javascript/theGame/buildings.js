@@ -29,6 +29,11 @@ function buildBuilding(type) {
         usedBuildingSpace += 4;
         metalCount -= 1500;
     }
+    if(type === 'research' && metalCount >= 1000 && woodCount >= 1000 && availableBuildingSpace >= 6){
+        totalResearchCenters++;
+        usedBuildingSpace += 6;
+        metalCount -= 1500;
+    }
     displayTotalSupplies();
     displayBuildingFacts();
 }
@@ -75,6 +80,14 @@ function destroyBuilding(type) {
         }
     }
 
+    if(type === 'research' && totalResearchCenters > 0 ){
+        let researchConfirm = window.confirm('Are you sure you want to destroy a Research Center?');
+        if(researchConfirm === true) {
+            totalResearchCenters--;
+            usedBuildingSpace -= 6;
+        }
+    }
+
     displayTotalSupplies();
     displayBuildingFacts()
 }
@@ -86,10 +99,25 @@ function displayBuildingFacts() {
     $('#buildingSpaceUsedText').html(`${usedBuildingSpace} out of ${maxBuildingSpace} building space used`);
     $('#populationCap').html(`${populationCount} out of ${populationCap} house spaces used`);
     $('#foodCap').html(`${foodCount} out of ${foodCap} food storage used`);
-    $('#totalSheltersBuilt').html(`${totalShelters} Shelter(s) Built`);
-    $('#totalHousesBuilt').html(`${totalHouses} House(s) Built`);
-    $('#totalSilosBuilt').html(`${totalSilos} Silo(s) Built`);
-    $('#totalFortificationsBuilt').html(`${totalFortifications} fortifications(s) Built`);
+
+    if(totalShelters > 1 || totalShelters === 0){$('#totalSheltersBuilt').html(`${totalShelters} Shelters Built`);}
+    else{$('#totalSheltersBuilt').html(`${totalShelters} Shelter Built`);}
+
+    if(totalHouses > 1 || totalHouses === 0){$('#totalHousesBuilt').html(`${totalHouses} Houses Built`);}
+    else{$('#totalHousesBuilt').html(`${totalHouses} House Built`);}
+
+
+    if(totalSilos > 1 || totalSilos === 0){$('#totalSilosBuilt').html(`${totalSilos} Silos Built`);}
+    else{$('#totalSilosBuilt').html(`${totalSilos} Silo Built`);}
+
+    if(totalFortifications > 1 || totalFortifications === 0){ $('#totalFortificationsBuilt').html(`${totalFortifications} fortifications Built`);}
+    else{$('#totalFortificationsBuilt').html(`${totalFortifications} fortification Built`);}
+
+    if(totalResearchCenters > 1 || totalResearchCenters === 0){ $('#totalResearchBuilt').html(`${totalResearchCenters} Research Centers Built`);}
+    else{$('#totalResearchBuilt').html(`${totalResearchCenters} Research Center Built`);}
+
+
+
 }
 
 function claimLand(nextDay) {

@@ -22,6 +22,18 @@ function specialEvents() {
 
         preachedModalOpened = true;
     }
+
+    if(totalResearchCenters >= 1){
+
+        if(cureModalShowed === false) {
+            $('#cureModal').modal({backdrop: 'static', keyboard: false});
+            cureModalShowed = true;
+        }
+        daysWithResearchCenter += totalResearchCenters;
+    }
+    if (daysWithResearchCenter >= 66){
+        $('#theCureContainer').show();
+    }
 }
 
 function win() {

@@ -22,11 +22,13 @@ function onStart() {
     $('.mainGameBtn').prop('disabled', false);
     $('.storeBtn').prop('disabled', false);
     $('#playAgain').hide();
+    $('#theCureContainer').hide();
     $('.tombstoneContainer').html('');
 
     displayBuildingFacts();
     displayTotalSupplies();
     displayTotalPopulation();
+    researchCenters();
 }
 
 // advances the day and runs all function associated with day advancement. Also checks if the game is over
@@ -49,12 +51,12 @@ function advanceDay() {
     personArrival();
     specialEvents();
     setAchievements();
-
+    researchCenters();
     claimLand(true);
     displayTotalPopulation();
     displayTotalSupplies();
     displayBuildingFacts();
-
+    searchingForTheCure();
     win();
 
     if ((dayCount % 20) === 0) {
@@ -81,8 +83,6 @@ function advanceDay() {
         winterTime = false;
         daysOfWinter = 0;
     }
-
-
 
     // game over
     if(populationCount <= 0){

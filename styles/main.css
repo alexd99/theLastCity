@@ -126,7 +126,7 @@ html #indexBody #topBar {
           align-items: center;
           margin: auto 5px 10px 5px; }
           html #indexBody #topBar .buildingContainer .buildingContainerContent .buildingButtons .buildingButtonBox button {
-            width: 250px;
+            width: 310px;
             margin-bottom: 5px; }
 html #indexBody .cityName {
   width: 180px; }
@@ -349,7 +349,24 @@ html #indexBody #villagePreach1Modal {
     html #indexBody .mainGameContainer .middleGameBox {
       width: 98%; }
     html #indexBody .mainGameContainer .rightGameBox {
-      width: 98%; } }
+      width: 98%; }
+  html #indexBody #topBar .buildingContainer .buildingContainerContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: auto; }
+    html #indexBody #topBar .buildingContainer .buildingContainerContent .buildingButtons {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      margin: 0; }
+      html #indexBody #topBar .buildingContainer .buildingContainerContent .buildingButtons .buildingButtonBox {
+        justify-content: left;
+        align-items: left;
+        flex-wrap: wrap; }
+        html #indexBody #topBar .buildingContainer .buildingContainerContent .buildingButtons .buildingButtonBox button {
+          width: auto; } }
 @media only screen and (max-width: 1332px) {
   html #indexBody #topBar {
     display: flex;

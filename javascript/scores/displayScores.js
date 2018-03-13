@@ -58,6 +58,9 @@ function displayLocalHighScores(forLoopStarNumber, forLoopEndNumber) {
     if(game.length < 10){
         forLoopEndNumber = game.length;
     }
+    if (forLoopEndNumber > game.length){
+        forLoopEndNumber = game.length;
+    }
 
     for (let i = forLoopStarNumber; i < forLoopEndNumber; i++) {
 

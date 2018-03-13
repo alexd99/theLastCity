@@ -43,17 +43,20 @@ let lumberJackCountInsert = $('.lumberjackCount');
 let goldWireCount = 0;
 let steelPlateCount = 0;
 let qualityToolsCount = 0;
+let serumCount = 0;
 
 // building variables
-let availableBuildingSpace = 10;
+let availableBuildingSpace = 0;
 let usedBuildingSpace = 4;
-let maxBuildingSpace = 8;
+let maxBuildingSpace = 100;
 let populationCap = 16;
 let foodCap = 20;
 let totalShelters = 0;
 let totalHouses = 4;
 let totalSilos = 0;
 let totalFortifications = 0;
+let totalResearchCenters = 0;
+let daysWithResearchCenter = 0;
 let claimingLand = false;
 let soldiersClaiming = 0;
 
@@ -75,6 +78,9 @@ let daysPreached = 0;
 let preachedModalOpened = false;
 let winterTime = false;
 let daysOfWinter = 0;
+let searchingForCure = false;
+let daysSearching = 0;
+let cureModalShowed = false;
 
 let gameWarningsInsert = $('#gameWarnings');
 let mainGameTextInsert = $('#gameMainText');

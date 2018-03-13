@@ -63,9 +63,9 @@ html{
               flex-direction: column;
               justify-content: center;
               align-items: center;
-              margin: auto 5px /*0*/ 10px 5px;
+              margin: auto 5px 10px 5px;
               button{
-                width: 250px;
+                width: 310px;
                 margin-bottom: 5px;
               }
             }
@@ -364,20 +364,45 @@ html{
 @media only screen and (max-width: 1439px) {
   html {
     #indexBody {
-      .mainGameContainer{
+      .mainGameContainer {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         align-content: center;
-        .leftGameBox{
+        .leftGameBox {
           width: 98%;
         }
-        .middleGameBox{
+        .middleGameBox {
           width: 98%;
         }
-        .rightGameBox{
+        .rightGameBox {
           width: 98%;
+        }
+      }
+      #topBar{
+        .buildingContainer{
+          .buildingContainerContent{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            .buildingButtons{
+              display: flex;
+              flex-direction: column;
+              align-items: left;
+              margin: 0;
+              .buildingButtonBox{
+                justify-content: left;
+                align-items: left;
+                flex-wrap: wrap;
+                button{
+                  width: auto;
+                }
+              }
+            }
+          }
         }
       }
     }

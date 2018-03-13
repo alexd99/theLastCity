@@ -115,3 +115,31 @@ function upgradeFarm(){
         farmName.html('Quality Farm (4)');
     }
 }
+
+function theCure() {
+    if(serumCount > 0 && populationCount >= 2){
+        serumCount = 0;
+        personDied(false);
+        personDied(false);
+        searchingForCure = true;
+        toastr["success"]("You started looking for the cure!")
+    }
+        //15 days, the serum, 2 citizens
+}
+function searchingForTheCure() {
+    if(searchingForCure === true){
+        daysSearching ++;
+    }
+    if (daysSearching >= 15){
+       gameOver('cure')
+    }
+}
+
+function researchCenters() {
+    if(totalResearchCenters <= 0){
+        $('.researchBtn').prop('disabled', true);
+    }
+    else {
+        $('.researchBtn').prop('disabled', false);
+    }
+}

@@ -31,6 +31,21 @@ function setAchievements(winBy) {
         }
     }
 
+    if (winBy === 'cure'){
+        let cureCheck = localStorage.getItem('cure');
+
+        if(cureCheck === null)
+        {
+            localStorage.setItem('cure', 'false');
+            setAchievements('cure');
+        }
+
+        if (cureCheck === 'false') {
+            localStorage.setItem('cure', 'true');
+            toastr['success']('You earned the Medical Warfare achievement');
+        }
+    }
+
     if(lumberjackCount >= 20){
         let lumberjackCheck = localStorage.getItem('lumberjackShirts');
 
@@ -54,6 +69,9 @@ function showAchievements() {
 
     let fortificationsAchievement = localStorage.getItem('fortifications');
     if (fortificationsAchievement === 'true'){$('.invincibleAchievement').addClass('gold');}
+
+    let medicalWarfareAchievement = localStorage.getItem('cure');
+    if (medicalWarfareAchievement === 'true'){$('.medicalWarfareAchievement').addClass('gold');}
 
     let shirtlessJacksAchievement = localStorage.getItem('lumberjackShirts');
     if (shirtlessJacksAchievement === 'true'){$('.shirtlessJacksAchievement').addClass('gold');}

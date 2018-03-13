@@ -98,7 +98,12 @@
 
                     <div class="buildingButtonBox">
                         <button onclick="buildBuilding('fortification')">Build Fortifications: 1500 metal</button>
-                        <button onclick="destroyBuilding('fortification ')">Destroy fortification</button>
+                        <button onclick="destroyBuilding('fortification ')">Destroy Fortification</button>
+                    </div>
+
+                    <div class="buildingButtonBox">
+                        <button onclick="buildBuilding('research')">Build Research Center: 1000 wood 1000 metal</button>
+                        <button onclick="destroyBuilding('research')">Destroy Research Center</button>
                     </div>
                 </div>
 
@@ -254,18 +259,20 @@
                     <i class="fas fa-info-circle researchInfo" onclick="$('#researchInfoModal').modal('show');"></i>
                 </h2>
 
+                <h3 id="totalResearchBuilt"></h3>
+
                 <div class="researchButtonBox">
 
                     <div class="researchIndivButtonBox">
                         <p id="radioName"> Radio Level: 0</p>
-                        <button onclick="upgradeRadio();" title="radios make it easier to find people to bring into your city">
+                        <button onclick="upgradeRadio();" class="researchBtn" title="radios make it easier to find people to bring into your city">
                             <span id="upgradeRadioText"> Upgrade Radio: 200 metal</span>
                         </button>
                     </div>
 
                     <div class="researchIndivButtonBox">
                         <p id="wallName"> Wood Walls (0)</p>
-                        <button onclick="upgradeWalls();" title="radios make it easier to find people to bring into your city">
+                        <button onclick="upgradeWalls();" class="researchBtn" title="radios make it easier to find people to bring into your city">
                             <span id="upgradeWallText"> Hard Wood: 100 wood</span>
                         </button>
                     </div>
@@ -273,8 +280,15 @@
 
                     <div class="researchIndivButtonBox">
                         <p id="farmName"> Basic Farm(0)</p>
-                        <button onclick="upgradeFarm();" title="radios make it easier to find people to bring into your city">
+                        <button onclick="upgradeFarm();" class="researchBtn" title="radios make it easier to find people to bring into your city">
                             <span id="upgradeFarmText"> Fences: 50 wood</span>
+                        </button>
+                    </div>
+
+                    <div class="researchIndivButtonBox" id="theCureContainer">
+                        <p id="cureName">The Cure ?</p>
+                        <button onclick="theCure();" class="researchBtn" title="radios make it easier to find people to bring into your city">
+                            <span id="upgradeCureText">15 days, the serum, 2 citizens</span>
                         </button>
                     </div>
 
@@ -477,6 +491,7 @@
                    <button id="oneChanceStoreGoldWireBtn" onclick="oneChanceStore('goldWire')">Gold Wire</button>
                    <button id="oneChanceStoreSteelPlatesBtn" onclick="oneChanceStore('steelPlate')">Steel Plate</button>
                    <button id="oneChanceStoreQualityTools" onclick="oneChanceStore('qualityTools')">Quality Tools</button>
+                   <button id="oneChanceStoreSerum" onclick="oneChanceStore('serum')">The Serum</button>
                 </div>
             </div>
         </div>
@@ -513,6 +528,16 @@
         </div>
     </div>
 
+    <!-- cure modal-->
+    <div class="modal fade" id="cureModal" tabindex="-1" role="dialog" aria-labelledby="2Fortifications">
+        <div class="modal-dialog modal-lg" id="vcureDialog" role="document">
+            <div class="modal-content modalText" id="cureText">
+                <p>You are in a meeting discussing the zombie problem and how the town is going to either fix it or set up defense so good zombies are no longer a concern. You are part way through your sentence when a scientist runs through the door and yells, "I know how to make a cure." This scientist has been working on a cure since before you got here and you are pleased to know that he has found a cure. "well I think I do. If you want me to try come find me at the lab in 66 days. You will also need to find me a serum" the scientist says to you as he walks out the door.</p>
+                <button class="infoModalCloseButton" onclick="$('#cureModal').modal('hide');">Close</button>
+            </div>
+        </div>
+    </div>
+
     <!--game over modal-->
     <div class="modal fade" id="gameOverModal" tabindex="-1" role="dialog" aria-labelledby="gameOverModal">
         <div class="modal-dialog modal-lg" id="gameOverModalDialog" role="document">
@@ -543,7 +568,7 @@
         "newestOnTop": true,
         "progressBar": false,
         "positionClass": "toast-top-right",
-        "preventDuplicates": false,
+        "preventDuplicates": true,
         "onclick": null,
         "showDuration": "10000",
         "hideDuration": "4000",

@@ -106,6 +106,11 @@ function oneChanceStore(itemSelected){
         itemNameInput.append(`<h3 class="legendaryItem qualityTools">Quality Tools:</h3>`);
         itemCountInsert.append(`<h3 id="steelPlate" class="qualityTools legendaryItem">${qualityToolsCount}</h3>`)
     }
+    if(itemSelected === 'serum'){
+        serumCount += 1;
+        itemNameInput.append(`<h3 class="legendaryItem qualityTools">The Serum:</h3>`);
+        itemCountInsert.append(`<h3 id="steelPlate" class="qualityTools legendaryItem">${serumCount}</h3>`)
+    }
 
     $('#oneChanceStoreModal').modal('hide');
 }
