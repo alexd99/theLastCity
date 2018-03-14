@@ -45,22 +45,6 @@ function advanceDay() {
     dayCount += 1;
     $('#dayCount').html(dayCount);
 
-    displayDayMessage(false, false);
-    foodCalculator();
-    gatherResources();
-    zombieAttackChance();
-    displayStore();
-    personArrival();
-    specialEvents();
-    setAchievements();
-    researchCenters();
-    claimLand(true);
-    displayTotalPopulation();
-    displayTotalSupplies();
-    displayBuildingFacts();
-    searchingForTheCure();
-    win();
-
     if ((dayCount % 20) === 0) {
         zombieArmyNumberParam1 = zombieArmyNumberParam1 * 2;
         zombieArmyNumberParam2 = zombieArmyNumberParam2 * 2;
@@ -86,12 +70,27 @@ function advanceDay() {
         daysOfWinter = 0;
     }
 
+    displayDayMessage(false, false);
+    foodCalculator();
+    gatherResources();
+    zombieAttackChance();
+    displayStore();
+    personArrival();
+    specialEvents();
+    setAchievements();
+    researchCenters();
+    claimLand(true);
+    displayTotalPopulation();
+    displayTotalSupplies();
+    displayBuildingFacts();
+    searchingForTheCure();
+    win();
+    preaching();
+
     // game over
     if(populationCount <= 0){
-       gameOver('lost');
+        gameOver('lost');
     }
-
-    preaching();
 }
 
 function gameOver(winBy) {
