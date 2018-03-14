@@ -1,3 +1,5 @@
+$('.fa-trophy').hide();
+
 function setAchievements(winBy) {
 
     if (winBy === 'zombies'){
@@ -80,17 +82,18 @@ function setAchievements(winBy) {
 
 function showAchievements() {
     let moralityAchievement = localStorage.getItem('morality');
-    if (moralityAchievement === 'true'){$('.moralityAchievement').addClass('gold');}
+    if (moralityAchievement === 'true'){$('.moralityAchievement').addClass('gold');$('#moralityAchievementTrophy').show() }
+
 
     let fortificationsAchievement = localStorage.getItem('fortifications');
-    if (fortificationsAchievement === 'true'){$('.invincibleAchievement').addClass('gold');}
+    if (fortificationsAchievement === 'true'){$('.invincibleAchievement').addClass('gold'); $('#invincibleAchievementTrophy').show()}
 
     let medicalWarfareAchievement = localStorage.getItem('cure');
-    if (medicalWarfareAchievement === 'true'){$('.medicalWarfareAchievement').addClass('gold');}
+    if (medicalWarfareAchievement === 'true'){$('.medicalWarfareAchievement').addClass('gold'); $('#medicalWarfareAchievementTrophy').show()}
 
     let heroicMonumentAchievement = localStorage.getItem('courage');
-    if (heroicMonumentAchievement === 'true'){$('.heroicMonumentAchievement').addClass('gold');}
+    if (heroicMonumentAchievement === 'true'){$('.heroicMonumentAchievement').addClass('gold'); $('#heroicMonumentAchievementTrophy').show()}
 
     let shirtlessJacksAchievement = localStorage.getItem('lumberjackShirts');
-    if (shirtlessJacksAchievement === 'true'){$('.shirtlessJacksAchievement').addClass('gold');}
+    if (shirtlessJacksAchievement === 'true'){$('.shirtlessJacksAchievement').addClass('gold');$('#shirtlessJacksAchievementTrophy').show()}
 }

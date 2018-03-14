@@ -86,6 +86,8 @@ html #indexBody input[type=text] {
 html #indexBody a {
   color: black;
   text-decoration: none; }
+html #indexBody .fas {
+  cursor: pointer; }
 html #indexBody #topBar {
   display: flex;
   flex-direction: row;
@@ -98,7 +100,8 @@ html #indexBody #topBar {
   html #indexBody #topBar .buildingContainer {
     border: 1px solid black;
     margin: auto 5px;
-    width: 75%; }
+    width: 75%;
+    margin-right: 11px; }
     html #indexBody #topBar .buildingContainer .buildingContainerContent > div {
       margin: auto 10px; }
     html #indexBody #topBar .buildingContainer .buildingContainerContent {
@@ -236,8 +239,6 @@ html #indexBody .mainGameContainer {
   html #indexBody .mainGameContainer .rightGameBox {
     margin: auto 10px;
     width: 22.5%; }
-    html #indexBody .mainGameContainer .rightGameBox .researchContainer .researchInfo {
-      cursor: pointer; }
     html #indexBody .mainGameContainer .rightGameBox .researchContainer .researchButtonBox {
       margin-bottom: 10px; }
       html #indexBody .mainGameContainer .rightGameBox .researchContainer .researchButtonBox .researchIndivButtonBox > p {
@@ -441,6 +442,14 @@ html {
       display: flex;
       flex-direction: row;
       justify-content: space-evenly; }
+    html #creditsBody .musicTitle {
+      text-decoration: underline; }
+    html #creditsBody .musicSubtitle {
+      font-weight: bold;
+      font-size: 1.10em; }
+    html #creditsBody .musicLicenses {
+      width: 80%;
+      margin: auto; }
 
 html {
   padding: 0;
@@ -579,7 +588,7 @@ html {
       align-items: center;
       flex-wrap: wrap; }
       html #achievementsBody #mainAchievementBox .achievementBox {
-        width: 241px;
+        width: 249px;
         margin: auto 10px; }
         html #achievementsBody #mainAchievementBox .achievementBox .achievementBoxTitleText {
           display: flex;

@@ -16,6 +16,9 @@ html{
       color: black;
       text-decoration: none;
     }
+    .fas{
+      cursor: pointer;
+    }
     #topBar{
       display: flex;
       flex-direction: row;
@@ -31,6 +34,7 @@ html{
         border: 1px solid black;
         margin: auto 5px;
         width: 75%;
+        margin-right: 11px;
         .buildingContainerContent > div{
           margin: auto 10px;
         }
@@ -219,9 +223,6 @@ html{
         margin: auto 10px;
         width: 22.5%;
         .researchContainer {
-          .researchInfo {
-            cursor: pointer;
-          }
           .researchButtonBox {
             margin-bottom: 10px;
             .researchIndivButtonBox > p {

@@ -30,5 +30,16 @@ html {
       flex-direction: row;
       justify-content: space-evenly;
     }
+    .musicTitle{
+      text-decoration: underline;
+    }
+    .musicSubtitle{
+      font-weight: bold;
+      font-size: 1.10em;
+    }
+    .musicLicenses{
+      width: 80%;
+      margin: auto;
+    }
   }
 }

@@ -23,9 +23,9 @@ function specialEvents() {
         preachedModalOpened = true;
     }
 
-    if (dayCount > 100){
+    if (dayCount > 150){
 
-        let lastStandChance = Math.floor((Math.random() * 2) + 1);
+        let lastStandChance = Math.floor((Math.random() * 200) + 1);
 
         if(lastStandChance === 1){
             //open last stand chance
@@ -56,8 +56,8 @@ function win() {
 }
 
 function lastStandChoice(choice) {
-    $('#lastStandModal').modal('hide');
     $('#lastStandModal2').modal({backdrop: 'static', keyboard: false});
+    $('#lastStandModal').modal('hide');
 
     if(choice === 'flee'){
     $('#lastStandText2').html(`<p>You are still a coward and flee. As you run you hear the screams of the citizens behind you. You soldiers are shocked by your actions but continue to fight bravely. As you near the north wall, the wall opposite from the breached one, you see it break and zombies pour into the city. There is nowhere to run. You can't live with the thought of being one of those monsters. You reach for your rifle, but don't feel it, it must have dropped sometime when you were running. All you have is a knife. You grab it and quickly slit your throat. "one less zombie" is your final words. </p><button onclick="gameOver('lost');$('#lastStandModal2').modal('hide');">Next</button>`)
