@@ -315,6 +315,12 @@ html #indexBody #gameOverModal {
     align-items: center; }
     html #indexBody #gameOverModal #userNameInputContainer #userNameInput {
       margin-right: 10px; }
+  html #indexBody #gameOverModal .otherHighScoreSubmitBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-bottom: 10px; }
 html #indexBody .modalText > p {
   text-indent: 50px;
   text-align: left;

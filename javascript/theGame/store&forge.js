@@ -37,46 +37,59 @@ function theStore(inputId, name, step, price) {
 function theForge(fuel) {
 
     if(fuel === 'wood') {
-        if (woodCount >= 1 && oreCount >= 2) {
+        if (woodCount >= 2 && oreCount >= 2) {
             metalCount += 1;
-            woodCount -= 1;
+            woodCount -= 2;
             oreCount -= 2;
             toastr['success'](`You Successfully Smelted 2 Metal`);
         }
         else {
-            if ( woodCount < 1){
-                toastr['error']('You Do Not Have Enough Wood');
-            }
-            else if(oreCount < 2){
-                toastr['error']('You Do Not Have Enough Ore');
-            }
-            else {
-                toastr['error']('You Do Not Have Enough Wood and Ore');
-            }
+            toastr['error']('You Do Not Have Enough Supplies');
         }
     }
     else if(fuel === 'coal'){
         if (coalCount >= 1 && oreCount >= 2) {
             metalCount += 1;
-            woodCount -= 1;
+            coalCount -= 1;
             oreCount -= 2;
             toastr['success'](`You Successfully Smelted 2 Metal`);
         }
         else {
-            if ( coalCount < 1){
-                toastr['error']('You Do Not Have Enough Coal');
-            }
-            else if(oreCount < 2){
-                toastr['error']('You Do Not Have Enough Ore');
-            }
-            else {
-                toastr['error']('You Do Not Have Enough Coal and Ore');
-            }
+            toastr['error']('You Do Not Have Enough Supplies');
         }
     }
 
     displayTotalSupplies();
 
+}
+
+function forgeBullets(fuel) {
+    if(fuel === 'wood') {
+        if (woodCount >= 2 && metalCount >= 2) {
+            woodCount -= 2;
+            metalCount -= 2;
+            ammoCount += 5;
+            toastr['success']('You forged 5 ammo');
+        }
+        else {
+            toastr['error']('You Do Not Have Enough Supplies');
+        }
+    }
+    else if(fuel === 'coal') {
+
+        if (coalCount >= 1 && metalCount >= 2) {
+            coalCount -= 1;
+            metalCount -= 2;
+            ammoCount += 5;
+            toastr['success']('You forged 5 ammo');
+        }
+        else {
+            toastr['error']('You Do Not Have Enough Supplies');
+        }
+    }
+
+
+    displayTotalSupplies();
 }
 
 // function for opening and choosing the store.
@@ -89,7 +102,7 @@ function displayStore() {
     let metalStore = $('.metalStore');
     metalStore.hide();
 
-    let open = Math.floor((Math.random() * 2) + 1);
+    let open = Math.floor((Math.random() * 5) + 1);
 
     if(open === 1) {
         toastr['info']('The store is opened');

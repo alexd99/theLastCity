@@ -78,6 +78,21 @@ function setAchievements(winBy) {
         }
     }
 
+    if(farmerCount >= 20){
+        let farmerCheck = localStorage.getItem('shovelry');
+
+        if(farmerCheck === null)
+        {
+            localStorage.setItem('shovelry', 'false');
+            setAchievements();
+        }
+
+        if (farmerCheck === 'false') {
+            localStorage.setItem('shovelry', 'true');
+            toastr['success']('You earned the shovelry achievement');
+        }
+    }
+
 }
 
 function showAchievements() {
@@ -96,4 +111,7 @@ function showAchievements() {
 
     let shirtlessJacksAchievement = localStorage.getItem('lumberjackShirts');
     if (shirtlessJacksAchievement === 'true'){$('.shirtlessJacksAchievement').addClass('gold');$('#shirtlessJacksAchievementTrophy').show()}
+
+    let shovelryAchievement = localStorage.getItem('shovelry');
+    if (shovelryAchievement === 'true'){$('.shovelryAchievement').addClass('gold');$('#shovelryAchievementTrophy').show()}
 }

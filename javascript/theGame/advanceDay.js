@@ -1,13 +1,13 @@
 //function for start or restart
 function onStart() {
-    goldCount = 200;
+    goldCount = 0;
     foodCount = 0;
     ammoCount = 25;
-    metalCount = 1000000;
-    oreCount = 8;
+    metalCount = 10;
+    oreCount = 0;
     coalCount = 0;
-    wireCount = 1000000;
-    woodCount = 1000000;
+    wireCount = 10;
+    woodCount = 10;
     populationCount = 11;
     idleCount = populationCount;
     farmerCount = 0;
@@ -45,7 +45,7 @@ function advanceDay() {
     dayCount += 1;
     $('#dayCount').html(dayCount);
 
-    if ((dayCount % 20) === 0) {
+    if ((dayCount % 50) === 0) {
         zombieArmyNumberParam1 = zombieArmyNumberParam1 * 2;
         zombieArmyNumberParam2 = zombieArmyNumberParam2 * 2;
     }

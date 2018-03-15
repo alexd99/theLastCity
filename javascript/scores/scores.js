@@ -23,8 +23,6 @@ function generateScore(winBy) {
     else if(winBy === 'lost') {
         $('.modalText').html(`Thank you for playing. Your score was ${score}`);
     }
-
-    storeScore();
 }
 function setDate() {
     let date  = new Date().getDate();
@@ -87,8 +85,8 @@ function pushScore() {
         let database = firebase.database();
         let databaseRef = database.ref('highScores');
         databaseRef.push({score: score, userName: name, date: finalDate});
-        toastr["success"]("Score Added");
         $('#gameOverModal').modal('hide');
+        toastr["success"]("Score Added");
     }
 }
 
@@ -105,6 +103,39 @@ function storeScore() {
     game.push({name: cityName, score: score, scoreDate: finalDate});
 
     localStorage.setItem('game', JSON.stringify(game));
+
+    toastr["success"]("Score Added");
+}
+
+function submitAsBoth() {
+
+    let name = $('#userNameInput').val();
+
+    setDate();
+
+    if(name === ''){
+        toastr["error"]("Please Include A Username");
+    }
+    else{
+        let database = firebase.database();
+        let databaseRef = database.ref('highScores');
+        databaseRef.push({score: score, userName: name, date: finalDate});
+
+        setDate();
+
+        let cityName = $(document).find("title").text();
+
+        let game = JSON.parse( localStorage.getItem('game')) || [];
+
+
+        game.push({name: cityName, score: score, scoreDate: finalDate});
+
+        localStorage.setItem('game', JSON.stringify(game));
+
+        toastr["success"]("Score Added");
+
+        $('#gameOverModal').modal('hide');
+    }
 }
 
 // clears local storage
@@ -112,7 +143,7 @@ function clearHighScores() {
     let makeSure = window.confirm('Are You Sure You Want To Clear All High Scores? This Action Can Not Be Undone!');
 
     if (makeSure === true) {
-        localStorage.clear();
+        localStorage.removeItem('game');
         $('.localScoreTableRow').html('');
     }
 }

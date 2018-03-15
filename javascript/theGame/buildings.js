@@ -17,22 +17,23 @@ function buildBuilding(type) {
 
 
     }
-    if(type === 'silo' && woodCount >= 1000 && metalCount > 500 && availableBuildingSpace >= 4){
+    if(type === 'silo' && woodCount >= 500 && metalCount > 500 && availableBuildingSpace >= 4){
         totalSilos++;
         usedBuildingSpace += 4;
-        woodCount -= 1000;
+        woodCount -= 500;
         metalCount -= 500;
         foodCap += 100;
     }
-    if(type === 'fortification' && metalCount >= 1500 &&  availableBuildingSpace >= 4){
+    if(type === 'fortification' && metalCount >= 600 &&  availableBuildingSpace >= 4){
         totalFortifications++;
         usedBuildingSpace += 4;
-        metalCount -= 1500;
+        metalCount -= 600;
     }
-    if(type === 'research' && metalCount >= 1000 && woodCount >= 1000 && availableBuildingSpace >= 6){
+    if(type === 'research' && metalCount >= 100 && woodCount >= 100 && availableBuildingSpace >= 6){
         totalResearchCenters++;
         usedBuildingSpace += 6;
-        metalCount -= 1500;
+        metalCount -= 100;
+        woodCount -=100;
     }
     displayTotalSupplies();
     displayBuildingFacts();

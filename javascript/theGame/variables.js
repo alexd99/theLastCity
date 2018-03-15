@@ -51,9 +51,9 @@ let serumCount = 0;
 // building variables
 let availableBuildingSpace = 0;
 let usedBuildingSpace = 4;
-let maxBuildingSpace = 100;
+let maxBuildingSpace = 8;
 let populationCap = 16;
-let foodCap = 20;
+let foodCap = 1000;
 let totalShelters = 0;
 let totalHouses = 4;
 let totalSilos = 0;

@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="styles/main.css">
 
 </head>
-<body id="indexBody" onload="onStart(); console.log(`Please No Cheating. Looking at the code is fine, but please don't alter any variables`);">
+<body id="indexBody" onload="onStart(); toggleMute();
+                     console.log(`Please No Cheating. Looking at the code is fine, but please don't alter any variables`);">
 
     <div id="topBar">
 
@@ -51,8 +52,8 @@
                 </div>
 
             </div>
-            <i class="fas fa-volume-up fa-2x muteIndicator" id="unMute" title="mute the music. you can also press M" onclick="toggleMute();"></i>
-            <i class="fas fa-volume-off fa-2x muteIndicator" id="mute" title="turn the music on. you can also press M" onclick="toggleMute();"></i>
+            <i class="fas fa-volume-up fa-2x muteIndicator" id="unMute" title="mute the music" onclick="toggleMute();"></i>
+            <i class="fas fa-volume-off fa-2x muteIndicator" id="mute" title="unmute the music" onclick="toggleMute();"></i>
         </div>
 
         <div class="buildingContainer">
@@ -92,17 +93,17 @@
                     </div>
 
                     <div class="buildingButtonBox">
-                        <button onclick="buildBuilding('silo')">Build Silo: 1000 Wood and 500 Metal</button>
+                        <button onclick="buildBuilding('silo')">Build Silo: 500 Wood and 500 Metal</button>
                         <button onclick="destroyBuilding('silo')">Destroy Silo</button>
                     </div>
 
                     <div class="buildingButtonBox">
-                        <button onclick="buildBuilding('fortification')">Build Fortifications: 1500 metal</button>
+                        <button onclick="buildBuilding('fortification')">Build Fortifications: 600 metal</button>
                         <button onclick="destroyBuilding('fortification ')">Destroy Fortification</button>
                     </div>
 
                     <div class="buildingButtonBox">
-                        <button onclick="buildBuilding('research')">Build Research Center: 1000 wood 1000 metal</button>
+                        <button onclick="buildBuilding('research')">Build Research Center: 100 wood 100 metal</button>
                         <button onclick="destroyBuilding('research')">Destroy Research Center</button>
                     </div>
                 </div>
@@ -306,8 +307,8 @@
             <h2 id="storeTitle">STORE</h2>
 
             <div class="storeItems generalStore">
-                <input type="number" class="storeInput" title="ammoInput" id="ammoInput" min="5" step="5" placeholder="quantity">
-                <button class="storeBtn" onclick="theStore('ammoInput', 'ammo', 5, 5)">Buy Ammo: 1 gold for 5 bullets</button>
+                <input type="number" class="storeInput" title="ammoInput" id="ammoInput" min="2" step="2" placeholder="quantity">
+                <button class="storeBtn" onclick="theStore('ammoInput', 'ammo', 3, 3)">Buy Ammo: 1 gold for 3 bullets</button>
             </div>
 
             <div class="storeItems generalStore">
@@ -329,8 +330,10 @@
 
         <div class="bottomGameContentContainers" id="forge">
             <h2>FORGE</h2>
-            <button onclick="theForge('wood');">Forge 2 metal | fuel wood</button>
-            <button onclick="theForge('coal');">Forge 2 metal | fuel coal</button>
+            <button onclick="theForge('wood');">Forge 2 metal | fuel 2 wood</button>
+            <button onclick="theForge('coal');">Forge 2 metal | fuel 1 coal</button>
+            <button onclick="forgeBullets('coal');">Forge 5 ammo | fuel 1 coal and 2 metal</button>
+            <button onclick="forgeBullets('wood');">Forge 5 ammo | fuel 2 wood and 2 metal</button>
         </div>
 
     </div>
@@ -378,6 +381,11 @@
                     <h3 class="infoModalTitle">Ore</h3>
                     <p class="infoModalText">
                         Ore is used in the forge to make metal.
+                    </p>
+
+                    <h3 class="infoModalTitle">Coal</h3>
+                    <p class="infoModalText">
+                        Coal is used in the forge to smelt metal
                     </p>
 
                     <h3 class="infoModalTitle">Wood</h3>
@@ -483,6 +491,9 @@
                     <h3 class="infoModalTitle">Fortifications</h3>
                     <p>Each fortification takes up 4 building spaces and provides 1.5 more defense</p>
 
+                    <h3 class="infoModalTitle">Research Center</h3>
+                    <p>Each research center takes up 6 building spaces and provides the ability to get upgrades</p>
+
 
                 </div>
                 <button class="infoModalCloseButton" onclick="$('#buildingInfoModal').modal('hide');">CLOSE</button>
@@ -572,11 +583,16 @@
     <div class="modal fade" id="gameOverModal" tabindex="-1" role="dialog" aria-labelledby="gameOverModal">
         <div class="modal-dialog modal-lg" id="gameOverModalDialog" role="document">
             <div class="modal-content">
-                <h3 class="modalText">This is where high score information goes.</h3>
+                <h3 class="modalText"></h3>
                 <div id="userNameInputContainer">
                     <input id="userNameInput" title="change user name" type="text" placeholder="Username">
-                    <button onclick="pushScore();">Submit High Score</button>
+                    <button onclick="pushScore();">Submit As Global High Score</button>
                 </div>
+                <div class="otherHighScoreSubmitBtn">
+                    <button onclick="storeScore(); $('#gameOverModal').modal('hide');">Submit As Local High Score</button>
+                    <button onclick="submitAsBoth();">Submit As Both</button>
+                </div>
+
                 <p>Keep names appropriate, any name that contains profane content will be removed.</p>
                 <button onclick="$('#gameOverModal').modal('hide');">CLOSE</button>
             </div>

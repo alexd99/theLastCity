@@ -211,8 +211,8 @@ function foodCalculator() {
 
 function gatherResources() {
     if(minerCount > 0) {
-        goldCount += minerCount * Math.floor(Math.random() * 5) + 1;
-        oreCount += minerCount * Math.floor(Math.random() * 5) + 1;
+        goldCount += minerCount * Math.floor(Math.random() * 2) + 1;
+        oreCount += minerCount * Math.floor(Math.random() * 10) + 1;
         coalCount += minerCount * Math.floor(Math.random() * 2) + 1;
     }
     if(lumberjackCount > 0) {

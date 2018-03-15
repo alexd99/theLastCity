@@ -1,21 +1,21 @@
-let timesClicked = 1;
-let mute = false;
+let timesClicked = 2;
+let mute = true;
 
 let muteButton = $('#mute');
 let unMuteButton = $('#unMute');
 
 let musicPlayer = document.getElementById("gameMusic");
 
-unMuteButton.hide();
+//unMuteButton.hide();
 
-//muteButton.hide();
+muteButton.hide();
 
 function toggleMute() {
     if (timesClicked % 2 === 0){
-        mute = false
+        mute = true
     }
     else {
-        mute = true;
+        mute = false;
     }
 
     timesClicked ++;
@@ -34,10 +34,3 @@ function toggleMute() {
         musicPlayer.muted = false;
     }
 }
-
-// toggle mute if m is pressed
-$('body').on('keyup',function(e){
-    if(e.which===77){
-        toggleMute();
-    }
-});
