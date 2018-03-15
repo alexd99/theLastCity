@@ -1,3 +1,4 @@
+// checks what build should be build and check if building is possible
 function buildBuilding(type) {
 
     availableBuildingSpace = maxBuildingSpace - usedBuildingSpace;
@@ -39,6 +40,7 @@ function buildBuilding(type) {
     displayBuildingFacts();
 }
 
+//destroys building and kicks out citizens if necessary.
 function destroyBuilding(type) {
 
     if(type === 'house' && totalHouses > 0){
@@ -93,13 +95,15 @@ function destroyBuilding(type) {
     displayBuildingFacts()
 }
 
-
+// displays all facts about buildings.
 function displayBuildingFacts() {
     availableBuildingSpace = maxBuildingSpace - usedBuildingSpace;
 
     $('#buildingSpaceUsedText').html(`${usedBuildingSpace} out of ${maxBuildingSpace} building space used`);
     $('#populationCap').html(`${populationCount} out of ${populationCap} house spaces used`);
     $('#foodCap').html(`${foodCount} out of ${foodCap} food storage used`);
+
+    // the if else statements decide weather to display an 's' on the end of a word or not
 
     if(totalShelters > 1 || totalShelters === 0){$('#totalSheltersBuilt').html(`${totalShelters} Shelters Built`);}
     else{$('#totalSheltersBuilt').html(`${totalShelters} Shelter Built`);}
@@ -121,6 +125,7 @@ function displayBuildingFacts() {
 
 }
 
+// function for soldiers to claim land.
 function claimLand(nextDay) {
 
     let amountOfSoldiers = Number($('#claimLandSoldiers').val());

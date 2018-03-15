@@ -1,4 +1,4 @@
-//function for start or restart
+//sets all the variable to correct values for the beginning of a game
 function onStart() {
     goldCount = 0;
     foodCount = 0;
@@ -36,29 +36,30 @@ function onStart() {
 // advances the day and runs all function associated with day advancement. Also checks if the game is over
 function advanceDay() {
 
+    //next day
     attacked = false;
 
-    //next day
     gameWarningsInsert.html('');
     mainGameTextInsert.html('');
 
     dayCount += 1;
     $('#dayCount').html(dayCount);
 
-    if ((dayCount % 50) === 0) {
+    //zombieArmyNumberParam1 starts at 8 and zombieArmyNumberParam2 starts at 1
+    if ((dayCount % 40) === 0) {
         zombieArmyNumberParam1 = zombieArmyNumberParam1 * 2;
         zombieArmyNumberParam2 = zombieArmyNumberParam2 * 2;
     }
     if ((dayCount % 100) === 0) {
-        zombieArmyNumberParam1 = zombieArmyNumberParam1 * 4;
-        zombieArmyNumberParam2 = zombieArmyNumberParam2 * 4;
+        zombieArmyNumberParam1 = zombieArmyNumberParam1 * 6;
+        zombieArmyNumberParam2 = zombieArmyNumberParam2 * 6;
     }
-    if ((dayCount % 500) === 0) {
-        zombieArmyNumberParam1 = zombieArmyNumberParam1 * 8;
-        zombieArmyNumberParam2 = zombieArmyNumberParam2 * 8;
+    if ((dayCount % 300) === 0) {
+        zombieArmyNumberParam1 = zombieArmyNumberParam1 * 10;
+        zombieArmyNumberParam2 = zombieArmyNumberParam2 * 10;
     }
 
-
+    // checks if it should be winter or not
     if(dayCount % 270 === 0){
         winterTime = true;
     }
@@ -70,6 +71,7 @@ function advanceDay() {
         daysOfWinter = 0;
     }
 
+    // functions associated with next day
     displayDayMessage(false, false);
     foodCalculator();
     gatherResources();
@@ -93,6 +95,7 @@ function advanceDay() {
     }
 }
 
+// runs functions associated with losing the game.
 function gameOver(winBy) {
     $('#gameOverModal').modal({backdrop: 'static', keyboard: false});
     $('.mainGameBtn').prop('disabled', true);
@@ -102,6 +105,7 @@ function gameOver(winBy) {
     setAchievements(winBy);
 }
 
+// displays all messages for the next day, can display multiple messages.
 function displayDayMessage(somethingHappened, message) {
     if(somethingHappened === true){
         if(clearMessage === true){

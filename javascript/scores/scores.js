@@ -1,13 +1,15 @@
 // generates final score
 function generateScore(winBy) {
 
+    // if you win the game you get an additional 1,000,000 points
     if(winBy !== 'lost'){
-        score = (ammoCount + (goldCount * 5) + foodCount + 1000000) - (totalPeopleKilled * 3) - (dayCount) ;
+        score = (totalAmmoCount + (totalGoldCount * 5) + totalFoodCount + 1000000) - (totalPeopleKilled * 3) - (dayCount) ;
     }
     else {
-        score = (ammoCount + (goldCount * 5) + foodCount) - (totalPeopleKilled * 3) - (dayCount) ;
+        score = (totalAmmoCount + (totalGoldCount * 5) + totalFoodCount) - (totalPeopleKilled * 3) - (dayCount) ;
     }
 
+    // checks what you one by and wets game over modal text
     if(winBy === 'fortifications'){
         $('.modalText').html(`Game won by fortification. Your score was ${score}`);
     }
@@ -24,6 +26,7 @@ function generateScore(winBy) {
         $('.modalText').html(`Thank you for playing. Your score was ${score}`);
     }
 }
+// gets current date
 function setDate() {
     let date  = new Date().getDate();
     let month = new Date().getMonth();
@@ -107,6 +110,7 @@ function storeScore() {
     toastr["success"]("Score Added");
 }
 
+// push to the data base and local storage
 function submitAsBoth() {
 
     let name = $('#userNameInput').val();
@@ -138,7 +142,7 @@ function submitAsBoth() {
     }
 }
 
-// clears local storage
+// clears high scores in local storage
 function clearHighScores() {
     let makeSure = window.confirm('Are You Sure You Want To Clear All High Scores? This Action Can Not Be Undone!');
 

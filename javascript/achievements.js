@@ -1,5 +1,7 @@
+// hides all trophies
 $('.fa-trophy').hide();
 
+// sets the achievements in local storage
 function setAchievements(winBy) {
 
     if (winBy === 'zombies'){
@@ -95,6 +97,7 @@ function setAchievements(winBy) {
 
 }
 
+// grabs achievements from local storage and checks if there true
 function showAchievements() {
     let moralityAchievement = localStorage.getItem('morality');
     if (moralityAchievement === 'true'){$('.moralityAchievement').addClass('gold');$('#moralityAchievementTrophy').show() }

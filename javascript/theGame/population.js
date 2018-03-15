@@ -67,6 +67,7 @@ function jobChanger(currentJob, futureJob) {
     displayTotalPopulation();
 }
 
+// function for when a person dies or is send away
 function personDied(sentAway) {
     if (populationCount > 0) {
         if (idleCount > 0) {
@@ -87,6 +88,7 @@ function personDied(sentAway) {
         populationCount -= 1;
     }
 
+    //makes tombstone for killed citizens, people sent away don't get a tombstone
     if (sentAway === false) {
         makeTombstone();
     }
@@ -111,6 +113,7 @@ function confirmSendAway() {
     }
 }
 
+// function for people arriving in your city
 function personArrival() {
     let randomMax;
     switch (radioLevel) {
@@ -135,6 +138,7 @@ function personArrival() {
     }
     let personArrived = Math.floor(Math.random() * randomMax) + 1;
 
+    // checks if there is room in your town for the new person
     if (personArrived === 1){
         if( populationCount < populationCap) {
             populationCount += 1;
@@ -148,6 +152,7 @@ function personArrival() {
     }
 }
 
+// makes tombstones
 function makeTombstone() {
     let soldierFirstNamesList = [
         'Aaliyah', 'Abigail', 'Addison', 'Aiden', 'Alex', 'Alexa', 'Allison', 'Amelia', 'Andrew', 'Anna', 'Anthony', 'Aria', 'Ariana', 'Aubrey', 'Audrey', 'Ava', 'Avery', 'Benjamin', 'Brooklyn', 'Caleb', 'Camila', 'Carter', 'Charles', 'Charlotte', 'Chloe', 'Christian', 'Christopher', 'Claire', 'Colton', 'Daniel', 'David', 'Dylan', 'Elijah', 'Elizabeth', 'Ella', 'Ellie', 'Emily', 'Emma', 'Ethan', 'Evelyn', 'Gabriel', 'Grace', 'Grayson', 'Hannah', 'Harper', 'Henry', 'Hunter', 'Isaac', 'Isabella', 'Isaiah', 'Jack', 'Jackson', 'Jacob', 'James', 'Jayden', 'JJ', 'John', 'Joseph', 'Joshua', 'Julian', 'Landon', 'Layla', 'Leah', 'Levi', 'Liam', 'Lillian', 'Lily', 'Logan', 'Lucas', 'Luke', 'Mario', 'Mason', 'Matthew', 'Mia', 'Michael', 'Natalie', 'Nathan', 'Noah', 'Nora', 'Oliver', 'Olivia', 'Owen', 'Paisley', 'Penelope', 'Riley', 'Ryan', 'Sammie', 'Samuel', 'Savannah', 'Scarlett', 'Sebastian', 'Skylar', 'Sofia', 'Sophia', 'Victoria', 'Violet', 'William', 'Wyatt', 'Zoe', 'Zoey'
@@ -158,6 +163,7 @@ function makeTombstone() {
 
     let soldierFirstName = Math.floor(Math.random() * soldierFirstNamesList.length);
     let selectedFirstName = soldierFirstNamesList[soldierFirstName];
+
     let soldierLastName = Math.floor(Math.random() * soldierLastNamesList.length);
     let selectedLastName = soldierLastNamesList[soldierLastName];
 
@@ -168,6 +174,7 @@ function makeTombstone() {
     $('.tombstoneContainer').append(tombstone);
 }
 
+// calculates how much food is produced and ate each day. Also checks if there is room to store food.
 function foodCalculator() {
 
     foodCount -= populationCount;
@@ -196,6 +203,8 @@ function foodCalculator() {
         }
     }
 
+    totalFoodCount += foodCount;
+
     if (foodCount <= 0) {
         daysWithoutFood++;
         foodCount = 0;
@@ -208,36 +217,42 @@ function foodCalculator() {
         personDied(false);
     }
 }
-
+// calculates how much coal, gold, ore, and wood are produced
 function gatherResources() {
     if(minerCount > 0) {
         goldCount += minerCount * Math.floor(Math.random() * 2) + 1;
+        totalGoldCount += goldCount;
         oreCount += minerCount * Math.floor(Math.random() * 10) + 1;
         coalCount += minerCount * Math.floor(Math.random() * 2) + 1;
     }
     if(lumberjackCount > 0) {
         woodCount += lumberjackCount * Math.floor(Math.random() * 6) + 5;
-        lumberJackDeath();
-        minerDeath()
     }
+
+    lumberJackDeath();
+    minerDeath()
 }
 
 //calculates if a lumberjack dies
 function lumberJackDeath() {
-    let deathChance = Math.floor(Math.random() * 30) + 1;
+    let deathChance = Math.floor(Math.random() * 50) + 1;
 
     if (deathChance === 1){
-        personDied(false);
+        makeTombstone();
+        populationCount --;
+        lumberjackCount --;
         displayDayMessage(true, 'A lumberjack died')
     }
 }
 
 //calculates if a miner dies
 function minerDeath() {
-    let deathChance = Math.floor(Math.random() * 45) + 1;
+    let deathChance = Math.floor(Math.random() * 50) + 1;
 
     if (deathChance === 1){
-        personDied(false);
+        makeTombstone();
+        populationCount --;
+        minerCount --;
         displayDayMessage(true, 'A miner died')
     }
 }

@@ -1,3 +1,5 @@
+// toggles the music between mute and un mute
+
 let timesClicked = 2;
 let mute = true;
 
@@ -7,7 +9,6 @@ let unMuteButton = $('#unMute');
 let musicPlayer = document.getElementById("gameMusic");
 
 //unMuteButton.hide();
-
 muteButton.hide();
 
 function toggleMute() {

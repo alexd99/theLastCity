@@ -2,11 +2,9 @@
 function zombieAttackChance() {
     let zombieAttackChance = Math.floor(Math.random() * 2) + 1;
 
-    if (dayCount % 4) {
         if (zombieAttackChance === 1) {
             zombiesAttack();
         }
-    }
 }
 
 

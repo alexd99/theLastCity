@@ -1,3 +1,4 @@
+// upgrades radio, checks if you have the necessary supplies
 function upgradeRadio() {
 
     let radioUpgradeText = $('#upgradeRadioText');
@@ -37,8 +38,7 @@ function upgradeRadio() {
     $('#radioName').html(`Radio Level: ${radioLevel}`);
 }
 
-
-
+// upgrades walls, checks if you have the necessary supplies
 function upgradeWalls(){
     let wallUpgradeText = $('#upgradeWallText');
     let wallName = $('#wallName');
@@ -82,6 +82,7 @@ function upgradeWalls(){
     displayTotalSupplies();
 }
 
+// upgrades farm, checks if you have the necessary supplies
 function upgradeFarm(){
     let farmUpgradeText = $('#upgradeFarmText');
     let farmName = $('#farmName');
@@ -116,6 +117,7 @@ function upgradeFarm(){
     }
 }
 
+// starts the search for the cure, checks if you have the necessary supplies
 function theCure() {
     if(serumCount > 0 && populationCount >= 2){
         serumCount = 0;
@@ -124,17 +126,18 @@ function theCure() {
         searchingForCure = true;
         toastr["success"]("You started looking for the cure!")
     }
-        //15 days, the serum, 2 citizens
 }
+// calculates how long you have been searching for the cure
 function searchingForTheCure() {
     if(searchingForCure === true){
         daysSearching ++;
     }
-    if (daysSearching >= 15){
+    if (daysSearching >= 55){
        gameOver('cure')
     }
 }
 
+// research can only be done if a research center is built, this checks that
 function researchCenters() {
     if(totalResearchCenters <= 0){
         $('.researchBtn').prop('disabled', true);

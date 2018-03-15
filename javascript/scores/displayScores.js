@@ -1,3 +1,4 @@
+// variables for displaying the scores.
 let localScoreTableRow;
 let globalScoreTableRow;
 
@@ -18,11 +19,13 @@ let localPageNumber = 1;
 let globalPageNumber = 1;
 let globalPageNumberMaxPage = 0;
 
+// display high scores when the page loads
 function onLoad () {
     displayGlobalHighScores(0,10);
     displayLocalHighScores(0,10);
     displayLocalTotalPages();
 }
+
 // displays high scores from local storage
 function displayLocalHighScores(forLoopStarNumber, forLoopEndNumber) {
 
@@ -40,6 +43,7 @@ function displayLocalHighScores(forLoopStarNumber, forLoopEndNumber) {
         }
     });
 
+    // adds a space every third character
     for (let i = 0; i < game.length; i++) {
         JSON.stringify(game[i].score);
         displayedGame.push(
@@ -62,6 +66,7 @@ function displayLocalHighScores(forLoopStarNumber, forLoopEndNumber) {
         forLoopEndNumber = game.length;
     }
 
+    //loops through scores and displays them, if score is in place 1-3 display a medal
     for (let i = forLoopStarNumber; i < forLoopEndNumber; i++) {
 
          if(i === 0){
@@ -109,6 +114,7 @@ function displayLocalHighScores(forLoopStarNumber, forLoopEndNumber) {
     }
 }
 
+// displays scores from the data base
 function displayGlobalHighScores(forLoopStarNumber, forLoopEndNumber) {
 
     if(globalVariableCallCount === 0) {
@@ -135,6 +141,7 @@ function displayGlobalHighScores(forLoopStarNumber, forLoopEndNumber) {
                 }
             });
 
+            // adds a space every third character
             for (let i = 0; i < scoresArray.length; i++) {
                 JSON.stringify(scoresArray[i].score);
                 displayedScoresArray.push(
@@ -158,11 +165,14 @@ function displayGlobalHighScores(forLoopStarNumber, forLoopEndNumber) {
     }
 }
 
+// finds how many page there are for the local high scores and displays that number
 function displayLocalTotalPages() {
     let localPageNumberMaxPage = Math.ceil(game.length /10);
 
     $('.localPageInsert').html(`${localPageNumber}/${localPageNumberMaxPage}`)
 }
+
+//displays local next a previous scores
 
 function nextLocalScores() {
     if(localEndRef <= game.length){
@@ -189,13 +199,14 @@ function previousLocalScores() {
     displayLocalHighScores(localStartRef, localEndRef);
 }
 
+// finds how many page there are for the global high scores and displays that number
 function displayGlobalTotalPages() {
     let globalPageNumberMaxPage = Math.ceil(scoresArray.length /10);
 
     $('.globalPageInsert').html(`${globalPageNumber}/${globalPageNumberMaxPage}`)
 }
 
-
+//displays global next a previous scores
 function nextGlobalScores() {
     if(globalEndRef <= scoresArray.length){
         $('.globalScoreTableRow').html('');
@@ -222,6 +233,7 @@ function previousGlobalScores() {
 
 }
 
+//loops through scores and displays them, if score is in place 1-3 display a medal
 function globalScoresForLoop( forLoopStarNumber, forLoopEndNumber) {
     for (let i = forLoopStarNumber; i < forLoopEndNumber; i++) {
 

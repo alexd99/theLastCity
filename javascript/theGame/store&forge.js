@@ -1,3 +1,4 @@
+// function for buying items
 function theStore(inputId, name, step, price) {
     inputId = Number($('#'+inputId).val());
 
@@ -13,6 +14,7 @@ function theStore(inputId, name, step, price) {
                 toastr['success'](`You Successfully Bought ${inputId} ${name} For ${totalPrice} Gold`);
                 if (name === 'ammo') {
                     ammoCount += inputId;
+                    totalAmmoCount += ammoCount;
                 }
                 if (name === 'food') {
                     foodCount += inputId;
@@ -33,14 +35,14 @@ function theStore(inputId, name, step, price) {
     displayTotalSupplies();
 }
 
-// function for the forge and making metal
+// function for the forge to make metal
 function theForge(fuel) {
 
     if(fuel === 'wood') {
-        if (woodCount >= 2 && oreCount >= 2) {
-            metalCount += 1;
+        if (woodCount >= 2 && oreCount >= 1) {
+            metalCount += 2;
             woodCount -= 2;
-            oreCount -= 2;
+            oreCount -= 1;
             toastr['success'](`You Successfully Smelted 2 Metal`);
         }
         else {
@@ -48,10 +50,10 @@ function theForge(fuel) {
         }
     }
     else if(fuel === 'coal'){
-        if (coalCount >= 1 && oreCount >= 2) {
-            metalCount += 1;
+        if (coalCount >= 1 && oreCount >= 1) {
+            metalCount += 2;
             coalCount -= 1;
-            oreCount -= 2;
+            oreCount -= 1;
             toastr['success'](`You Successfully Smelted 2 Metal`);
         }
         else {
@@ -63,6 +65,7 @@ function theForge(fuel) {
 
 }
 
+//make bullets
 function forgeBullets(fuel) {
     if(fuel === 'wood') {
         if (woodCount >= 2 && metalCount >= 2) {
@@ -90,6 +93,7 @@ function forgeBullets(fuel) {
 
 
     displayTotalSupplies();
+    totalAmmoCount += ammoCount;
 }
 
 // function for opening and choosing the store.
@@ -106,6 +110,7 @@ function displayStore() {
 
     if(open === 1) {
         toastr['info']('The store is opened');
+        // decides what store will be opened
         let openedStore = Math.floor((Math.random() * 2) + 1);
 
         switch (openedStore) {
@@ -120,7 +125,7 @@ function displayStore() {
         }
     }
 }
-
+// function for the once chance store. takes user input and displays that item
 function oneChanceStore(itemSelected){
     let itemNameInput =  $('.itemTextBoxRight');
     let itemCountInsert = $('.itemTextBoxLeft');

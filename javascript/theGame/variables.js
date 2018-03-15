@@ -1,11 +1,14 @@
 // sets global variables for supplies
 let goldCount;
+let totalGoldCount = 0;
 let goldCountInsert = $('#goldCount');
 
 let foodCount;
+let totalFoodCount = 0;
 let foodCountInsert = $('#foodCount');
 
 let ammoCount;
+let totalAmmoCount = 0;
 let ammoCountInsert = $('#ammoCount');
 
 let metalCount;

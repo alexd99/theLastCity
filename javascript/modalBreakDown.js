@@ -1,3 +1,4 @@
+// toggles show and hiding the breakdown in the modals
 $('.researchBreakDown').hide();
 $('.hideBreakDown').hide();
 

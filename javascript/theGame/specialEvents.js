@@ -1,3 +1,4 @@
+// checks what day it is and if a special even should happen
 function specialEvents() {
     if(attacked === false) {
         if (dayCount === 49) {
@@ -13,7 +14,7 @@ function specialEvents() {
     }
 
     if(dayCount > 50 && preachedModalOpened === false){
-        let villagePreachChance = Math.floor((Math.random() * 100) + 1);
+        let villagePreachChance = Math.floor((Math.random() * 150) + 1);
 
         if(villagePreachChance === 1){
             //open village preach chance
@@ -55,6 +56,7 @@ function win() {
 
 }
 
+// handles the last stand event
 function lastStandChoice(choice) {
     $('#lastStandModal2').modal({backdrop: 'static', keyboard: false});
     $('#lastStandModal').modal('hide');
@@ -67,7 +69,7 @@ function lastStandChoice(choice) {
 <button onclick="gameOver('courage');$('#lastStandModal2').modal('hide');">Next</button>`)
     }
 }
-
+// checks what choice tou picked for the preaching event
 function preachChoice(preach) {
 
     if(preach === false){
@@ -83,6 +85,7 @@ function preachChoice(preach) {
 
 }
 
+// handles preaching, if selected by user
 function preaching() {
     if (daysPreached >=1){
         daysPreached ++;
