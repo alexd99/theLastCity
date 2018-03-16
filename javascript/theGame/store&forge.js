@@ -7,7 +7,7 @@ function theStore(inputId, name, step, price) {
     if(inputId > 0) {
 
         if (inputId % step === 0) {
-            if (goldCount < price) {
+            if (goldCount < totalPrice) {
                 toastr['error']('You Do Not Have Enough Gold');
             }
             else {
