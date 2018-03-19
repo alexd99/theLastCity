@@ -22,7 +22,7 @@ function onStart() {
 
     $('.mainGameBtn').prop('disabled', false);
     $('.storeBtn').prop('disabled', false);
-    //$('.storeItems').hide();
+    $('.storeItems').hide();
     $('#playAgain').hide();
     $('#theCureContainer').hide();
     $('.tombstoneContainer').html('');
