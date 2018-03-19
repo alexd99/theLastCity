@@ -3,39 +3,88 @@ function buildBuilding(type) {
 
     availableBuildingSpace = maxBuildingSpace - usedBuildingSpace;
 
-    if(type === 'house' && woodCount >= 200 && availableBuildingSpace >= 1){
-        totalHouses ++;
-        usedBuildingSpace ++;
-        woodCount -= 200;
-        populationCap += 4;
+    if (type === 'house') {
+        if (woodCount >= 200 && availableBuildingSpace >= 1) {
+            totalHouses++;
+            usedBuildingSpace++;
+            woodCount -= 200;
+            populationCap += 4;
+            showToast('success', type)
+        }
+        else if (woodCount < 200) {
+            showToast('suppliesError');
+        }
+        else if (availableBuildingSpace < 1) {
+            showToast('landError');
+        }
+    }
 
+    if (type === 'shelter') {
+        if (woodCount >= 100 && availableBuildingSpace >= 1) {
+            totalShelters++;
+            usedBuildingSpace++;
+            woodCount -= 100;
+            populationCap += 2;
+            showToast('success', type);
+        }
+        else if (woodCount < 100) {
+            showToast('suppliesError');
+        }
+        else if (availableBuildingSpace < 1) {
+            showToast('landError');
+        }
     }
-    if(type === 'shelter' && woodCount >= 100 && availableBuildingSpace >= 1){
-        totalShelters++;
-        usedBuildingSpace ++;
-        woodCount -= 100;
-        populationCap += 2;
+
+    if (type === 'silo') {
+        if (woodCount >= 500 && metalCount > 500 && availableBuildingSpace >= 4) {
+
+            totalSilos++;
+            usedBuildingSpace += 4;
+            woodCount -= 500;
+            metalCount -= 500;
+            foodCap += 100;
+            showToast('success', type);
+        }
+        else if (woodCount < 500 || metalCount < 500) {
+            showToast('suppliesError');
+        }
+        else if (availableBuildingSpace < 4) {
+            showToast('landError');
+        }
+    }
 
 
+    if(type === 'fortification') {
+        if (metalCount >= 600 && availableBuildingSpace >= 4) {
+            totalFortifications++;
+            usedBuildingSpace += 4;
+            metalCount -= 600;
+            showToast('success', type);
+        }
+        else if (metalCount < 600) {
+            showToast('suppliesError');
+        }
+        else if (availableBuildingSpace < 4) {
+            showToast('landError');
+        }
     }
-    if(type === 'silo' && woodCount >= 500 && metalCount > 500 && availableBuildingSpace >= 4){
-        totalSilos++;
-        usedBuildingSpace += 4;
-        woodCount -= 500;
-        metalCount -= 500;
-        foodCap += 100;
+
+    if(type === 'research') {
+        if (metalCount >= 100 && woodCount >= 100 && availableBuildingSpace >= 6) {
+            totalResearchCenters++;
+            usedBuildingSpace += 6;
+            metalCount -= 100;
+            woodCount -= 100;
+            showToast('success', type);
+        }
+        else if (woodCount < 100 || metalCount < 100) {
+            showToast('suppliesError');
+        }
+        else if (availableBuildingSpace < 6) {
+            showToast('landError');
+        }
     }
-    if(type === 'fortification' && metalCount >= 600 &&  availableBuildingSpace >= 4){
-        totalFortifications++;
-        usedBuildingSpace += 4;
-        metalCount -= 600;
-    }
-    if(type === 'research' && metalCount >= 100 && woodCount >= 100 && availableBuildingSpace >= 6){
-        totalResearchCenters++;
-        usedBuildingSpace += 6;
-        metalCount -= 100;
-        woodCount -=100;
-    }
+
     displayTotalSupplies();
     displayBuildingFacts();
 }
@@ -100,6 +149,7 @@ function displayBuildingFacts() {
     availableBuildingSpace = maxBuildingSpace - usedBuildingSpace;
 
     $('#buildingSpaceUsedText').html(`${usedBuildingSpace} out of ${maxBuildingSpace} building space used`);
+    $('#buildingSpaceAvailableText').html(`Available building space: ${availableBuildingSpace}`);
     $('#populationCap').html(`${populationCount} out of ${populationCap} house spaces used`);
     $('#foodCap').html(`${foodCount} out of ${foodCap} food storage used`);
 
@@ -166,5 +216,24 @@ function claimLand(nextDay) {
 
         soldiersClaiming = 0;
         claimingLand = false;
+    }
+}
+
+function showToast(type, building){
+
+    if(building === 'research'){
+        building = 'research center';
+    }
+
+    if(type === 'landError') {
+        toastr['error']('Not enough available land');
+    }
+
+    if(type === 'suppliesError'){
+        toastr['error']('Not enough supplies');
+    }
+
+    if (type === 'success'){
+        toastr['success'](`You built a ${building}`);
     }
 }

@@ -3,10 +3,10 @@ function generateScore(winBy) {
 
     // if you win the game you get an additional 1,000,000 points
     if(winBy !== 'lost'){
-        score = (totalAmmoCount + (totalGoldCount * 5) + totalFoodCount + 1000000) - (totalPeopleKilled * 3) - (dayCount) ;
+        score = (totalAmmoCount + (totalGoldCount * 5) + totalFoodCount + 1000000) - (totalPeopleKilled * 3);
     }
     else {
-        score = (totalAmmoCount + (totalGoldCount * 5) + totalFoodCount) - (totalPeopleKilled * 3) - (dayCount) ;
+        score = (totalAmmoCount + (totalGoldCount * 5) + totalFoodCount) - (totalPeopleKilled * 3);
     }
 
     // checks what you one by and wets game over modal text

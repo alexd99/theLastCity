@@ -61,7 +61,7 @@ function setAchievements(winBy) {
 
         if (courageCheck === 'false') {
             localStorage.setItem('courage', 'true');
-            toastr['success']('You earned the Heroic Monument achievement');
+            toastr['success']('You earned The Hero We Need achievement');
         }
     }
 

@@ -71,6 +71,7 @@ html{
               button{
                 width: 310px;
                 margin-bottom: 5px;
+                background-color: #ccc;
               }
             }
           }
@@ -225,11 +226,15 @@ html{
         .researchContainer {
           .researchButtonBox {
             margin-bottom: 10px;
-            .researchIndivButtonBox > p {
-              margin-bottom: 2px;
-            }
             .researchIndivButtonBox {
               margin-bottom: 10px;
+              p{
+                margin-bottom: 2px;
+              }
+              .researchBtn{
+                background-color: #113A74;
+                color: white;
+              }
             }
           }
         }
@@ -244,8 +249,10 @@ html{
       .bottomGameContentContainers{
         width: 50%;
         border:  1px solid black;
-        button{
+        .forgeBtn{
           margin-bottom: 10px;
+          background-color: #EB903A;
+          color: white;
         }
       }
       #forge{

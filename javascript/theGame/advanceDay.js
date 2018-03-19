@@ -22,7 +22,7 @@ function onStart() {
 
     $('.mainGameBtn').prop('disabled', false);
     $('.storeBtn').prop('disabled', false);
-    $('.storeItems').hide();
+    //$('.storeItems').hide();
     $('#playAgain').hide();
     $('#theCureContainer').hide();
     $('.tombstoneContainer').html('');
@@ -60,8 +60,9 @@ function advanceDay() {
     }
 
     // checks if it should be winter or not
-    if(dayCount % 270 === 0){
+    if(dayCount % 275 === 0){
         winterTime = true;
+        toastr["info"]("It is now winter, crops can no longer grow");
     }
     if(winterTime === true){
         daysOfWinter ++;
@@ -69,6 +70,7 @@ function advanceDay() {
     if(daysOfWinter === 90){
         winterTime = false;
         daysOfWinter = 0;
+        toastr["info"]("Winter is over, crops can grow again");
     }
 
     // functions associated with next day

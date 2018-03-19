@@ -66,6 +66,7 @@
 
                 <div class="buildingFacts">
                     <p id="buildingSpaceUsedText"></p>
+                    <p id="buildingSpaceAvailableText"></p>
                     <p id="foodCap"></p>
                     <p id="populationCap"></p>
                     <p id="totalSilosBuilt"></p>
@@ -77,32 +78,32 @@
 
                 <div class="buildingButtons">
 
-                    <div class="buildingButtonBox" id="sendSoldierToClaimLand">
+                    <div class="buildingButtonBox" id="sendSoldierToClaimLand" title="Claim land so you can build more buildings">
                         <button onclick="claimLand(false);">Send Soldiers To Claim land</button>
                         <input title="soldiers sent" type="number" id="claimLandSoldiers" placeholder="amount">
                     </div>
 
-                    <div class="buildingButtonBox">
+                    <div class="buildingButtonBox" title="Shelters allow more people to live in your city">
                         <button onclick="buildBuilding('shelter')">Build Shelter: 100 Wood</button>
                         <button onclick="destroyBuilding('shelter')">Destroy Shelter</button>
                     </div>
 
-                    <div class="buildingButtonBox">
+                    <div class="buildingButtonBox" title="Houses allow more people to live in your city">
                         <button onclick="buildBuilding('house')">Build House: 200 Wood</button>
                         <button onclick="destroyBuilding('house')">Destroy House</button>
                     </div>
 
-                    <div class="buildingButtonBox">
+                    <div class="buildingButtonBox" title="Silos are necessary for food storage during the winter">
                         <button onclick="buildBuilding('silo')">Build Silo: 500 Wood and 500 Metal</button>
                         <button onclick="destroyBuilding('silo')">Destroy Silo</button>
                     </div>
 
-                    <div class="buildingButtonBox">
+                    <div class="buildingButtonBox" title="Fortifications give your city more defense">
                         <button onclick="buildBuilding('fortification')">Build Fortifications: 600 metal</button>
                         <button onclick="destroyBuilding('fortification ')">Destroy Fortification</button>
                     </div>
 
-                    <div class="buildingButtonBox">
+                    <div class="buildingButtonBox" title="Research centers allow you to do research">
                         <button onclick="buildBuilding('research')">Build Research Center: 100 wood 100 metal</button>
                         <button onclick="destroyBuilding('research')">Destroy Research Center</button>
                     </div>
@@ -154,12 +155,12 @@
             </div>
 
             <div class="mainInfo">
-                <h2 class="mainSatsTitle">Population:</h2><h2 class="populationCount  mainCounter">0</h2>
-                <h2 class="mainSatsTitle">Idle:</h2><h2 class="idleCount  mainCounter">0</h2>
-                <h2 class="mainSatsTitle">Farmers:</h2><h2 class="farmerCount mainCounter">0</h2>
-                <h2 class="mainSatsTitle">Soldiers:</h2><h2 class="soldierCount mainCounter">0</h2>
-                <h2 class="mainSatsTitle">Miners:</h2><h2 class="minerCount mainCounter">0</h2>
-                <h2 class="mainSatsTitle">Lumberjack:</h2><h2 class="lumberjackCount mainCounter">0</h2>
+                <h2 class="mainSatsTitle">Population:</h2><h2 class="populationCount  mainCounter"></h2>
+                <h2 class="mainSatsTitle">Idle:</h2><h2 class="idleCount  mainCounter"></h2>
+                <h2 class="mainSatsTitle">Farmers:</h2><h2 class="farmerCount mainCounter"></h2>
+                <h2 class="mainSatsTitle">Soldiers:</h2><h2 class="soldierCount mainCounter"></h2>
+                <h2 class="mainSatsTitle">Miners:</h2><h2 class="minerCount mainCounter"></h2>
+                <h2 class="mainSatsTitle">Lumberjack:</h2><h2 class="lumberjackCount mainCounter"></h2>
             </div>
 
 
@@ -224,23 +225,23 @@
                 </div>
 
                 <div class="converterButtonBox">
-                    <button onclick="jobChanger('idle', 'lumberjack')" id="lumberjackFromIdle" class="lumberJackBtn mainGameBtn" title="Miners Mine 1 to 5 Gold Per Day">
+                    <button onclick="jobChanger('idle', 'lumberjack')" id="lumberjackFromIdle" class="lumberJackBtn mainGameBtn" title="Lumberjacks cut 5 to 10 wood Per Day">
                         Make Lumberjack From Idle
                     </button>
-                    <button onclick="jobChanger('farmer', 'lumberjack')" id="lumberjackFromFarmer" class="lumberJackBtn mainGameBtn"  title="Miners Mine 1 to 5 Gold Per Day">
+                    <button onclick="jobChanger('farmer', 'lumberjack')" id="lumberjackFromFarmer" class="lumberJackBtn mainGameBtn"  title="Lumberjacks cut 5 to 10 wood Per Day">
                         Make Lumberjack From Farmer
                     </button>
-                    <button onclick="jobChanger('soldier', 'lumberjack')" id="lumberjackFromSoldier" class="lumberJackBtn mainGameBtn"  title="Miners Mine 1 to 5 Gold Per Day">
+                    <button onclick="jobChanger('soldier', 'lumberjack')" id="lumberjackFromSoldier" class="lumberJackBtn mainGameBtn"  title="Lumberjacks cut 5 to 10 wood Per Day">
                         Make Lumberjack From Soldier
                     </button>
 
-                    <button onclick="jobChanger('miner', 'lumberjack')" id="lumberjackFromMiner" class="lumberJackBtn mainGameBtn"  title="Miners Mine 1 to 5 Gold Per Day">
+                    <button onclick="jobChanger('miner', 'lumberjack')" id="lumberjackFromMiner" class="lumberJackBtn mainGameBtn"  title="Lumberjacks cut 5 to 10 wood Per Day">
                         Make Lumberjack From Miner
                     </button>
                 </div>
 
                 <div class="converterButtonBox">
-                    <button class="mainGameBtn" onclick="turnAllToIdle();">Turn All People Idle</button>
+                    <button class="mainGameBtn" onclick="turnAllToIdle();" title="Makes all workers turn idle">Turn All People Idle</button>
                     <button class="mainGameBtn" onclick="confirmSendAway();" title="Decreases The Town's Population By One">Send Person Away</button>
                 </div>
 
@@ -306,22 +307,22 @@
         <div class="bottomGameContentContainers" id="store">
             <h2 id="storeTitle">STORE</h2>
 
-            <div class="storeItems generalStore">
+            <div class="storeItems generalStore" title="ammo is used by your soldiers to defend your city">
                 <input type="number" class="storeInput" title="ammoInput" id="ammoInput" min="2" step="2" placeholder="quantity">
                 <button class="storeBtn" onclick="theStore('ammoInput', 'ammo', 3, 3)">Buy Ammo: 1 gold for 3 bullets</button>
             </div>
 
-            <div class="storeItems generalStore">
+            <div class="storeItems generalStore" title="Each person eats 1 food a day">
                 <input type="number" class="storeInput" title="ammoInput" id="foodInput" min="2" step="2" placeholder="quantity">
                 <button class="storeBtn" onclick="theStore('foodInput', 'food', 2, 2)">Buy Food: 1 gold for 2 food</button>
             </div>
 
-            <div class="storeItems metalStore">
+            <div class="storeItems metalStore" title="Wire is used in upgrades and can only be found here">
                 <input type="number" class="storeInput" title="ammoInput" id="wireInput" min="10" step="10" placeholder="quantity">
                 <button class="storeBtn" onclick="theStore('wireInput', 'wire', 10, 10)">Buy Wire: 1 gold for 10 wire</button>
             </div>
 
-            <div class="storeItems metalStore">
+            <div class="storeItems metalStore" title="ore can be smelted into metal in the forge">
                 <input type="number" class="storeInput" title="oreInput" id="oreInput" min="3" step="3" placeholder="quantity">
                 <button class="storeBtn" onclick="theStore('oreInput', 'ore',3, 3)">Buy Ore: 1 gold for 3 ore</button>
             </div>
@@ -329,11 +330,14 @@
         </div>
 
         <div class="bottomGameContentContainers" id="forge">
-            <h2>FORGE</h2>
-            <button onclick="theForge('wood');">Forge 2 metal | fuel 2 wood</button>
-            <button onclick="theForge('coal');">Forge 2 metal | fuel 1 coal</button>
-            <button onclick="forgeBullets('coal');">Forge 5 ammo | fuel 1 coal and 2 metal</button>
-            <button onclick="forgeBullets('wood');">Forge 5 ammo | fuel 2 wood and 2 metal</button>
+
+            <h2>FORGE <i class="fas fa-info-circle researchInfo" onclick="$('#forgeInfoModal').modal('show');"></i></h2>
+            <button class="forgeBtn" onclick="theForge('wood');" title="Metal is used in upgrades">Forge 2 metal | fuel 2 wood</button>
+            <button class="forgeBtn" onclick="theForge('coal');" title="Metal is used in upgrades">Forge 2 metal | fuel 1 coal</button>
+            <button class="forgeBtn" onclick="forgeBullets('coal');"
+                    title="ammo is used by your soldiers to defend your city">Forge 5 ammo | fuel 1 coal and 2 metal</button>
+            <button class="forgeBtn" onclick="forgeBullets('wood');"
+                    title="ammo is used by your soldiers to defend your city">Forge 5 ammo | fuel 2 wood and 2 metal</button>
         </div>
 
     </div>
@@ -501,6 +505,19 @@
         </div>
     </div>
 
+    <!--forge information modal-->
+    <div class="modal fade" id="forgeInfoModal" tabindex="-1" role="dialog" aria-labelledby="forgeInfoModal">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content infoModalContent">
+                <div class="infoModalTextContainer">
+                    <p>The Forge takes 1 ore and 1 coal or 2 wood and produces 2 metal.</p>
+                    <p>The Forge also allows you to forge 5 bullets from 1 coal or 2 wood, and 2 metal</p>
+                </div>
+                <button class="infoModalCloseButton" onclick="$('#forgeInfoModal').modal('hide');">CLOSE</button>
+            </div>
+        </div>
+    </div>
+
     <!--one chance store modal-->
     <div class="modal fade" id="oneChanceStoreModal" tabindex="-1" role="dialog" aria-labelledby="oneChanceStore">
         <div class="modal-dialog modal-lg" id="oneChanceStoreDialog" role="document">
@@ -618,7 +635,7 @@
         "preventDuplicates": true,
         "onclick": null,
         "showDuration": "10000",
-        "hideDuration": "4000",
+        "hideDuration": "8000",
         "timeOut": "2000",
         "extendedTimeOut": "2000",
         "showEasing": "swing",

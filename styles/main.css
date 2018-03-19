@@ -130,7 +130,8 @@ html #indexBody #topBar {
           margin: auto 5px 10px 5px; }
           html #indexBody #topBar .buildingContainer .buildingContainerContent .buildingButtons .buildingButtonBox button {
             width: 310px;
-            margin-bottom: 5px; }
+            margin-bottom: 5px;
+            background-color: #ccc; }
 html #indexBody .cityName {
   width: 180px; }
 html #indexBody .cityInputsContainer {
@@ -241,10 +242,13 @@ html #indexBody .mainGameContainer {
     width: 22.5%; }
     html #indexBody .mainGameContainer .rightGameBox .researchContainer .researchButtonBox {
       margin-bottom: 10px; }
-      html #indexBody .mainGameContainer .rightGameBox .researchContainer .researchButtonBox .researchIndivButtonBox > p {
-        margin-bottom: 2px; }
       html #indexBody .mainGameContainer .rightGameBox .researchContainer .researchButtonBox .researchIndivButtonBox {
         margin-bottom: 10px; }
+        html #indexBody .mainGameContainer .rightGameBox .researchContainer .researchButtonBox .researchIndivButtonBox p {
+          margin-bottom: 2px; }
+        html #indexBody .mainGameContainer .rightGameBox .researchContainer .researchButtonBox .researchIndivButtonBox .researchBtn {
+          background-color: #113A74;
+          color: white; }
 html #indexBody .bottomGameContainer {
   width: 98.6%;
   margin: 10px auto;
@@ -254,8 +258,10 @@ html #indexBody .bottomGameContainer {
   html #indexBody .bottomGameContainer .bottomGameContentContainers {
     width: 50%;
     border: 1px solid black; }
-    html #indexBody .bottomGameContainer .bottomGameContentContainers button {
-      margin-bottom: 10px; }
+    html #indexBody .bottomGameContainer .bottomGameContentContainers .forgeBtn {
+      margin-bottom: 10px;
+      background-color: #EB903A;
+      color: white; }
   html #indexBody .bottomGameContainer #forge {
     margin-left: 4px; }
   html #indexBody .bottomGameContainer #store {
@@ -396,7 +402,7 @@ html #instructionsBody {
   background-size: cover; }
   html #instructionsBody p {
     text-align: justify; }
-  html #instructionsBody p, html #instructionsBody h1, html #instructionsBody h2 {
+  html #instructionsBody p, html #instructionsBody h1, html #instructionsBody h2, html #instructionsBody h3 {
     Text-Shadow: #000000 1px 0 0, #000000 1px 1px 0, #000000 1px -1px 0px, #000000 -1px 1px 0px, #000000 -1px 0px 0px, #000000 -1px -1px 0px, #000000 0px 1px 0px, #000000 0px -1px 0px; }
   html #instructionsBody .storyContainer {
     display: flex;
