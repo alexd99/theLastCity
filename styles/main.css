@@ -584,6 +584,8 @@ html {
       width: 100%; }
     html #highScoresBody .tables .mobileTableNavigate > p {
       cursor: pointer; }
+    html #highScoresBody .tables #localHighScoreTable, html #highScoresBody .tables #publicHighScoreTable {
+      width: 95%; }
   html #highScoresBody #tableNavigateContainer .tableNavigate {
     display: none; } }
 html {

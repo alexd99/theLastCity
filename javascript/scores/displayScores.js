@@ -55,8 +55,6 @@ function displayLocalHighScores(forLoopStarNumber, forLoopEndNumber) {
         );
     }
 
-    console.log(displayedGame);
-
     $('.localHighScoreTableRow').html('');
 
     if(game.length < 10){
@@ -152,8 +150,6 @@ function displayGlobalHighScores(forLoopStarNumber, forLoopEndNumber) {
                     }
                 );
             }
-
-            console.log(displayedScoresArray);
 
             globalScoresForLoop(forLoopStarNumber, forLoopEndNumber);
             displayGlobalTotalPages();

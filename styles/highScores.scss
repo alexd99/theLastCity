@@ -145,6 +145,9 @@ html {
         .mobileTableNavigate > p{
           cursor: pointer;
         }
+        #localHighScoreTable, #publicHighScoreTable{
+          width: 95%;
+        }
       }
       #tableNavigateContainer {
         .tableNavigate{
