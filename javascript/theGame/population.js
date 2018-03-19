@@ -235,9 +235,9 @@ function gatherResources() {
 
 //calculates if a lumberjack dies
 function lumberJackDeath() {
-    let deathChance = Math.floor(Math.random() * 50) + 1;
+    let deathChance = Math.floor(Math.random() * 2) + 1;
 
-    if (deathChance === 1){
+    if (deathChance === 1 && lumberjackCount >= 1){
         makeTombstone();
         populationCount --;
         lumberjackCount --;
@@ -247,9 +247,9 @@ function lumberJackDeath() {
 
 //calculates if a miner dies
 function minerDeath() {
-    let deathChance = Math.floor(Math.random() * 50) + 1;
+    let deathChance = Math.floor(Math.random() * 2) + 1;
 
-    if (deathChance === 1){
+    if (deathChance === 1 && minerCount >=1){
         makeTombstone();
         populationCount --;
         minerCount --;
