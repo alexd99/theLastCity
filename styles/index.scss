@@ -399,6 +399,9 @@ html{
         }
       }
       #topBar{
+        #gameTitle{
+          width: 95%;
+        }
         .buildingContainer{
           .buildingContainerContent{
             display: flex;
@@ -421,6 +424,12 @@ html{
               }
             }
           }
+        }
+      }
+      .modal{
+        .modal-dialog{
+          margin: auto;
+          width: 50%;
         }
       }
     }

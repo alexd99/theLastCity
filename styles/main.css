@@ -365,6 +365,8 @@ html #indexBody #villagePreach1Modal {
       width: 98%; }
     html #indexBody .mainGameContainer .rightGameBox {
       width: 98%; }
+  html #indexBody #topBar #gameTitle {
+    width: 95%; }
   html #indexBody #topBar .buildingContainer .buildingContainerContent {
     display: flex;
     flex-direction: row;
@@ -381,7 +383,10 @@ html #indexBody #villagePreach1Modal {
         align-items: left;
         flex-wrap: wrap; }
         html #indexBody #topBar .buildingContainer .buildingContainerContent .buildingButtons .buildingButtonBox button {
-          width: auto; } }
+          width: auto; }
+  html #indexBody .modal .modal-dialog {
+    margin: auto;
+    width: 50%; } }
 @media only screen and (max-width: 1332px) {
   html #indexBody #topBar {
     display: flex;
